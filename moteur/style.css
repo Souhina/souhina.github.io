@@ -1,0 +1,2490 @@
+/* moteur/style.css
+   Styles communs à tous les sites. Toute la charte graphique passe par les variables
+   ci-dessous : chaque site les redéfinit dans le bloc "theme" (et "themeNuit") de son
+   site.js, compilé en assets/theme.css. Ne jamais mettre de couleur en dur ici. */
+
+:root {
+  /* Couleurs */
+  --couleur-principale: #24313d;
+  --couleur-fond: #ffffff;
+  --couleur-surface: #f3f5f7;
+  --couleur-texte: #1d252c;
+  --couleur-discret: #55606a;
+  --couleur-ligne: #d9dee3;
+  --couleur-bordure-champ: #7b8690;
+  --couleur-lien: #1f5c8a;
+  --couleur-focus: #1f5c8a;
+  --couleur-accent: #1f5c8a;
+  --couleur-erreur: #b3261e;
+  --couleur-succes: #2f6b3a;
+
+  /* Typographie */
+  --police-titres: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --police-texte: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --police-chiffres: var(--police-titres);
+  --titres-graisse: 700;
+  --titres-style: normal;
+  --titres-etirement: normal;
+  --titres-interlettrage: 0;
+  --surtitre-interlettrage: 0.14em;
+
+  /* Formes */
+  --trait: 1px;
+  --rayon: 6px;
+  --rayon-bouton: 4px;
+  --rayon-champ: 4px;
+
+  /* Champs de saisie */
+  --champ-fond: #ffffff;
+  --champ-bordure: 1px solid var(--couleur-bordure-champ);
+  --champ-bordure-bas: 1px solid var(--couleur-bordure-champ);
+  --champ-retrait: 0.75rem;
+
+  /* Bouton principal */
+  --bouton-fond: var(--couleur-principale);
+  --bouton-texte: #ffffff;
+  --bouton-fond-survol: var(--couleur-texte);
+  --bouton-texte-survol: #ffffff;
+  --bouton-casse: none;
+  --bouton-interlettrage: 0;
+
+  /* Panneau de résultat : surface claire avec filet haut à la teinte du calculateur */
+  --resultats-fond: var(--couleur-surface);
+  --resultats-texte: var(--couleur-texte);
+  --resultats-discret: var(--couleur-discret);
+  --resultats-bordure: var(--trait) solid var(--couleur-ligne);
+  --resultats-filet: 4px;
+
+  /* Plan de pièce */
+  --plan-fond: #ffffff;
+  --plan-grille: #e7ebf0;
+  --plan-grille-metre: #cdd5df;
+  --plan-trait: var(--couleur-texte);
+
+  /* Ombres (barre de résultat mobile, bandeau de mise à jour) */
+  --ombre-haute: 0 -4px 16px rgb(0 0 0 / 0.12);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--police-texte);
+  color: var(--couleur-texte);
+  background: var(--couleur-fond);
+  line-height: 1.55;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: var(--couleur-lien);
+  text-underline-offset: 0.2em;
+}
+
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--couleur-focus);
+  outline-offset: 2px;
+}
+
+.evitement {
+  position: absolute;
+  left: -9999px;
+}
+
+.evitement:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  color: var(--couleur-texte);
+  background: var(--couleur-fond);
+}
+
+/* Titres et surtitres */
+
+h1,
+h2,
+.marque {
+  font-family: var(--police-titres);
+  font-weight: var(--titres-graisse);
+  font-style: var(--titres-style);
+  font-stretch: var(--titres-etirement);
+  letter-spacing: var(--titres-interlettrage);
+  line-height: 1.08;
+  color: var(--couleur-texte);
+}
+
+h1 {
+  max-width: 24ch;
+  margin: 0 0 0.75rem;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+}
+
+h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.5rem;
+}
+
+.surtitre {
+  margin: 0 0 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: var(--surtitre-interlettrage);
+  text-transform: uppercase;
+  color: var(--teinte, var(--couleur-discret));
+}
+
+.chapo {
+  max-width: 60ch;
+  margin: 0 0 2rem;
+  font-size: 1.1rem;
+  color: var(--couleur-discret);
+}
+
+/* Structure générale */
+
+.entete,
+main,
+.pied {
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+.entete {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1.25rem;
+  padding-block: 1rem;
+  border-bottom: var(--trait) solid var(--couleur-ligne);
+}
+
+.marque {
+  font-size: 1.6rem;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.slogan {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--couleur-discret);
+}
+
+.entete-nav {
+  margin-left: auto;
+}
+
+.entete-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.entete-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 600;
+}
+
+main {
+  padding-block: 3rem 4rem;
+}
+
+/* Boutons */
+
+button {
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border: var(--trait) solid var(--couleur-texte);
+  border-radius: var(--rayon-bouton);
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--couleur-texte);
+  background: transparent;
+  cursor: pointer;
+}
+
+button:hover {
+  color: var(--couleur-fond);
+  background: var(--couleur-texte);
+}
+
+.bouton-principal,
+.resultats button {
+  min-height: 3.25rem;
+  padding: 0.75rem 1.5rem;
+  border: 0;
+  font-weight: 600;
+  text-transform: var(--bouton-casse);
+  letter-spacing: var(--bouton-interlettrage);
+  color: var(--bouton-texte);
+  background: var(--bouton-fond);
+}
+
+.bouton-principal:hover,
+.resultats button:hover {
+  color: var(--bouton-texte-survol);
+  background: var(--bouton-fond-survol);
+}
+
+.bascule-theme {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bascule-theme .icone-jour,
+.bascule-theme[data-cible="jour"] .icone-nuit {
+  display: none;
+}
+
+.bascule-theme[data-cible="jour"] .icone-jour {
+  display: inline;
+}
+
+/* Formulaire et résultats */
+
+.calculateur-formulaire {
+  display: grid;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (min-width: 52rem) {
+  .calculateur-formulaire {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  }
+
+  .resultats {
+    position: sticky;
+    top: 1.5rem;
+  }
+}
+
+fieldset {
+  /* Par défaut, un fieldset prend la largeur minimale de son contenu (tableaux, plan) et
+     déborde sur mobile : on l'autorise à rétrécir, les tableaux défilent dans leur bloc. */
+  min-inline-size: 0;
+  margin: 0;
+  padding: 1.5rem 1.5rem 1rem;
+  border: var(--trait) solid var(--couleur-ligne);
+  border-radius: var(--rayon);
+  background: var(--couleur-surface);
+}
+
+legend {
+  padding-inline: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: var(--surtitre-interlettrage);
+  text-transform: uppercase;
+  color: var(--couleur-discret);
+}
+
+.champ {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0 0 1.25rem;
+}
+
+.champ label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.champ small {
+  font-size: 0.8rem;
+  color: var(--couleur-discret);
+}
+
+.champ .facultatif {
+  font-weight: 400;
+}
+
+.champ .erreur {
+  font-weight: 600;
+  color: var(--couleur-erreur);
+}
+
+input,
+select {
+  width: 100%;
+  max-width: 18rem;
+  min-height: 3rem;
+  padding: 0.5rem var(--champ-retrait);
+  border: var(--champ-bordure);
+  border-bottom: var(--champ-bordure-bas);
+  border-radius: var(--rayon-champ);
+  font: inherit;
+  font-family: var(--police-chiffres);
+  font-size: 1.2rem;
+  font-variant-numeric: tabular-nums lining-nums;
+  color: var(--couleur-texte);
+  background: var(--champ-fond);
+}
+
+select {
+  font-family: var(--police-texte);
+  font-size: 1rem;
+}
+
+input:focus-visible,
+select:focus-visible {
+  border-bottom-color: var(--couleur-accent);
+}
+
+input[aria-invalid="true"] {
+  border-bottom: 3px solid var(--couleur-erreur);
+}
+
+.champ-case {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem 0.6rem;
+}
+
+.champ-case input {
+  width: 1.2rem;
+  min-height: 0;
+  height: 1.2rem;
+  margin: 0;
+  accent-color: var(--couleur-accent);
+}
+
+.champ-case small {
+  flex-basis: 100%;
+}
+
+.actions {
+  margin: 0.5rem 0 0.75rem;
+}
+
+.resultats {
+  padding: 1.75rem;
+  border: var(--resultats-bordure);
+  border-top: var(--resultats-filet) solid var(--teinte, var(--couleur-accent));
+  border-radius: var(--rayon);
+  color: var(--resultats-texte);
+  background: var(--resultats-fond);
+}
+
+.resultats h2 {
+  margin-bottom: 1rem;
+  font-family: var(--police-texte);
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: var(--surtitre-interlettrage);
+  text-transform: uppercase;
+  color: var(--resultats-discret);
+}
+
+.resultats-attente {
+  margin: 0 0 1rem;
+  color: var(--resultats-discret);
+}
+
+.resultats dl {
+  display: grid;
+  gap: 0.15rem;
+  margin: 0;
+}
+
+.resultats dt {
+  font-size: 0.9rem;
+  color: var(--resultats-discret);
+}
+
+.resultats dd {
+  margin: 0 0 0.8rem;
+  font-family: var(--police-chiffres);
+  font-size: 1.35rem;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.resultats dd.resultat-principal {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: var(--trait) solid var(--couleur-ligne);
+  font-size: clamp(3rem, 7vw, 4.75rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.resultats a {
+  color: var(--couleur-lien);
+}
+
+.devis-ajout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin: 0.5rem 0 0;
+  padding-top: 1.25rem;
+  border-top: var(--trait) solid var(--couleur-ligne);
+}
+
+.devis-ajout label {
+  flex-basis: 100%;
+  font-size: 0.9rem;
+  color: var(--resultats-discret);
+}
+
+.devis-ajout input {
+  flex: 1 1 10rem;
+  max-width: none;
+  font-family: var(--police-texte);
+  font-size: 1rem;
+}
+
+.devis-statut {
+  min-height: 1.5em;
+  margin: 0.6rem 0 0;
+  color: var(--resultats-discret);
+}
+
+/* Barre de résultat fixe, sur mobile uniquement */
+
+.barre-resultat {
+  display: none;
+}
+
+@media (max-width: 51.99rem) {
+  .barre-resultat {
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: 5;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0 1rem;
+    padding: 0.75rem 1.25rem 1rem;
+    border-top: var(--resultats-filet) solid var(--teinte, var(--couleur-accent));
+    color: var(--resultats-texte);
+    background: var(--resultats-fond);
+    text-decoration: none;
+    box-shadow: var(--ombre-haute);
+  }
+
+  .barre-libelle {
+    grid-column: 1;
+    font-size: 0.75rem;
+    letter-spacing: var(--surtitre-interlettrage);
+    text-transform: uppercase;
+    color: var(--resultats-discret);
+  }
+
+  .barre-valeur {
+    grid-column: 1;
+    font-family: var(--police-chiffres);
+    font-size: 2rem;
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+
+  .barre-action {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    padding: 0.7rem 1rem;
+    border-radius: var(--rayon-bouton);
+    font-weight: 600;
+    text-transform: var(--bouton-casse);
+    letter-spacing: var(--bouton-interlettrage);
+    color: var(--bouton-texte);
+    background: var(--bouton-fond);
+  }
+
+  body:has(.barre-resultat) {
+    padding-bottom: 6rem;
+  }
+}
+
+/* Contenus rédactionnels */
+
+.texte {
+  max-width: 65ch;
+  margin-top: 3rem;
+}
+
+.texte p,
+.texte li {
+  line-height: 1.7;
+}
+
+details {
+  padding-block: 0.8rem;
+  border-top: var(--trait) solid var(--couleur-ligne);
+}
+
+details:last-of-type {
+  border-bottom: var(--trait) solid var(--couleur-ligne);
+}
+
+summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+details p {
+  margin: 0.6rem 0 0;
+}
+
+.fiche {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.4rem 1.25rem;
+}
+
+.fiche dt {
+  font-weight: 600;
+}
+
+.fiche dd {
+  margin: 0;
+}
+
+.avertissement-norme {
+  max-width: 65ch;
+  margin: 0 0 2rem;
+  padding: 1rem 1.25rem;
+  border: var(--trait) solid var(--couleur-ligne);
+  border-top: 4px solid var(--couleur-accent);
+  background: var(--couleur-surface);
+}
+
+/* Monétisation : toujours identifiée comme telle */
+
+.affiliation {
+  max-width: 65ch;
+  margin-top: 2rem;
+  padding: 1rem 1.25rem;
+  border: var(--trait) solid var(--couleur-ligne);
+  border-radius: var(--rayon);
+  background: var(--couleur-surface);
+}
+
+.affiliation p {
+  margin: 0;
+}
+
+.affiliation .affiliation-mention {
+  margin-bottom: 0.3rem;
+  font-size: 0.75rem;
+  letter-spacing: var(--surtitre-interlettrage);
+  text-transform: uppercase;
+  color: var(--couleur-discret);
+}
+
+.pub {
+  margin-top: 2.5rem;
+}
+
+/* Accueil */
+
+.liste-calculateurs {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 44rem) {
+  .liste-calculateurs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.liste-calculateurs li {
+  padding: 1.5rem;
+  border: var(--trait) solid var(--couleur-ligne);
+  border-radius: var(--rayon);
+  background: var(--couleur-surface);
+}
+
+.liste-calculateurs a {
+  font-family: var(--police-titres);
+  font-size: 1.35rem;
+  font-weight: var(--titres-graisse);
+  font-style: var(--titres-style);
+  font-stretch: var(--titres-etirement);
+}
+
+.liste-calculateurs p {
+  margin: 0.4rem 0 0;
+  color: var(--couleur-discret);
+}
+
+.avertissement {
+  font-weight: 600;
+  color: var(--couleur-erreur);
+}
+
+/* Éditeur de plan */
+
+.plan {
+  grid-column: 1 / -1;
+}
+
+.plan-consigne {
+  max-width: 70ch;
+  margin: 0 0 1rem;
+  color: var(--couleur-discret);
+}
+
+.plan-rapide,
+.plan-modeles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin: 0 0 0.75rem;
+}
+
+.plan-rapide label {
+  font-weight: 600;
+}
+
+.plan-rapide input {
+  width: 7rem;
+}
+
+.plan-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 65vh;
+  border: var(--trait) dashed var(--couleur-ligne);
+  border-radius: var(--rayon-champ);
+  background: var(--plan-fond);
+  cursor: crosshair;
+  user-select: none;
+}
+
+.plan-svg line {
+  vector-effect: non-scaling-stroke;
+  stroke: var(--plan-grille);
+  stroke-width: 1;
+}
+
+.plan-svg line.metre {
+  stroke: var(--plan-grille-metre);
+}
+
+.plan-forme,
+.plan-trace {
+  vector-effect: non-scaling-stroke;
+  stroke: var(--plan-trait);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+}
+
+.plan-forme {
+  fill: color-mix(in srgb, var(--teinte, var(--couleur-accent)) 14%, transparent);
+}
+
+.plan-trace {
+  fill: none;
+  stroke-dasharray: 6 4;
+}
+
+.plan-angle {
+  vector-effect: non-scaling-stroke;
+  fill: var(--plan-fond);
+  stroke: var(--couleur-accent);
+  stroke-width: 3;
+  cursor: grab;
+  /* Seuls les angles bloquent le défilement tactile : ailleurs, la page défile normalement. */
+  touch-action: none;
+}
+
+.plan-angle:active {
+  cursor: grabbing;
+}
+
+.plan-milieu {
+  vector-effect: non-scaling-stroke;
+  fill: var(--plan-fond);
+  stroke: var(--plan-trait);
+  stroke-width: 1.5;
+  cursor: copy;
+}
+
+.plan-cote,
+.plan-lettre {
+  paint-order: stroke;
+  stroke: var(--plan-fond);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+}
+
+.plan-cote {
+  fill: var(--couleur-texte);
+  font-family: var(--police-chiffres);
+}
+
+.plan-lettre {
+  fill: var(--couleur-lien);
+  font-weight: 700;
+}
+
+.plan-resume {
+  margin: 0.6rem 0 0.75rem;
+  font-weight: 600;
+}
+
+.plan-coordonnees {
+  overflow-x: auto;
+  border-bottom: 0;
+}
+
+.plan-points {
+  border-collapse: collapse;
+  margin-top: 0.75rem;
+}
+
+.plan-points caption {
+  margin-bottom: 0.5rem;
+  text-align: left;
+  font-size: 0.9rem;
+  color: var(--couleur-discret);
+}
+
+.plan-points th,
+.plan-points td {
+  padding: 0.3rem 0.5rem;
+  text-align: left;
+  border-bottom: var(--trait) solid var(--couleur-ligne);
+}
+
+.plan-points input {
+  width: 6.5rem;
+}
+
+/* Page devis */
+
+.defilement {
+  overflow-x: auto;
+}
+
+.tableau-devis {
+  width: 100%;
+  min-width: 46rem;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.tableau-devis th,
+.tableau-devis td {
+  padding: 0.55rem 0.6rem;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: var(--trait) solid var(--couleur-ligne);
+}
+
+.tableau-devis thead th {
+  font-size: 0.75rem;
+  letter-spacing: var(--surtitre-interlettrage);
+  text-transform: uppercase;
+  color: var(--couleur-discret);
+}
+
+.tableau-devis .nombre {
+  text-align: right;
+  font-family: var(--police-chiffres);
+}
+
+.tableau-devis input {
+  width: 7rem;
+  text-align: right;
+}
+
+.tableau-devis tfoot th {
+  text-align: right;
+  font-weight: 600;
+}
+
+.tva {
+  max-width: 40rem;
+  margin-top: 1.5rem;
+}
+
+.tva small {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--couleur-discret);
+}
+
+.devis-totaux {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  gap: 0.3rem 1.5rem;
+  margin: 1.5rem 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.devis-totaux dd {
+  margin: 0;
+  text-align: right;
+  font-family: var(--police-chiffres);
+}
+
+.devis-totaux dt:last-of-type,
+.devis-totaux dd:last-of-type {
+  font-size: 1.6rem;
+}
+
+.devis-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Pied de page */
+
+.pied {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.5rem;
+  border-top: var(--trait) solid var(--couleur-ligne);
+  font-size: 0.9rem;
+  color: var(--couleur-discret);
+}
+
+.pied p,
+.pied ul {
+  margin: 0;
+}
+
+.pied ul {
+  padding: 0;
+  list-style: none;
+}
+
+@media print {
+  .entete-nav,
+  .pied,
+  .barre-resultat,
+  .devis-actions,
+  .tableau-devis td:last-child,
+  .tableau-devis th:last-child,
+  .tva input,
+  .tva small,
+  .evitement {
+    display: none;
+  }
+
+  .tableau-devis input {
+    border: 0;
+    padding: 0;
+  }
+
+  .tableau-devis {
+    min-width: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Corps de métier (accueil et pages de lot) */
+
+.lot {
+  margin-top: 2.5rem;
+}
+
+.lot h2 a {
+  color: inherit;
+  text-decoration-thickness: var(--trait);
+}
+
+.liste-calculateurs li {
+  border-top: 4px solid var(--teinte, var(--couleur-accent));
+}
+
+.retour {
+  margin-top: 2rem;
+}
+
+/* Récapitulatif : informations du chantier, import d'un lien, partage */
+
+.chantier {
+  max-width: 44rem;
+  margin-bottom: 2rem;
+}
+
+.chantier-aide {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: var(--couleur-discret);
+}
+
+.chantier input,
+.chantier textarea,
+.devis-lien {
+  max-width: 34rem;
+  font-family: var(--police-texte);
+  font-size: 1rem;
+}
+
+textarea {
+  width: 100%;
+  padding: 0.5rem var(--champ-retrait);
+  border: var(--champ-bordure);
+  border-bottom: var(--champ-bordure-bas);
+  border-radius: var(--rayon-champ);
+  font: inherit;
+  line-height: 1.5;
+  color: var(--couleur-texte);
+  background: var(--champ-fond);
+  resize: vertical;
+}
+
+textarea:focus-visible {
+  outline: 3px solid var(--couleur-focus);
+  outline-offset: 2px;
+}
+
+.devis-import {
+  margin-bottom: 2rem;
+  padding: 1.25rem 1.5rem;
+  border: var(--trait) solid var(--couleur-ligne);
+  border-top: 4px solid var(--couleur-accent);
+  border-radius: var(--rayon);
+  background: var(--couleur-surface);
+}
+
+.detail-ligne {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: var(--couleur-discret);
+}
+
+.devis-partage-statut {
+  min-height: 1.5em;
+  margin: 0.75rem 0 0;
+  color: var(--couleur-discret);
+}
+
+.devis-lien {
+  width: 100%;
+  font-size: 0.85rem;
+}
+
+/* Menu des corps de métier */
+
+.menu-lots {
+  border-bottom: var(--trait) solid var(--couleur-ligne);
+  background: var(--couleur-surface);
+}
+
+.menu-lots ul {
+  display: flex;
+  gap: 0.25rem 1.75rem;
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  list-style: none;
+  /* Sur petit écran, le menu défile horizontalement plutôt que de passer sur plusieurs lignes. */
+  position: relative;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.menu-lots li {
+  flex: none;
+}
+
+.menu-lots a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  font-size: 0.95rem;
+  color: var(--couleur-texte);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.menu-lots a:hover {
+  color: var(--couleur-lien);
+}
+
+.menu-lots a[aria-current] {
+  font-weight: 600;
+  color: var(--couleur-lien);
+  box-shadow: inset 0 -3px 0 var(--couleur-accent);
+}
+
+.menu-lots a:focus-visible {
+  outline-offset: -3px;
+}
+
+@media print {
+  .menu-lots {
+    display: none;
+  }
+}
+
+/* Article au forfait et produits d'accompagnement */
+
+.article-libre {
+  max-width: 44rem;
+  margin-bottom: 2rem;
+  padding: 0.5rem 1.25rem 1rem;
+  border: var(--trait) solid var(--couleur-ligne);
+  border-radius: var(--rayon);
+  background: var(--couleur-surface);
+}
+
+.article-formulaire {
+  display: grid;
+  gap: 0 1.25rem;
+  margin-top: 0.75rem;
+}
+
+@media (min-width: 40rem) {
+  .article-formulaire {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .article-formulaire .champ:first-child,
+  .article-formulaire .actions,
+  .article-formulaire .devis-partage-statut {
+    grid-column: 1 / -1;
+  }
+}
+
+.article-formulaire input,
+.article-formulaire select {
+  max-width: none;
+  font-family: var(--police-texte);
+  font-size: 1rem;
+}
+
+.devis-complements {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+}
+
+/* Emplacements publicitaires, par paliers de largeur d'écran
+   - 100rem (1 600 px) et plus : deux bandeaux latéraux, de part et d'autre du contenu ;
+   - de 80rem à 100rem (1 280 à 1 600 px) : un seul bandeau, à droite ; le contenu se resserre ;
+   - moins de 80rem : pas de bandeau latéral, un emplacement dans le contenu.
+   Les bandeaux font partie de la mise en page (grille) : ils ne recouvrent jamais le contenu
+   et restent visibles au défilement (position sticky) sans dépasser sur le pied de page. */
+
+.pub-laterale {
+  display: none;
+}
+
+@media (min-width: 80rem) {
+  body.avec-pub-laterale {
+    display: grid;
+    grid-template-columns: minmax(1.25rem, 1fr) minmax(0, 72rem) var(--pub-largeur, 160px) minmax(1.25rem, 1fr);
+    grid-template-areas:
+      ". entete entete ."
+      "menu menu menu menu"
+      ". contenu pubd ."
+      ". pied pied .";
+    column-gap: 2rem;
+    align-items: start;
+  }
+
+  .avec-pub-laterale > .entete { grid-area: entete; width: 100%; max-width: none; padding-inline: 0; }
+  .avec-pub-laterale > main { grid-area: contenu; width: 100%; padding-inline: 0; }
+  .avec-pub-laterale > .pied { grid-area: pied; width: 100%; max-width: none; padding-inline: 0; }
+
+  /* Le fond du menu occupe toute la largeur ; ses liens s'alignent sur les colonnes du contenu. */
+  .avec-pub-laterale > .menu-lots {
+    grid-area: menu;
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+
+  .avec-pub-laterale > .menu-lots ul {
+    grid-column: 2 / 4;
+    width: 100%;
+    max-width: none;
+    padding-inline: 0;
+  }
+
+  .pub-droite {
+    grid-area: pubd;
+    position: sticky;
+    top: 1.5rem;
+    display: grid;
+    gap: 0.35rem;
+    margin-top: 3rem;
+    width: var(--pub-largeur);
+  }
+
+  /* Sur ces écrans, l'emplacement dans le contenu fait double emploi avec le bandeau. */
+  .avec-pub-laterale .pub-contenu {
+    display: none;
+  }
+}
+
+@media (min-width: 100rem) {
+  body.avec-pub-laterale {
+    grid-template-columns: minmax(1.25rem, 1fr) var(--pub-largeur, 160px) minmax(0, 76rem) var(--pub-largeur, 160px) minmax(1.25rem, 1fr);
+    grid-template-areas:
+      ". . entete . ."
+      "menu menu menu menu menu"
+      ". pubg contenu pubd ."
+      ". . pied . .";
+  }
+
+  .avec-pub-laterale > .menu-lots ul {
+    grid-column: 3 / 4;
+  }
+
+  .pub-gauche {
+    grid-area: pubg;
+    position: sticky;
+    top: 1.5rem;
+    display: grid;
+    gap: 0.35rem;
+    margin-top: 3rem;
+    width: var(--pub-largeur);
+  }
+}
+
+.pub-mention {
+  margin: 0;
+  font-size: 0.7rem;
+  letter-spacing: var(--surtitre-interlettrage);
+  text-transform: uppercase;
+  color: var(--couleur-discret);
+}
+
+/* Emplacement dans le contenu : taille réservée d'avance pour éviter tout décalage au chargement.
+   Mobile : format 300 × 250 ; tablette : bannière 728 × 90. */
+.pub-contenu {
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+  max-width: 65ch;
+  margin: 3rem 0 0;
+  padding-block: 1rem;
+  border-block: var(--trait) solid var(--couleur-ligne);
+}
+
+.pub-contenu > :not(.pub-mention) {
+  width: 300px;
+  max-width: 100%;
+  min-height: 250px;
+}
+
+@media (min-width: 48rem) {
+  .pub-contenu {
+    max-width: none;
+  }
+
+  .pub-contenu > :not(.pub-mention) {
+    width: 728px;
+    min-height: 90px;
+  }
+}
+
+/* Aperçu des emplacements tant qu'aucune régie n'est branchée (apercu: true dans site.js). */
+.pub-apercu {
+  display: grid;
+  place-items: center;
+  width: var(--pub-largeur);
+  height: var(--pub-hauteur);
+  border: var(--trait) dashed var(--couleur-ligne);
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--couleur-discret);
+}
+
+.pub-apercu-contenu {
+  height: auto;
+}
+
+.pub-format::after {
+  content: "300 × 250";
+}
+
+@media (min-width: 48rem) {
+  .pub-format::after {
+    content: "728 × 90";
+  }
+}
+
+@media print {
+  .pub-laterale,
+  .pub-contenu,
+  .pub {
+    display: none;
+  }
+}
+
+/* Formulaire en sections (lisibilité) */
+
+.donnees {
+  display: grid;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+.groupe {
+  margin: 0;
+  padding: 1.5rem 1.5rem 0.5rem;
+  border: var(--trait) solid var(--couleur-ligne);
+  border-radius: var(--rayon);
+  background: var(--couleur-surface);
+}
+
+.groupe legend {
+  float: left;
+  width: 100%;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  font-family: var(--police-titres);
+  font-size: 1.25rem;
+  font-weight: var(--titres-graisse);
+  font-style: var(--titres-style);
+  font-stretch: var(--titres-etirement);
+  letter-spacing: var(--titres-interlettrage);
+  text-transform: none;
+  color: var(--couleur-texte);
+}
+
+.groupe-intro {
+  clear: both;
+  max-width: 60ch;
+  margin: 0 0 1.25rem;
+  font-size: 0.9rem;
+  color: var(--couleur-discret);
+}
+
+/* Les champs courts se rangent sur deux ou trois colonnes selon la place disponible. */
+.groupe-champs {
+  clear: both;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(15rem, 100%), 1fr));
+  gap: 0 1.5rem;
+}
+
+.groupe-champs .champ {
+  align-content: start;
+}
+
+.groupe-champs input,
+.groupe-champs select {
+  max-width: none;
+}
+
+.groupe-champs .champ-case {
+  grid-column: 1 / -1;
+}
+
+.groupe-replie {
+  padding-top: 0;
+}
+
+.groupe-replie summary {
+  font-family: var(--police-titres);
+  font-size: 1.05rem;
+  font-weight: var(--titres-graisse);
+}
+
+.groupe-replie[open] summary {
+  margin-bottom: 0.5rem;
+}
+
+.donnees > .actions {
+  margin: 0;
+}
+
+/* Mobile : en-tête compact et menu qui signale qu'il défile */
+
+@media (max-width: 40rem) {
+  .entete {
+    flex-wrap: nowrap;
+    padding-block: 0.6rem;
+  }
+
+  /* Le slogan est masqué sur petit écran pour libérer de la hauteur. */
+  .slogan {
+    display: none;
+  }
+
+  .entete-nav ul {
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+  }
+
+  /* Bouton jour/nuit réduit à son icône ; le libellé reste lu par les lecteurs d'écran. */
+  .bascule-theme {
+    min-width: 44px;
+    padding-inline: 0.6rem;
+  }
+
+  .bascule-texte {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+/* Ombres de défilement : un dégradé apparaît au bord tant qu'il reste des liens à voir. */
+.menu-lots ul {
+  background:
+    linear-gradient(to right, var(--couleur-surface) 30%, transparent) left / 2.5rem 100% no-repeat local,
+    linear-gradient(to left, var(--couleur-surface) 30%, transparent) right / 2.5rem 100% no-repeat local,
+    linear-gradient(to right, color-mix(in srgb, var(--couleur-texte) 18%, transparent), transparent) left / 1rem 100% no-repeat scroll,
+    linear-gradient(to left, color-mix(in srgb, var(--couleur-texte) 18%, transparent), transparent) right / 1rem 100% no-repeat scroll;
+}
+
+.plan-aide {
+  margin: 0 0 0.75rem;
+  border: 0;
+  padding: 0;
+}
+
+.plan-aide summary {
+  font-weight: 400;
+  color: var(--couleur-lien);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.plan-aide p {
+  max-width: 70ch;
+  color: var(--couleur-discret);
+}
+
+/* Proposition d'installation de l'application, dans le pied de page */
+
+.installation {
+  flex-basis: 100%;
+  max-width: 44rem;
+  border-top: 0;
+}
+
+.installation[hidden] {
+  display: none;
+}
+
+.installation p {
+  margin: 0.5rem 0 0;
+}
+
+.installation button[hidden],
+.installation p[hidden] {
+  display: none;
+}
+
+/* Bouton présenté comme un lien (« Gérer mes choix de cookies ») */
+.lien-bouton {
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  color: var(--couleur-lien);
+  background: none;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.lien-bouton:hover {
+  color: var(--couleur-texte);
+  background: none;
+}
+
+.pied ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 1.25rem;
+}
+
+/* Bandeau « Nouvelle version disponible » : en bas d'écran, au-dessus de la barre de résultat mobile */
+
+.bandeau-maj {
+  position: fixed;
+  inset: auto 1rem 1rem auto;
+  z-index: 20;
+  display: grid;
+  gap: 0.5rem;
+  max-width: min(24rem, calc(100vw - 2rem));
+  padding: 1rem 1.25rem;
+  border: var(--trait) solid var(--couleur-ligne);
+  border-top: 4px solid var(--couleur-accent);
+  border-radius: var(--rayon);
+  color: var(--couleur-texte);
+  background: var(--couleur-surface);
+  box-shadow: var(--ombre-haute);
+}
+
+.bandeau-maj[hidden] {
+  display: none;
+}
+
+.bandeau-maj p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.bandeau-maj-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+@media (max-width: 51.99rem) {
+  .bandeau-maj {
+    inset: auto 1rem 1rem 1rem;
+    max-width: none;
+  }
+
+  body:has(.barre-resultat) .bandeau-maj {
+    bottom: 7.25rem;
+  }
+}
+
+@media print {
+  .bandeau-maj {
+    display: none;
+  }
+}
+
+/* Ouvertures sur le plan : porte en trait plein, fenêtre en pointillés, porte-fenêtre en tirets longs.
+   Préfixe .plan-svg : ces règles doivent l'emporter sur celle des lignes de la grille (.plan-svg line). */
+
+.plan-ouverture {
+  cursor: grab;
+  /* Seule la prise de l'ouverture bloque le défilement tactile, comme pour les angles. */
+  touch-action: none;
+}
+
+.plan-svg .plan-ouverture line {
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: butt;
+}
+
+.plan-svg .plan-ouverture-fond {
+  stroke: var(--plan-fond);
+  stroke-width: 7;
+}
+
+.plan-svg .plan-ouverture-trait {
+  stroke: var(--couleur-lien);
+  stroke-width: 5;
+}
+
+.plan-svg .plan-ouverture-fenetre .plan-ouverture-trait {
+  stroke-dasharray: 3 3;
+}
+
+.plan-svg .plan-ouverture-porte-fenetre .plan-ouverture-trait {
+  stroke-dasharray: 10 4;
+}
+
+/* Zone de prise invisible de 30 px, pour attraper l'ouverture au doigt. */
+.plan-svg .plan-ouverture-prise {
+  stroke: transparent;
+  stroke-width: 30;
+}
+
+.plan-ouverture-nom {
+  paint-order: stroke;
+  stroke: var(--plan-fond);
+  stroke-width: 4px;
+  vector-effect: non-scaling-stroke;
+  fill: var(--couleur-lien);
+  font-weight: 700;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+}
+
+.plan-ouvertures {
+  overflow-x: auto;
+  border-bottom: 0;
+}
+
+.plan-ouvertures-tableau select {
+  min-width: 7rem;
+  max-width: 11rem;
+}
+
+.plan-ouvertures-tableau input {
+  width: 5.5rem;
+}
+
+.champ .auto {
+  font-weight: 600;
+  color: var(--couleur-lien);
+}
+
+input[readonly] {
+  border-bottom-style: dashed;
+  color: var(--couleur-discret);
+}
+
+/* Pièces du chantier (en tête du plan) et regroupement du récapitulatif */
+
+.pieces {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(12rem, 100%), 1fr));
+  gap: 0 1.25rem;
+  margin: 0 0 1rem;
+  padding-bottom: 1rem;
+  border-bottom: var(--trait) solid var(--couleur-ligne);
+}
+
+.pieces input,
+.pieces select {
+  max-width: none;
+  font-family: var(--police-texte);
+  font-size: 1rem;
+}
+
+.pieces-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  grid-column: 1 / -1;
+  margin: 0 0 0.5rem;
+}
+
+.pieces-aide {
+  grid-column: 1 / -1;
+  font-size: 0.85rem;
+  color: var(--couleur-discret);
+}
+
+.devis-piece {
+  font-weight: 400;
+}
+
+.regroupement {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1.5rem;
+  max-width: 40rem;
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem;
+}
+
+.regroupement legend {
+  float: left;
+  margin-right: 0.5rem;
+  padding: 0;
+}
+
+.regroupement .champ-case {
+  margin: 0;
+  min-height: 44px;
+}
+
+.regroupement input[type="radio"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: 0;
+  accent-color: var(--couleur-accent);
+}
+
+/* Fil d'Ariane */
+
+.fil-ariane ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0;
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.85rem;
+  color: var(--couleur-discret);
+}
+
+.fil-ariane li + li::before {
+  content: "›";
+  margin: 0 0.5rem;
+  color: var(--couleur-discret);
+}
+
+.fil-ariane a {
+  display: inline-block;
+  min-height: 44px;
+  padding-block: 0.75rem;
+  color: var(--couleur-discret);
+}
+
+.fil-ariane a:hover {
+  color: var(--couleur-lien);
+}
+
+.fil-ariane [aria-current="page"] {
+  padding-block: 0.75rem;
+  color: var(--couleur-texte);
+}
+
+/* Date de vérification des valeurs et normes de référence */
+
+.maj {
+  margin: 1.5rem 0 0;
+  font-size: 0.85rem;
+  color: var(--couleur-discret);
+}
+
+.normes li {
+  margin-bottom: 0.5rem;
+}
+
+@media print {
+  .fil-ariane {
+    display: none;
+  }
+}
+
+/* Équivalents impériaux : interrupteur « ft/lb » et valeur entre parenthèses sous les résultats */
+
+.bascule-imperial {
+  min-width: 44px;
+  padding-inline: 0.6rem;
+  font-weight: 600;
+}
+
+.bascule-imperial[aria-checked="true"] {
+  color: var(--bouton-texte);
+  background: var(--bouton-fond);
+  border-color: var(--bouton-fond);
+}
+
+.equivalent {
+  display: block;
+  font-size: 0.8rem;
+  font-family: var(--police-texte);
+  font-weight: 400;
+  color: var(--couleur-discret);
+}
+
+.equivalent[hidden] {
+  display: none;
+}
+
+.resultat-principal .equivalent {
+  font-size: 0.95rem;
+}
+
+.reglages-unites {
+  flex-basis: 100%;
+  max-width: 44rem;
+}
+
+.reglages-unites p {
+  margin: 0.5rem 0 0;
+}
+
+.reglage-gallon {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+  margin: 0.5rem 0 0;
+  padding: 0.5rem 1rem;
+}
+
+.reglage-gallon legend {
+  padding: 0 0.25rem;
+}
+
+/* Liste à vignettes : types de pose illustrés d'un schéma, dans le style du plan */
+
+.champ-vignettes {
+  grid-column: 1 / -1;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  border: 0;
+}
+
+.champ-vignettes legend {
+  margin-bottom: 0.5rem;
+  padding: 0;
+  font-weight: 600;
+}
+
+.vignettes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.vignette {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+  min-height: 44px;
+  padding: 0.6rem 0.5rem;
+  border: var(--trait) solid var(--couleur-ligne);
+  border-radius: var(--rayon);
+  background: var(--plan-fond);
+  font-size: 0.85rem;
+  line-height: 1.3;
+  text-align: center;
+  cursor: pointer;
+}
+
+.vignette input {
+  position: absolute;
+  top: 0.4rem;
+  left: 0.4rem;
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+  accent-color: var(--couleur-accent);
+}
+
+.vignette svg {
+  color: var(--couleur-texte);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+}
+
+.vignette .schema-cadre {
+  stroke-width: 1.5;
+}
+
+.vignette:has(input:checked) {
+  border-color: var(--couleur-accent);
+  box-shadow: inset 0 0 0 1px var(--couleur-accent);
+}
+
+.vignette:has(input:checked) svg {
+  color: var(--couleur-accent);
+}
+
+.vignette:has(input:focus-visible) {
+  outline: 3px solid var(--couleur-focus);
+  outline-offset: 2px;
+}
+
+/* Aide au choix du produit */
+
+.aide-choix {
+  padding: 0.5rem 1.25rem 1rem;
+  border: var(--trait) solid var(--couleur-accent);
+  border-radius: var(--rayon);
+  background: var(--couleur-surface);
+}
+
+.aide-choix summary {
+  font-family: var(--police-titres);
+  font-size: 1.05rem;
+  font-weight: var(--titres-graisse);
+}
+
+.aide-choix-question {
+  margin: 0 0 0.75rem;
+  padding: 0;
+  border: 0;
+}
+
+.aide-choix-question legend {
+  padding: 0;
+  font-family: var(--police-texte);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--couleur-texte);
+}
+
+.aide-choix-reponses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+  margin: 0.25rem 0 0;
+}
+
+.aide-choix-reponses .champ-case {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+}
+
+.aide-choix-reponses input[type="radio"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: 0;
+  accent-color: var(--couleur-accent);
+}
+
+.aide-choix-resultat:not(:empty) {
+  margin: 0.5rem 0 0;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--couleur-accent);
+  background: var(--couleur-fond);
+}
+
+/* Lien d'achat partenaire dans le récapitulatif */
+
+.lien-achat {
+  display: inline-block;
+  min-height: 44px;
+  padding-block: 0.6rem;
+  font-weight: 600;
+}
+
+.mention-partenaire {
+  font-size: 0.75rem;
+  color: var(--couleur-discret);
+}
+
+@media print {
+  .lien-achat,
+  .mention-partenaire {
+    display: none;
+  }
+}
+
+/* Widget intégrable : page sans en-tête ni pied, marges réduites */
+
+body.widget {
+  margin: 0;
+}
+
+body.widget main {
+  max-width: none;
+  padding: 1rem;
+}
+
+.widget-titre {
+  margin: 0 0 1rem;
+  font-size: 1.4rem;
+}
+
+.widget-source {
+  margin: 1rem 0 0;
+  font-size: 0.85rem;
+}
+
+/* Bloc « Intégrer ce calculateur sur votre site » */
+
+.integrer {
+  max-width: 48rem;
+  margin-top: 2.5rem;
+}
+
+.integrer textarea {
+  width: 100%;
+  max-width: none;
+  font-family: var(--police-chiffres);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.integrer-theme {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+  margin: 0.75rem 0;
+  padding: 0.5rem 1rem;
+}
+
+.integrer-theme .champ-case {
+  min-height: 44px;
+  margin: 0;
+}
+
+@media print {
+  .integrer {
+    display: none;
+  }
+}
+
+/* Navigation : bouton « Calculateurs » et panneau (remplace la barre des corps de métier) */
+
+.entete {
+  position: relative;
+}
+
+.navigation,
+.navigation-type {
+  /* Le style général des <details> (bordures, marges) ne s'applique pas à la navigation. */
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.navigation {
+  margin-right: auto;
+}
+
+.entete-nav a {
+  white-space: nowrap;
+}
+
+.navigation-bouton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.5rem 0.9rem;
+  border: var(--trait) solid var(--couleur-texte);
+  border-radius: var(--rayon-bouton);
+  font-weight: 600;
+  list-style: none;
+  cursor: pointer;
+}
+
+.navigation-bouton::-webkit-details-marker {
+  display: none;
+}
+
+.navigation[open] > .navigation-bouton {
+  color: var(--bouton-texte);
+  background: var(--bouton-fond);
+  border-color: var(--bouton-fond);
+}
+
+.navigation-panneau {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  max-height: calc(100vh - 6rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 1.25rem;
+  border: var(--trait) solid var(--couleur-ligne);
+  border-top: 3px solid var(--couleur-accent);
+  background: var(--couleur-surface);
+  box-shadow: var(--ombre-haute);
+}
+
+.navigation-recherche {
+  display: grid;
+  gap: 0.35rem;
+  max-width: 36rem;
+  margin: 0 0 0.5rem;
+}
+
+.navigation-recherche[hidden] {
+  display: none;
+}
+
+.navigation-recherche label {
+  font-weight: 600;
+}
+
+.navigation-recherche input {
+  max-width: none;
+  font-family: var(--police-texte);
+  font-size: 1rem;
+}
+
+.navigation-statut {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  color: var(--couleur-discret);
+}
+
+.navigation-statut:empty {
+  display: none;
+}
+
+.navigation-titre {
+  margin: 1rem 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: var(--surtitre-interlettrage);
+  text-transform: uppercase;
+  color: var(--couleur-discret);
+}
+
+.navigation-panneau ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navigation-panneau a {
+  display: block;
+  min-height: 44px;
+  padding: 0.6rem 0.25rem;
+  line-height: 1.3;
+  text-decoration: none;
+  color: var(--couleur-texte);
+}
+
+.navigation-panneau a:hover,
+.navigation-panneau a[aria-current] {
+  color: var(--couleur-lien);
+  text-decoration: underline;
+}
+
+.navigation-panneau a[aria-current] {
+  font-weight: 700;
+}
+
+.navigation-resultats[hidden],
+.navigation-types[hidden] {
+  display: none;
+}
+
+.navigation-type {
+  border-bottom: var(--trait) solid var(--couleur-ligne);
+}
+
+.navigation-type + .navigation-type {
+  border-top: 0;
+}
+
+.navigation-type summary {
+  min-height: 44px;
+  padding: 0.6rem 0;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.navigation-corps ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.25rem;
+}
+
+.navigation-corps a {
+  font-size: 0.9rem;
+  color: var(--couleur-discret);
+}
+
+/* Grand écran : panneau en colonnes, types dépliés (appli.js), recherche en tête. */
+@media (min-width: 64rem) {
+  .navigation-grille {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    gap: 0 2rem;
+  }
+
+  .navigation-type {
+    border-bottom: 0;
+  }
+
+  .navigation-type summary {
+    padding-bottom: 0.25rem;
+    border-bottom: var(--trait) solid var(--couleur-ligne);
+  }
+
+  .navigation-type a {
+    min-height: 0;
+    padding: 0.35rem 0;
+    font-size: 0.9rem;
+  }
+}
+
+/* Petit écran : bouton réduit à son icône (libellé lu par les lecteurs d'écran). */
+@media (max-width: 26rem) {
+  .navigation-bouton {
+    padding-inline: 0.6rem;
+  }
+
+  .navigation-bouton-texte {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+@media print {
+  .navigation {
+    display: none;
+  }
+}
+
+/* Lien « Mon devis » : libellé court sur les très petits écrans, pour que l'en-tête tienne sur une ligne. */
+.devis-court {
+  display: none;
+}
+
+@media (max-width: 26rem) {
+  .devis-long {
+    display: none;
+  }
+
+  .devis-court {
+    display: inline;
+  }
+
+  .entete-nav ul {
+    gap: 0.4rem;
+  }
+}
+
+/* En-tête sur une seule ligne : slogan réservé aux grands écrans, espacements resserrés sur les plus petits. */
+@media (max-width: 63.99rem) {
+  .slogan {
+    display: none;
+  }
+}
+
+@media (max-width: 22rem) {
+  .entete {
+    gap: 0.4rem;
+    padding-inline: 0.75rem;
+  }
+
+  .navigation-bouton,
+  .bascule-theme,
+  .bascule-imperial {
+    padding-inline: 0.45rem;
+  }
+
+  .entete-nav ul {
+    gap: 0.3rem;
+  }
+}
+
+/* Murs sur le plan : épaisseur dessinée vers l'extérieur, teinte selon le type */
+
+.plan-svg .plan-mur {
+  stroke: var(--plan-trait);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.plan-svg .plan-mur-exterieur {
+  fill: color-mix(in srgb, var(--plan-trait) 72%, transparent);
+}
+
+.plan-svg .plan-mur-porteur {
+  fill: color-mix(in srgb, var(--plan-trait) 45%, transparent);
+}
+
+.plan-svg .plan-mur-cloison {
+  fill: color-mix(in srgb, var(--plan-trait) 18%, transparent);
+}
+
+/* Baie d'une ouverture : le mur est coupé sur toute son épaisseur. */
+.plan-svg .plan-ouverture-baie {
+  fill: var(--plan-fond);
+  stroke: none;
+}
+
+.plan-murs {
+  overflow-x: auto;
+  border-bottom: 0;
+}
+
+.plan-murs-tous {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.plan-murs-tous select,
+.plan-murs-tableau select {
+  min-width: 10rem;
+}
+
+.plan-murs-tableau input {
+  width: 5rem;
+}
+
+/* Plan d'ensemble : choix de la vue, pièces assemblées */
+
+.plan-vues {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 0 0 1rem;
+}
+
+.plan-vues button {
+  border-radius: 0;
+}
+
+.plan-vues button[aria-pressed="true"] {
+  color: var(--bouton-texte);
+  background: var(--bouton-fond);
+  border-color: var(--bouton-fond);
+}
+
+/* En vue d'ensemble, les outils de la pièce seule sont masqués. */
+.plan[data-vue="ensemble"] > :not(legend, .pieces, .plan-vues, .portee, .ensemble) {
+  display: none;
+}
+
+.ensemble[hidden] {
+  display: none;
+}
+
+.ensemble-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.ensemble-svg .ensemble-piece {
+  cursor: grab;
+  touch-action: none;
+}
+
+.ensemble-svg .ensemble-sol {
+  fill: var(--plan-fond);
+  stroke: var(--plan-trait);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.ensemble-svg .ensemble-active .ensemble-sol {
+  fill: color-mix(in srgb, var(--couleur-accent) 22%, var(--plan-fond));
+  stroke: var(--couleur-accent);
+  stroke-width: 3;
+}
+
+.ensemble-svg .ensemble-conflit .ensemble-sol {
+  stroke: var(--couleur-erreur);
+  stroke-width: 3;
+  stroke-dasharray: 6 4;
+}
+
+.ensemble-svg .ensemble-nom,
+.ensemble-svg .ensemble-surface {
+  fill: var(--couleur-texte);
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+}
+
+.ensemble-svg .ensemble-nom {
+  font-weight: 700;
+}
+
+.ensemble-svg .ensemble-surface {
+  fill: var(--couleur-discret);
+}
+
+.ensemble-positions {
+  overflow-x: auto;
+  border-bottom: 0;
+}
+
+.ensemble-positions input {
+  width: 6rem;
+}
+
+/* En vue d'ensemble, la pièce se choisit sur le plan : la liste, le nom et la hauteur sont masqués,
+   seuls restent les boutons Nouvelle pièce, Dupliquer et Supprimer. */
+.plan[data-vue="ensemble"] .pieces > .champ,
+.plan[data-vue="ensemble"] .pieces-aide {
+  display: none;
+}
+
+/* Portée du calcul : cette pièce, tout le niveau, tout le chantier */
+
+.portee {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+  margin: 0 0 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.portee legend {
+  padding: 0 0.25rem;
+  font-weight: 600;
+}
+
+.portee .champ-case {
+  min-height: 44px;
+  margin: 0;
+}
+
+/* Niveaux du plan d'ensemble */
+
+.ensemble-niveaux {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.5rem 1rem;
+}
+
+.ensemble-niveaux .champ {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0;
+}
+
+/* Éléments à déduire : rectangles hachurés (trémie, gaine, conduit) */
+
+.plan-svg .plan-element {
+  fill: color-mix(in srgb, var(--plan-trait) 22%, transparent);
+  stroke: var(--plan-trait);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 4;
+  vector-effect: non-scaling-stroke;
+}
+
+.plan-elements {
+  overflow-x: auto;
+  border-bottom: 0;
+}
+
+.plan-elements-ajout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.plan-elements-tableau input {
+  width: 5.5rem;
+}
+
+/* Ouverture de la pièce voisine, sur un mur commun : en pointillés, non modifiable ici */
+
+.plan-svg .plan-ouverture-partagee .plan-ouverture-trait {
+  stroke: var(--couleur-accent);
+  stroke-width: 4;
+  stroke-dasharray: 4 3;
+  vector-effect: non-scaling-stroke;
+}
+
+/* Détail par pièce quand le calcul porte sur plusieurs pièces */
+
+.detail-pieces {
+  width: 100%;
+  margin-top: 1rem;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.detail-pieces caption {
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.detail-pieces th,
+.detail-pieces td {
+  padding: 0.35rem 0;
+  border-bottom: var(--trait) solid var(--couleur-ligne);
+  text-align: left;
+}
+
+.detail-pieces td {
+  font-family: var(--police-chiffres);
+  text-align: right;
+}
+
+/* Suggestion issue du plan d'ensemble, sous un champ */
+
+.suggestion {
+  display: block;
+  margin-top: 0.35rem;
+}
+
+.suggestion[hidden] {
+  display: none;
+}
+
+.bouton-suggestion {
+  min-height: 44px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+/* Barre de résultat effacée tant qu'une annonce est à l'écran (calcul.js) : l'annonce n'est jamais recouverte. */
+.barre-resultat.barre-masquee {
+  visibility: hidden;
+  transform: translateY(110%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .barre-resultat {
+    transition: transform 0.2s ease, visibility 0.2s;
+  }
+}
+
+/* Choix « Saisir les dimensions / Dessiner sur un plan » : en mode saisie, le plan est replié. */
+.mode-dimensions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+  margin: 0 0 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.mode-dimensions legend {
+  padding: 0 0.25rem;
+  font-weight: 600;
+}
+
+.mode-dimensions .champ-case {
+  min-height: 44px;
+  margin: 0;
+}
+
+.plan[data-mode="saisie"] > :not(legend, .mode-dimensions) {
+  display: none;
+}
+
+/* Zone extérieure dans le plan d'ensemble : sans murs, teinte de sol extérieur. */
+.ensemble-svg .ensemble-zone .ensemble-sol {
+  fill: color-mix(in srgb, var(--couleur-succes) 14%, var(--plan-fond));
+  stroke-dasharray: 8 5;
+}
+
+.plan-depuis-choix {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.plan-depuis-choix select {
+  max-width: 100%;
+}
