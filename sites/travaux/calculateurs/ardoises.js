@@ -164,6 +164,18 @@ export default {
       question: 'Crochets ou clous ?',
       reponse: 'Le crochet inox est le plus courant pour l’ardoise naturelle, à raison d’un par ardoise. La pose au clou en demande deux par ardoise.',
     },
+    {
+      question: 'Ardoise naturelle ou ardoise en fibres-ciment ?',
+      reponse: 'L’ardoise naturelle est très durable et se pose le plus souvent au crochet ; elle coûte plus cher. L’ardoise en fibres-ciment est plus régulière, plus légère et moins chère, avec ses propres règles de pose : suivez la notice du fabricant.',
+    },
+    {
+      question: 'Quel recouvrement prévoir ?',
+      reponse: 'Il dépend du format de l’ardoise, de la pente, de la longueur du rampant et de la zone climatique : le DTU 40.11 le donne dans ses tableaux. Plus la pente est faible ou le rampant long, plus le recouvrement augmente, et plus il faut d’ardoises au m².',
+    },
+    {
+      question: 'Combien d’ardoises faut-il au m² ?',
+      reponse: 'Ardoises au m² = 1 ÷ (largeur × pureau), avec un pureau égal à (longueur − recouvrement) ÷ 2. Pour des ardoises de 40 × 24 cm avec 10 cm de recouvrement : pureau de 15 cm, soit environ 28 ardoises au m², avant la marge de casse et de coupe.',
+    },
   ],
 
   exemples: [

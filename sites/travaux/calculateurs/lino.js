@@ -171,6 +171,14 @@ export default {
       question: 'Lino ou sol vinyle ?',
       reponse: 'Le terme « lino » désigne souvent le sol vinyle en rouleau. Le vrai linoléum est fabriqué à partir d’huile de lin et de matières naturelles ; les deux se calculent de la même façon.',
     },
+    {
+      question: 'Faut-il coller le sol vinyle ?',
+      reponse: 'Dans une petite pièce peu fréquentée, une pose libre ou à l’adhésif double face peut suffire si le revêtement le permet. Dans une grande pièce ou un passage fréquenté, le collage en plein évite que le sol bouge ou gondole : suivez la notice du fabricant.',
+    },
+    {
+      question: 'Comment préparer le support ?',
+      reponse: 'Le sol doit être sec, propre, plan et sans aspérités : le moindre défaut, comme les joints d’un ancien carrelage, finit par marquer un revêtement souple. Un ragréage corrige les irrégularités avant la pose.',
+    },
   ],
 
   exemples: [

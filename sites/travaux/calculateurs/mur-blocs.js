@@ -146,6 +146,18 @@ export default {
       question: 'Faut-il déduire les ouvertures ?',
       reponse: 'Oui pour les grandes ouvertures. Pour de petites fenêtres, beaucoup de maçons ne les déduisent qu’à moitié, pour couvrir les coupes autour.',
     },
+    {
+      question: 'Combien de parpaings au m² ?',
+      reponse: 'Pour un parpaing de 20 × 50 cm, 10 au m² sans joint et environ 9,3 avec un joint de 1 cm. Ajoutez une marge pour la casse et les coupes, et comptez à part les blocs d’angle et les blocs spéciaux.',
+    },
+    {
+      question: 'Faut-il des chaînages ?',
+      reponse: 'Oui pour un mur porteur : des chaînages horizontaux en tête de mur et à chaque plancher, et des chaînages verticaux aux angles et aux jonctions, en béton armé. Ils sont prévus par le DTU 20.1 et, selon la zone, par les règles parasismiques.',
+    },
+    {
+      question: 'Mortier traditionnel ou mortier-colle ?',
+      reponse: 'Les blocs classiques se montent au mortier, avec un joint d’environ un centimètre. Les blocs rectifiés, à faces très régulières, se montent au mortier-colle en joint mince : la consommation de mortier est bien plus faible et le mur monte plus vite.',
+    },
   ],
 
   exemples: [

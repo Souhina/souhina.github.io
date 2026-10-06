@@ -204,6 +204,14 @@ export default {
       question: 'Pourquoi choisir une double peau ?',
       reponse: 'Deux plaques par face améliorent l’isolation phonique et la résistance aux chocs, mais doublent le nombre de plaques et de vis.',
     },
+    {
+      question: 'Plaque standard, hydrofuge, phonique ou feu ?',
+      reponse: 'La standard convient aux pièces sèches ; l’hydrofuge (souvent verte) aux pièces humides comme la salle de bains ou la cuisine ; la phonique améliore l’isolation acoustique ; la plaque feu résiste plus longtemps à l’incendie, par exemple autour d’un conduit ou dans un garage. Le bloc « Aidez-moi à choisir » guide ce choix.',
+    },
+    {
+      question: 'Combien de vis par plaque ?',
+      reponse: 'Les vis se posent sur chaque montant, espacées de 30 cm au plus selon le DTU 25.41, et un peu plus serrées en bord de plaque selon la notice. Le calculateur compte 25 vis par plaque par défaut, une valeur indicative que vous pouvez ajuster dans les réglages.',
+    },
   ],
 
   exemples: [

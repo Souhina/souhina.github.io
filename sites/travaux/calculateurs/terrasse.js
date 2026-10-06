@@ -152,6 +152,14 @@ export default {
       question: 'Faut-il un géotextile sous la terrasse ?',
       reponse: 'Oui en général : posé sur le sol préparé, il limite la repousse des herbes sous la terrasse. Comptez la surface de la terrasse plus 10 % de recouvrement.',
     },
+    {
+      question: 'Bois ou composite ?',
+      reponse: 'Le bois, naturel et souvent moins cher, grise avec le temps et demande un entretien selon l’essence. Le composite garde sa couleur et s’entretient peu, mais chauffe davantage au soleil, se dilate plus et demande des lambourdes plus rapprochées.',
+    },
+    {
+      question: 'Quel espacement entre les lames ?',
+      reponse: 'Quelques millimètres, souvent autour de 5 mm, pour l’écoulement de l’eau et le gonflement du bois ou la dilatation du composite. La notice des lames donne la valeur exacte ; des cales d’espacement aident à rester régulier.',
+    },
   ],
 
   exemples: [

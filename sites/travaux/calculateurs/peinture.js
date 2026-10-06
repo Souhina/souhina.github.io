@@ -140,6 +140,14 @@ export default {
       question: 'Où trouver le rendement de ma peinture ?',
       reponse: 'Il est indiqué sur le pot ou sur la fiche technique, en m² par litre et pour une couche. Il baisse sur un support rugueux ou poreux.',
     },
+    {
+      question: 'Combien de litres de peinture pour une pièce de 12 m² ?',
+      reponse: 'Pour une pièce de 3 × 4 m sous 2,50 m : 14 m de périmètre × 2,50 m = 35 m² de murs, moins environ 3 m² d’ouvertures, soit 32 m². En deux couches à 10 m² par litre, il faut environ 6,4 litres, sans compter le plafond.',
+    },
+    {
+      question: 'Mat, velours ou satiné ?',
+      reponse: 'Le mat masque les défauts du mur mais se nettoie moins bien ; le velours est un bon compromis pour les pièces de vie ; le satiné se lessive facilement et convient aux cuisines, salles de bains et boiseries, mais il révèle les défauts du support.',
+    },
   ],
 
   exemples: [

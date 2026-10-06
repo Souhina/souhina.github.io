@@ -95,6 +95,14 @@ export default {
       question: 'Quel treillis choisir ?',
       reponse: 'La désignation (par exemple ST 25 C) indique la section des fils et la maille. Elle se choisit selon l’ouvrage : dallage de garage, terrasse, dalle porteuse. Le DTU 13.3 encadre les dallages ; une dalle porteuse demande une étude.',
     },
+    {
+      question: 'Quel recouvrement entre deux panneaux ?',
+      reponse: 'En repère courant, au moins deux mailles, soit une vingtaine de centimètres pour une maille de 10 cm. La notice du treillis et le DTU 13.3 font foi.',
+    },
+    {
+      question: 'À quelle hauteur placer le treillis dans la dalle ?',
+      reponse: 'Jamais au contact du sol : des cales le maintiennent dans l’épaisseur du béton pour qu’il soit enrobé de tous côtés. La hauteur exacte dépend de l’ouvrage et de son rôle (anti-fissuration ou armature) : suivez le DTU 13.3 et la fiche du treillis.',
+    },
   ],
 
   exemples: [

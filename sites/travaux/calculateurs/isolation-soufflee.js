@@ -118,6 +118,18 @@ export default {
       question: 'Faut-il des repères d’épaisseur ?',
       reponse: 'Oui : des piges graduées, réparties dans les combles, permettent de vérifier la hauteur soufflée. Le fabricant et les aides à la rénovation les demandent souvent.',
     },
+    {
+      question: 'Laine de verre, laine de roche ou ouate de cellulose ?',
+      reponse: 'Les laines minérales sont légères et tassent peu ; l’ouate de cellulose, plus dense, tasse davantage mais ralentit mieux la chaleur en été. Le choix se fait sur la résistance visée, le confort d’été et le prix au m² pour un même R.',
+    },
+    {
+      question: 'Peut-on souffler l’isolant soi-même ?',
+      reponse: 'Oui : des souffleuses se louent et les sacs se vendent en magasin. En revanche, les aides à la rénovation demandent en général une pose par une entreprise qualifiée RGE.',
+    },
+    {
+      question: 'Quelle épaisseur souffler pour R = 7 ?',
+      reponse: 'Elle dépend du lambda et du tassement de l’isolant : environ 33 cm de laine de verre soufflée dans l’exemple du calculateur, davantage pour un isolant plus tassant. Le tableau du fabricant donne l’épaisseur à souffler pour chaque R.',
+    },
   ],
 
   exemples: [

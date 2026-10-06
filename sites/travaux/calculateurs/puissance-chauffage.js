@@ -112,6 +112,14 @@ export default {
       question: 'Où trouver la température extérieure de base ?',
       reponse: 'Elle est donnée par département et par altitude dans les documents de calcul thermique ; un installateur ou un bureau d’études la connaît pour votre commune.',
     },
+    {
+      question: 'Combien de watts par m² faut-il ?',
+      reponse: 'Il n’existe pas de valeur unique : la puissance dépend du volume, de l’isolation et du climat. Une pièce récente bien isolée demande bien moins qu’une pièce ancienne sous combles. C’est pourquoi le calcul part du volume et d’un coefficient d’isolation plutôt que de la seule surface.',
+    },
+    {
+      question: 'Comment dimensionner une pompe à chaleur ?',
+      reponse: 'Par une étude thermique de tout le logement, à la température extérieure de base de la commune. Une pompe à chaleur surdimensionnée fonctionne par cycles courts, s’use plus vite et coûte plus cher : ce calculateur ne remplace pas cette étude.',
+    },
   ],
 
   exemples: [

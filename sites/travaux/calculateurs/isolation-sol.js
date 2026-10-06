@@ -86,12 +86,16 @@ export default {
 
   explication: `
         <p>Épaisseur nécessaire = R × λ. Le nombre de couches est arrondi au panneau entier supérieur ; deux couches se posent à joints décalés.</p>
-        <p>Le film est compté avec environ 20 % de plus pour les recouvrements entre lés et les relevés contre les murs. La bande périphérique fait le tour de la pièce pour désolidariser la chape des murs.</p>`,
+        <p>Le film est compté avec environ 20 % de plus pour les recouvrements entre lés et les relevés contre les murs. La bande périphérique fait le tour de la pièce pour désolidariser la chape des murs.</p>
+        <p>Sur dalle ou par-dessous : en neuf ou en rénovation lourde, l’isolant se pose sur la dalle, sous une chape flottante ou sous un plancher chauffant. Le panneau doit alors résister à l’écrasement : sa classe de compressibilité figure sur sa fiche ou sa certification ACERMI. Quand un vide sanitaire ou une cave est accessible, isoler en sous-face évite de toucher au sol de la pièce.</p>
+        <p>Attention à la hauteur perdue : isolant et chape représentent souvent 10 cm ou plus. Avant de choisir l’épaisseur, vérifiez les seuils, les portes, la hauteur sous plafond et les raccords avec les pièces voisines. Un isolant plus performant (λ plus faible) atteint la même résistance avec moins d’épaisseur.</p>
+        <p>Exemple : pour R = 3 m².K/W, valeur souvent demandée pour les aides en plancher bas (à vérifier chaque année), un polystyrène expansé à λ = 0,030 demande 3 × 0,030 = 0,09 m, soit 9 cm ; un polyuréthane à λ = 0,022 se contente de 6,6 cm.</p>`,
 
   erreurs: [
     'Choisir un isolant trop compressible sous une chape.',
     'Oublier la bande périphérique : la chape transmet alors les bruits et risque de fissurer.',
     'Oublier la hauteur totale du complexe : seuils et portes doivent suivre.',
+    'Poser les panneaux sur un support irrégulier : ils bougent et la chape fissure. Égalisez ou ragréez d’abord.',
   ],
 
   conseils: [
@@ -121,6 +125,18 @@ export default {
     {
       question: 'Pourquoi une bande périphérique ?',
       reponse: 'Elle sépare la chape des murs pour absorber sa dilatation et limiter la transmission des bruits d’impact.',
+    },
+    {
+      question: 'Quelle épaisseur d’isolant pour mon sol ?',
+      reponse: 'Épaisseur = résistance visée × conductivité de l’isolant. Pour R = 3 avec un isolant à λ = 0,030, il faut 9 cm ; avec λ = 0,022, 6,6 cm. Arrondissez à l’épaisseur de panneau vendue, en une ou deux couches.',
+    },
+    {
+      question: 'Quel isolant sous un plancher chauffant ?',
+      reponse: 'Un panneau prévu pour cet usage, assez résistant à la compression, souvent avec plots ou rainures pour tenir le tube. Le DTU 65.14 fixe une résistance thermique minimale sous le plancher chauffant selon ce qui se trouve dessous (local chauffé, vide sanitaire, terre-plein) : vérifiez-la avec l’installateur.',
+    },
+    {
+      question: 'Isoler par-dessus ou par-dessous ?',
+      reponse: 'Par-dessous, en plafond de cave ou de vide sanitaire, si c’est accessible : le sol de la pièce ne bouge pas. Sinon par-dessus, sous une nouvelle chape, au prix d’une perte de hauteur à prévoir pour les portes et les seuils.',
     },
   ],
 

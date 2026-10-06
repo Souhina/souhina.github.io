@@ -44,12 +44,16 @@ export default {
 
   explication: `
         <p>Longueur à habiller = périmètre de la pièce − largeur des portes. Plinthes = longueur × (1 + marge) ÷ longueur d’une plinthe, arrondi à la plinthe supérieure.</p>
-        <p>Chaque angle de la pièce demande une coupe d’onglet : la marge couvre ces coupes et les raccords en milieu de mur.</p>`,
+        <p>Chaque angle de la pièce demande une coupe d’onglet : la marge couvre ces coupes et les raccords en milieu de mur.</p>
+        <p>Sur un parquet flottant, la plinthe doit couvrir le jeu de dilatation laissé le long des murs (de l’ordre de 8 à 10 mm selon la notice du parquet). Une plinthe de 7 à 10 cm de haut convient à la plupart des pièces ; une plinthe plus haute masque mieux un bas de mur abîmé.</p>
+        <p>Fixation : collée au mastic-colle sur un mur plan, clouée ou vissée avec chevilles sur un mur irrégulier, ou clipsée sur des supports pour garder un accès aux câbles. Sur un parquet flottant, la plinthe se fixe toujours au mur, jamais au sol.</p>
+        <p>Coupes : un angle sortant se coupe à 45° ; un angle rentrant se coupe à 45° ou, sur un profil mouluré, en contre-profil, qui masque un mur pas tout à fait d’équerre. Une boîte à onglets suffit pour quelques angles ; une scie à onglets fait gagner du temps et de la précision au-delà.</p>`,
 
   erreurs: [
     'Oublier de déduire la largeur des portes.',
     'Compter au mètre près sans marge : chaque angle consomme de la matière.',
     'Fixer la plinthe au parquet flottant : elle bloque sa dilatation.',
+    'Couper toutes les plinthes d’après une seule mesure : chaque mur se mesure séparément, d’angle à angle.',
   ],
 
   conseils: [
@@ -74,6 +78,18 @@ export default {
     {
       question: 'Quelle marge prévoir ?',
       reponse: '10 % suffisent dans une pièce simple. Dans une pièce avec beaucoup d’angles ou de décrochés, comptez plutôt 15 %.',
+    },
+    {
+      question: 'Quelle hauteur de plinthe choisir ?',
+      reponse: 'Assez haute pour couvrir le jeu de dilatation du parquet et les irrégularités du bas de mur : 7 à 10 cm dans la plupart des pièces, davantage pour un style ancien ou des murs abîmés.',
+    },
+    {
+      question: 'Coller ou clouer les plinthes ?',
+      reponse: 'Le collage au mastic-colle convient à un mur plan et ne laisse pas de trous. Sur un mur irrégulier ou en plaque de plâtre, clouez ou vissez avec des chevilles adaptées. Les plinthes clipsées se démontent pour passer des câbles.',
+    },
+    {
+      question: 'Et pour des plinthes en carrelage ?',
+      reponse: 'Achetez des plinthes assorties au carrelage, ou découpez-les dans des carreaux du sol. Elles se collent au mortier-colle, avec un joint souple au pied si le sol peut bouger.',
     },
   ],
 

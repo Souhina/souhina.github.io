@@ -88,7 +88,16 @@ export default {
 
   explication: `
         <p>Surface = longueur des façades × hauteur, plus les pignons (largeur × hauteur ÷ 2), moins les ouvertures. Litres = surface × couches ÷ rendement.</p>
-        <p>Pour 214 m² en deux couches à 6 m² par litre, il faut environ 71 litres, soit 8 pots de 10 litres.</p>`,
+        <p>Pour 214 m² en deux couches à 6 m² par litre, il faut environ 71 litres, soit 8 pots de 10 litres.</p>
+        <p>Le type de peinture dépend du support :</p>
+        <ul>
+        <li>acrylique en phase aqueuse : polyvalente, microporeuse, pour la plupart des enduits en bon état ;</li>
+        <li>pliolite en phase solvant : s’applique par temps frais et accroche sur des supports difficiles ;</li>
+        <li>siloxane : très hydrofuge et perméable à la vapeur d’eau, pour les façades exposées à la pluie ;</li>
+        <li>minérale (silicate ou chaux) : pour les supports minéraux anciens, qu’elle laisse respirer.</li>
+        </ul>
+        <p>Avant de peindre : lavage, traitement anti-mousse, rebouchage des fissures et, sur un support poreux ou qui farine (la main blanchit au toucher), application d’un fixateur. Les conditions d’application (température, humidité, absence de pluie) sont indiquées sur le pot.</p>
+        <p>Changer la couleur d’une façade modifie l’aspect extérieur : une déclaration préalable est en général demandée en mairie, et certaines communes imposent un nuancier. Renseignez-vous avant d’acheter la peinture.</p>`,
 
   erreurs: [
     'Peindre une façade sale, moussue ou farinante.',
@@ -124,6 +133,18 @@ export default {
     {
       question: 'Pourquoi le rendement est-il plus faible en façade ?',
       reponse: 'Un crépi ou un enduit rugueux présente une surface réelle bien plus grande qu’un mur lisse, et il absorbe davantage : la peinture couvre moins de m² par litre.',
+    },
+    {
+      question: 'Faut-il une autorisation pour repeindre sa façade ?',
+      reponse: 'Repeindre à l’identique ne demande souvent rien, mais changer de couleur modifie l’aspect extérieur et demande en général une déclaration préalable. Certaines communes ou secteurs protégés soumettent tout ravalement à déclaration : renseignez-vous en mairie et consultez le plan local d’urbanisme.',
+    },
+    {
+      question: 'Quelle peinture pour une façade ancienne ?',
+      reponse: 'Une peinture qui laisse passer la vapeur d’eau : minérale (silicate ou chaux) ou siloxane. Une peinture trop fermée sur un mur ancien emprisonne l’humidité et finit par cloquer.',
+    },
+    {
+      question: 'À quel moment peindre une façade ?',
+      reponse: 'Par temps sec et doux, hors plein soleil et hors vent fort, sans risque de pluie ni de gel dans les heures qui suivent. Les plages de température et d’humidité exactes figurent sur le pot.',
     },
   ],
 

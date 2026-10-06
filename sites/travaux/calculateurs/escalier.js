@@ -52,13 +52,24 @@ export default {
 
   explication: `
         <p>Nombre de contremarches = hauteur à monter ÷ hauteur visée, arrondi. Hauteur réelle = hauteur à monter ÷ nombre de contremarches. La formule de Blondel, règle de confort classique, relie la hauteur h et le giron g d’une marche : 2h + g doit être compris entre 60 et 64 cm, longueur d’un pas.</p>
-        <p>Pour 2,70 m à monter : 15 contremarches de 18 cm, un giron de 27 cm (2 × 18 + 27 = 63) et 14 marches, soit 3,78 m au sol.</p>`,
+        <p>Pour 2,70 m à monter : 15 contremarches de 18 cm, un giron de 27 cm (2 × 18 + 27 = 63) et 14 marches, soit 3,78 m au sol.</p>
+        <p>Repères de confort couramment admis pour un escalier de maison (recommandations, et non obligations, en maison individuelle) :</p>
+        <ul>
+        <li>hauteur de marche autour de 17 à 18 cm, au plus 21 cm pour un escalier raide ;</li>
+        <li>giron d’au moins 24 cm, 26 à 30 cm étant plus confortable ;</li>
+        <li>échappée d’au moins 1,90 m, mesurée à la verticale du nez de marche ; 2 m ou plus est plus agréable ;</li>
+        <li>largeur de passage de 80 à 90 cm pour un escalier principal ;</li>
+        <li>garde-corps d’au moins 90 cm de haut au-dessus du nez de marche, sans vide laissant passer une sphère de 11 cm (norme NF P01-012).</li>
+        </ul>
+        <p>Droit, quart tournant ou demi-tournant : un escalier tournant prend moins de place au sol, mais ses marches balancées doivent garder, sur la ligne de foulée (en général à environ 50 cm du bord intérieur, ou au milieu d’un escalier étroit), le même giron que les marches droites. Le reculement calculé ici est celui d’un escalier droit ; pour un escalier tournant, c’est la longueur développée sur la ligne de foulée.</p>
+        <p>La trémie, l’ouverture dans le plancher, doit être assez longue pour qu’en tout point de l’escalier la hauteur libre jusqu’au dessous du plancher reste au moins égale à l’échappée choisie. Elle se dessine en même temps que l’escalier, avant de commander quoi que ce soit.</p>`,
 
   erreurs: [
     'Mesurer la hauteur à monter sans les revêtements de sol finis, en bas comme en haut : la première ou la dernière marche devient irrégulière.',
     'Négliger l’échappée : la hauteur libre au-dessus des marches doit permettre de passer sans se cogner.',
     'Faire des marches de hauteurs différentes : c’est une cause fréquente de chute.',
     'Oublier le garde-corps et la main courante.',
+    'Prévoir une trémie trop courte : l’échappée devient insuffisante en haut de l’escalier.',
   ],
 
   conseils: [
@@ -84,6 +95,22 @@ export default {
     {
       question: 'Pourquoi une marche de moins que de contremarches ?',
       reponse: 'La dernière hauteur arrive sur le palier ou le plancher d’étage, qui sert de dernière marche : un escalier droit compte une marche de moins que de contremarches.',
+    },
+    {
+      question: 'Quelle échappée prévoir ?',
+      reponse: 'Au moins 1,90 m de hauteur libre, mesurée à la verticale du nez de chaque marche jusqu’au dessous du plancher ou du plafond ; 2 m ou plus évite de baisser la tête. C’est une recommandation en maison individuelle, mais tout escalier confortable la respecte.',
+    },
+    {
+      question: 'Quelle hauteur pour le garde-corps ?',
+      reponse: 'La norme NF P01-012 demande au moins 90 cm au-dessus du nez de marche le long de l’escalier, et 1 m le long d’un palier ou d’une mezzanine, avec des vides qui ne laissent pas passer une sphère de 11 cm. Vérifiez la version de la norme en vigueur et la notice du fabricant.',
+    },
+    {
+      question: 'Escalier droit ou tournant ?',
+      reponse: 'L’escalier droit est le plus simple et le plus confortable, mais il demande la plus grande longueur au sol. Un quart tournant ou un demi-tournant se loge dans moins de place ; ses marches balancées doivent être bien dessinées pour rester sûres.',
+    },
+    {
+      question: 'Comment mesurer la hauteur à monter ?',
+      reponse: 'Du sol fini du bas au sol fini du haut, revêtements compris (carrelage, parquet, chape). Une erreur de quelques centimètres se reporte entièrement sur la première ou la dernière marche, qui devient différente des autres.',
     },
   ],
 

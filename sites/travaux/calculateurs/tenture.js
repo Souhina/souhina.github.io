@@ -107,6 +107,14 @@ export default {
       question: 'Tenture collée ou tendue ?',
       reponse: 'Le tissu peut être collé directement sur le mur ou tendu sur des tasseaux, souvent avec un molleton en dessous pour l’isolation phonique. Le métrage de tissu est le même ; la pose tendue demande en plus des tasseaux et du molleton.',
     },
+    {
+      question: 'Quelle colle pour une tenture murale ?',
+      reponse: 'Une colle prévue pour les revêtements textiles ou vinyles, selon la notice du tissu. Faites un essai sur une chute : certaines colles tachent les tissus clairs.',
+    },
+    {
+      question: 'Tenture ou papier peint ?',
+      reponse: 'La tenture apporte une matière, masque mieux les petits défauts du mur et, tendue sur molleton, améliore le confort acoustique. Elle coûte en général plus cher et se pose plus lentement qu’un papier peint.',
+    },
   ],
 
   exemples: [

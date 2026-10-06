@@ -68,12 +68,16 @@ export default {
   ],
 
   explication: `
-        <p>Solives = longueur du plancher ÷ entraxe, plus une. Chaque solive mesure la portée plus un appui à chaque extrémité. Panneaux = surface × (1 + marge) ÷ surface d’un panneau.</p>`,
+        <p>Solives = longueur du plancher ÷ entraxe, plus une. Chaque solive mesure la portée plus un appui à chaque extrémité. Panneaux = surface × (1 + marge) ÷ surface d’un panneau.</p>
+        <p>Un plancher bois se compose de solives, qui portent la charge, de panneaux (aggloméré ou OSB), qui forment le sol, et d’appuis : maçonnerie, muraillère ou sabots métalliques. Le calcul compte les solives et les panneaux ; les sabots se comptent à part, un par extrémité de solive fixée sur une poutre ou une muraillère.</p>
+        <p>L’entraxe de 40, 50 ou 60 cm dépend surtout de l’épaisseur du panneau : plus le panneau est fin, plus les solives doivent être rapprochées. La fiche du panneau indique l’entraxe maximal admis pour son épaisseur et pour l’usage prévu.</p>
+        <p>Choisissez des panneaux à rainure et languette, d’une classe adaptée à l’humidité de la pièce (par exemple aggloméré P5 ou OSB/3 en milieu humide), posés perpendiculairement aux solives, à joints décalés, avec les bords courts qui tombent sur une solive et un jeu le long des murs.</p>`,
 
   erreurs: [
     'Choisir la section des solives sans calcul : elle dépend de la portée et des charges.',
     'Oublier les chevêtres autour d’une trémie d’escalier.',
     'Poser des panneaux sans jeu de dilatation ni décalage des joints.',
+    'Poser un plancher sur les fermettes de combles perdus, qui ne sont pas conçues pour porter cette charge.',
   ],
 
   conseils: [
@@ -103,6 +107,18 @@ export default {
     {
       question: 'Pourquoi le calculateur ne donne-t-il pas la section des solives ?',
       reponse: 'La section dépend de la portée, de l’usage (habitation, stockage), des cloisons posées dessus et de l’essence du bois : c’est un calcul de structure, fait avec les tableaux d’un fabricant ou par un bureau d’études.',
+    },
+    {
+      question: 'Quel entraxe de solives choisir ?',
+      reponse: 'Celui qu’autorise l’épaisseur du panneau pour l’usage prévu, indiqué sur sa fiche technique : on rencontre couramment 40 à 60 cm. La section des solives, elle, dépend de la portée et des charges et se calcule à part.',
+    },
+    {
+      question: 'Faut-il des sabots de solive ?',
+      reponse: 'Quand une solive ne repose pas directement sur un mur, elle se fixe sur une poutre ou une muraillère par un sabot métallique, un à chaque extrémité concernée, vissé ou pointé selon la notice du fabricant.',
+    },
+    {
+      question: 'Peut-on poser un plancher dans des combles perdus ?',
+      reponse: 'Pas sans vérification : les fermettes industrielles sont calculées pour porter la toiture, pas un plancher habitable avec meubles et occupants. Aménager des combles perdus demande l’avis d’un charpentier ou d’un bureau d’études.',
     },
   ],
 

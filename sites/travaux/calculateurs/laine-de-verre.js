@@ -138,6 +138,14 @@ export default {
       question: 'Rouleaux ou panneaux ?',
       reponse: 'Les rouleaux conviennent aux grandes surfaces horizontales comme les combles. Les panneaux se tiennent mieux debout, entre des montants ou des chevrons.',
     },
+    {
+      question: 'Quelle épaisseur de laine de verre pour R = 7 ?',
+      reponse: 'Épaisseur = R × λ. Avec un lambda de 0,032, il faut environ 22,4 cm, que l’on atteint en une ou deux couches selon les épaisseurs vendues.',
+    },
+    {
+      question: 'Quelle résistance thermique viser pour les aides ?',
+      reponse: 'Relevés le 4 octobre 2026 et à vérifier chaque année : R = 7 en combles perdus, 6 en rampants, 3,7 en murs et 3 en plancher bas. La pose doit en général être faite par une entreprise qualifiée RGE.',
+    },
   ],
 
   exemples: [

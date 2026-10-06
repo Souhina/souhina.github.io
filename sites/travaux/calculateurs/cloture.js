@@ -124,6 +124,18 @@ export default {
       question: 'Faut-il une déclaration préalable pour une clôture ?',
       reponse: 'Cela dépend de la commune : certaines l’exigent, et le plan local d’urbanisme peut fixer une hauteur ou un aspect. Renseignez-vous en mairie avant les travaux.',
     },
+    {
+      question: 'À quelle profondeur sceller les poteaux ?',
+      reponse: 'En repère courant, 40 à 60 cm selon la hauteur de la clôture, sa prise au vent et la nature du sol : une clôture occultante, qui offre beaucoup de prise au vent, demande un scellement plus profond. La notice du fabricant fait foi.',
+    },
+    {
+      question: 'Quelle hauteur maximale pour une clôture ?',
+      reponse: 'Il n’existe pas de hauteur maximale unique : c’est le plan local d’urbanisme, ou le règlement du lotissement, qui la fixe le plus souvent, parfois avec un aspect imposé. Renseignez-vous en mairie avant de choisir vos panneaux.',
+    },
+    {
+      question: 'Panneaux rigides ou grillage souple ?',
+      reponse: 'Les panneaux rigides se posent vite, restent droits et ne demandent pas de fils de tension. Le grillage souple coûte moins cher sur de grandes longueurs, mais demande des fils de tension et des jambes de force aux angles.',
+    },
   ],
 
   exemples: [

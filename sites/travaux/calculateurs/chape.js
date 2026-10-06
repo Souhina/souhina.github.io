@@ -125,6 +125,18 @@ export default {
       question: 'Ragréage ou chape ?',
       reponse: 'Le ragréage lisse un support existant sur quelques millimètres. La chape crée un nouveau support, sur plusieurs centimètres, par exemple sur un isolant ou un plancher chauffant.',
     },
+    {
+      question: 'Quelle épaisseur pour une chape ?',
+      reponse: 'Elle dépend du type : une chape adhérente peut rester mince, une chape désolidarisée ou flottante sur isolant doit être plus épaisse. Les épaisseurs minimales sont fixées par le DTU 26.2 et la fiche du produit ; un ragréage, lui, se limite à quelques millimètres.',
+    },
+    {
+      question: 'Combien de temps sèche une chape ?',
+      reponse: 'Pour une chape ciment, la règle empirique souvent citée est d’environ une semaine par centimètre d’épaisseur ; une chape anhydrite sèche plus vite si la pièce est ventilée. Avant un parquet ou un sol souple, faites mesurer l’humidité résiduelle.',
+    },
+    {
+      question: 'Chape fluide ou chape traditionnelle ?',
+      reponse: 'La chape fluide, livrée par pompe, se met de niveau presque seule, couvre vite de grandes surfaces et enrobe bien un plancher chauffant. La chape traditionnelle, tirée à la règle, reste plus économique sur une petite surface.',
+    },
   ],
 
   exemples: [

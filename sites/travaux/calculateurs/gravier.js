@@ -107,6 +107,14 @@ export default {
       question: 'Faut-il un géotextile sous le gravier ?',
       reponse: 'Pour une allée ou un massif, oui : il empêche le gravier de s’enfoncer dans la terre et limite les herbes.',
     },
+    {
+      question: 'Quelle épaisseur de gravier pour une allée ?',
+      reponse: 'Pour une allée piétonne décorative, quelques centimètres de gravillon sur un géotextile suffisent. Une allée carrossable demande d’abord une fondation en grave compactée, puis le gravillon de surface, ou des dalles alvéolaires qui stabilisent les graviers.',
+    },
+    {
+      question: 'Combien pèse un m³ de gravier ?',
+      reponse: 'Environ 1,5 à 1,7 tonne selon la nature et la granulométrie, un peu moins pour certains matériaux légers. Demandez la masse volumique au fournisseur et saisissez-la dans les réglages avancés pour un calcul exact.',
+    },
   ],
 
   exemples: [

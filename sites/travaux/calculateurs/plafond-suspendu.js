@@ -126,6 +126,14 @@ export default {
       question: 'Peut-on poser un isolant sur un plafond suspendu ?',
       reponse: 'Oui, mais son poids doit être pris en compte : l’entraxe des fourrures et le type de suspentes sont alors choisis selon les tableaux du fabricant.',
     },
+    {
+      question: 'Quel entraxe pour les fourrures ?',
+      reponse: 'Il dépend de la plaque et de ce que l’on pose sur le plafond : 50 ou 60 cm dans les cas courants, moins si un isolant lourd repose sur les plaques. Les tableaux du fabricant du système donnent la valeur exacte.',
+    },
+    {
+      question: 'Peut-on encastrer des spots dans un plafond suspendu ?',
+      reponse: 'Oui, avec des spots prévus pour l’encastrement et un capot de protection quand un isolant recouvre le plafond, pour respecter les distances de sécurité. Prévoyez des renforts autour des découpes et une trappe d’accès si besoin.',
+    },
   ],
 
   exemples: [

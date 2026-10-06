@@ -186,6 +186,18 @@ export default {
       question: 'Faut-il une étanchéité sous la faïence d’une douche ?',
       reponse: 'Dans les zones exposées aux projections d’eau, un système de protection à l’eau sous carrelage (SPEC) est recommandé sous la colle. Il se vend en kit, avec des bandes pour les angles.',
     },
+    {
+      question: 'Quelle colle pour la faïence ?',
+      reponse: 'Un mortier-colle de classe C1 ou C2 selon le support et le format, ou une colle en pâte prête à l’emploi (classe D) pour les petits formats en intérieur sec. Les grands formats et les supports délicats demandent en général une colle C2 et parfois un double encollage : suivez la notice.',
+    },
+    {
+      question: 'Par où commencer la pose ?',
+      reponse: 'Fixez une règle de niveau à la hauteur du deuxième rang et commencez au-dessus : le premier rang, souvent coupé, se pose en dernier. Partez d’un axe centré sur le mur pour obtenir des coupes égales de chaque côté.',
+    },
+    {
+      question: 'Peut-on carreler sur un ancien carrelage mural ?',
+      reponse: 'Oui si l’ancien carrelage est bien adhérent, plan et sain : dégraissez-le, appliquez un primaire adapté et utilisez une colle prévue pour ce support. Vérifiez que la surépaisseur reste compatible avec les prises, les interrupteurs et les menuiseries.',
+    },
   ],
 
   exemples: [

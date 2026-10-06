@@ -121,6 +121,14 @@ export default {
       question: 'Enduit ou crépi ?',
       reponse: 'Le crépi désigne souvent l’aspect de finition projeté, granuleux. Il peut s’agir d’une couche de finition sur un enduit ou d’un enduit monocouche projeté : le calcul se fait de la même façon, avec l’épaisseur et la consommation du produit choisi.',
     },
+    {
+      question: 'Enduit à la chaux ou au ciment ?',
+      reponse: 'Sur un mur ancien en pierre, en brique pleine ou en terre, un enduit à la chaux laisse passer la vapeur d’eau et suit les mouvements du mur. Sur un mur en parpaings ou en briques modernes, un enduit monocouche ou à base de ciment convient.',
+    },
+    {
+      question: 'Combien de couches faut-il ?',
+      reponse: 'Un enduit traditionnel en compte trois : le gobetis d’accrochage, le corps d’enduit et la couche de finition. Un enduit monocouche s’applique en une seule couche, souvent en deux passes successives, selon la notice.',
+    },
   ],
 
   exemples: [

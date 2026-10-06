@@ -40,7 +40,10 @@ export default {
 
   explication: `
         <p>Le guide technique de l’ADEME sur les besoins d’eau chaude sanitaire retient, par foyer et par jour, environ 80 litres d’eau à 40 °C pour une personne, 120 pour deux, 150 pour trois, 170 pour quatre et 220 pour cinq. Un ballon chauffé vers 60 °C fournit environ 1,8 litre d’eau à 40 °C par litre de capacité (V40).</p>
-        <p>Capacité conseillée = besoin ÷ 1,8, plus 50 litres pour les bains, plus la marge pour les pointes, arrondie à la taille du commerce supérieure. Pour quatre personnes : 170 ÷ 1,8 = 94 litres, 141 avec la marge, soit un ballon de 150 litres.</p>`,
+        <p>Capacité conseillée = besoin ÷ 1,8, plus 50 litres pour les bains, plus la marge pour les pointes, arrondie à la taille du commerce supérieure. Pour quatre personnes : 170 ÷ 1,8 = 94 litres, 141 avec la marge, soit un ballon de 150 litres.</p>
+        <p>Électrique, thermodynamique ou solaire : le ballon électrique classique est le moins cher à l’achat ; le thermodynamique (une pompe à chaleur sur le ballon) consomme nettement moins d’électricité mais coûte plus cher, fait un peu de bruit et a besoin d’un local assez grand ou d’un raccordement à des gaines d’air ; le solaire demande des capteurs et une étude de l’installateur.</p>
+        <p>Température : un réglage autour de 55 à 60 °C limite le développement des légionelles. Au robinet des salles de bains, l’eau ne doit pas dépasser 50 °C (arrêté du 30 novembre 2005) pour éviter les brûlures : un mitigeur thermostatique ou un limiteur de température concilie les deux.</p>
+        <p>Poids : un litre d’eau pèse un kilo. Un ballon de 200 litres pèse donc plus de 200 kg une fois plein, sans compter la cuve. Les gros volumes se posent au sol, sur un socle ou un trépied ; une fixation murale demande un mur porteur et les fixations prévues par la notice.</p>`,
 
   erreurs: [
     'Choisir le volume au nombre de chambres plutôt qu’au nombre d’occupants et à leurs habitudes (bains ou douches).',
@@ -63,6 +66,18 @@ export default {
     {
       question: 'Pourquoi pas simplement 50 litres par personne ?',
       reponse: 'C’est la règle d’usage, mais elle surdimensionne souvent : un ballon trop grand chauffe et perd de l’énergie pour rien. Le calcul part des besoins mesurés par foyer, puis ajoute une marge réglable.',
+    },
+    {
+      question: 'Ballon électrique ou thermodynamique ?',
+      reponse: 'Le thermodynamique consomme en général deux à trois fois moins d’électricité pour chauffer la même eau, mais coûte plus cher à l’achat, fait un léger bruit et demande un local adapté ou des gaines d’air. Il devient intéressant pour un foyer qui consomme beaucoup d’eau chaude.',
+    },
+    {
+      question: 'À quelle température régler le ballon ?',
+      reponse: 'Autour de 55 à 60 °C pour limiter le développement des légionelles. Plus haut, on gaspille de l’énergie et le calcaire se dépose davantage. Au robinet des salles de bains, l’eau ne doit pas dépasser 50 °C : un mitigeur thermostatique protège des brûlures.',
+    },
+    {
+      question: 'Où installer le ballon ?',
+      reponse: 'Près des points d’eau les plus utilisés, dans un local hors gel, sur un support capable de porter son poids plein. Le groupe de sécurité doit être raccordé à une évacuation, et l’emplacement doit laisser accès pour l’entretien.',
     },
   ],
 

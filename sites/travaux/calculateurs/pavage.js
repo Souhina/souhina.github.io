@@ -114,6 +114,14 @@ export default {
       question: 'Quelle profondeur décaisser ?',
       reponse: 'L’épaisseur de fondation, plus le lit de sable, plus l’épaisseur des pavés : environ 25 cm pour une allée piétonne, 35 cm pour une zone circulée.',
     },
+    {
+      question: 'Quelle pente donner à une allée pavée ?',
+      reponse: 'Une légère pente vers l’extérieur, de l’ordre de 1,5 à 2 %, soit 1,5 à 2 cm par mètre, pour que l’eau ne stagne pas et ne s’écoule pas vers la maison.',
+    },
+    {
+      question: 'Avec quoi remplir les joints ?',
+      reponse: 'Du sable fin balayé dans les joints, puis compacté, ou un sable polymère qui durcit à l’humidité et limite les herbes. Les joints au mortier conviennent aux pavés posés sur une dalle béton, pas à une pose sur lit de sable.',
+    },
   ],
 
   exemples: [

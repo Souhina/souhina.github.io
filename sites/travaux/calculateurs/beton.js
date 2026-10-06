@@ -178,6 +178,18 @@ export default {
       question: 'Quel dosage choisir ?',
       reponse: '250 kg/m³ pour un béton de propreté, 300 kg/m³ pour des fondations ou un dallage courant, 350 kg/m³ pour un béton armé. En toupie, la centrale fournit un béton normé : indiquez l’usage et la classe d’exposition.',
     },
+    {
+      question: 'Combien de sacs de béton pour 1 m³ ?',
+      reponse: 'Cela dépend du sac : le volume de béton frais obtenu est indiqué sur l’emballage. Avec des sacs de 35 kg donnant environ 17 litres (repère à vérifier sur le sac), il en faut près de 60 par m³. C’est pourquoi la toupie devient plus simple au-delà d’un ou deux m³.',
+    },
+    {
+      question: 'Au bout de combien de temps peut-on marcher sur une dalle ?',
+      reponse: 'En repère courant, on peut marcher dessus après un ou deux jours, poser des charges légères après une semaine environ, et le béton atteint sa résistance de calcul à 28 jours. Le froid ralentit la prise : ces délais s’allongent en hiver.',
+    },
+    {
+      question: 'Faut-il arroser le béton frais ?',
+      reponse: 'Par temps chaud, sec ou venteux, oui : il faut le garder humide les premiers jours (arrosage en pluie fine, bâche ou produit de cure) pour éviter qu’il sèche trop vite et fissure. Ne coulez jamais par temps de gel.',
+    },
   ],
 
   exemples: [

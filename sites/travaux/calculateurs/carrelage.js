@@ -221,6 +221,18 @@ export default {
       question: 'Faut-il prévoir des carreaux en plus ?',
       reponse: 'Oui : la marge couvre la casse, et quelques carreaux du même lot de fabrication permettront une réparation future.',
     },
+    {
+      question: 'Quelle colle choisir pour un carrelage de sol ?',
+      reponse: 'Un mortier-colle de classe C1 pour les cas courants, C2 pour les grands formats, les supports délicats ou un plancher chauffant. Pour les grands carreaux, le double encollage (colle sur le support et au dos du carreau) est souvent exigé : la notice de la colle précise à partir de quel format.',
+    },
+    {
+      question: 'Quelle largeur de joint prévoir ?',
+      reponse: 'Elle dépend du carreau : quelques millimètres pour un carreau rectifié, davantage pour un carreau non rectifié ou en extérieur. Le fabricant indique la largeur minimale ; le calculateur s’en sert pour la consommation de joint.',
+    },
+    {
+      question: 'Quand peut-on marcher sur un carrelage fraîchement posé ?',
+      reponse: 'Selon la colle : environ 24 heures pour une colle classique, quelques heures pour une colle à prise rapide. Les joints se font après ce délai, et la pleine charge attend le temps indiqué sur le sac.',
+    },
   ],
 
   exemples: [

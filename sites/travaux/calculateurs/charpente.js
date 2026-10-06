@@ -128,6 +128,18 @@ export default {
       question: 'Pourquoi la section des chevrons n’est-elle pas calculée ?',
       reponse: 'Elle dépend de la distance entre pannes, du poids de la couverture, de la neige et du vent de votre région : c’est un calcul de structure, fait par un charpentier ou un bureau d’études.',
     },
+    {
+      question: 'Quel entraxe entre les chevrons ?',
+      reponse: 'On rencontre couramment 40 à 60 cm, mais l’entraxe dépend de la section des chevrons, du poids de la couverture et des charges de neige et de vent. Il se fixe avec le charpentier ou d’après les tableaux du fabricant de couverture.',
+    },
+    {
+      question: 'Quel traitement pour le bois de charpente ?',
+      reponse: 'Un bois de classe d’emploi 2 au moins pour une charpente abritée sous la couverture, soit par son essence, soit par un traitement préventif contre les insectes et les champignons. Les bois exposés à la pluie demandent une classe supérieure.',
+    },
+    {
+      question: 'À quoi servent les contre-liteaux ?',
+      reponse: 'Cloués sur les chevrons par-dessus l’écran de sous-toiture, ils créent une lame d’air ventilée sous les liteaux et la couverture : l’humidité et l’eau qui passeraient s’écoulent sans mouiller les liteaux.',
+    },
   ],
 
   exemples: [

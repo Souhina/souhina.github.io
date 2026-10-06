@@ -72,7 +72,10 @@ export default {
 
   explication: `
         <p>Tous les appareils reçoivent l’eau froide ; lavabos, éviers, douches et baignoires reçoivent aussi l’eau chaude. En distribution par nourrice, chaque départ est un tube continu : longueur = nombre de départs × distance moyenne, plus 10 %.</p>
-        <p>Les WC s’évacuent en Ø 100, les autres appareils en Ø 32 à 40 selon le cas. Le nombre de raccords est une estimation à affiner sur plan.</p>`,
+        <p>Les WC s’évacuent en Ø 100, les autres appareils en Ø 32 à 40 selon le cas. Le nombre de raccords est une estimation à affiner sur plan.</p>
+        <p>Repères courants pour l’alimentation en PER ou multicouche : un tube de 16 mm (diamètre extérieur) pour la plupart des points d’eau, 20 mm pour l’arrivée générale ou une baignoire, et parfois 12 mm sur de très courtes longueurs. Ces valeurs dépendent de la pression et des longueurs : faites-les valider par votre plombier.</p>
+        <p>Évacuations : Ø 100 mm pour les WC, Ø 40 mm pour la douche, la baignoire, l’évier, le lave-linge et le lave-vaisselle, Ø 32 à 40 mm pour un lavabo. La pente reste comprise entre 1 et 3 cm par mètre : trop faible, l’eau stagne ; trop forte, l’eau part sans entraîner les matières. Chaque appareil a son siphon.</p>
+        <p>La chute (le tuyau vertical où se rejoignent les évacuations) doit être ventilée, prolongée jusqu’en toiture ou, selon les cas prévus par le DTU, équipée d’un clapet aérateur. Sans ventilation, les siphons se vident et les odeurs remontent.</p>`,
 
   erreurs: [
     'Mélanger les raccords et les tubes de systèmes différents.',
@@ -103,6 +106,18 @@ export default {
     {
       question: 'PER ou multicouche ?',
       reponse: 'Le PER se pose facilement en gaine dans les murs et les sols ; le multicouche, plus rigide, garde sa forme et convient bien aux parties apparentes. Les deux se raccordent par sertissage ou à glissement.',
+    },
+    {
+      question: 'Quel diamètre de tube pour l’alimentation ?',
+      reponse: 'En repère courant, 16 mm pour la plupart des points d’eau et 20 mm pour l’arrivée générale ou une baignoire. La longueur du réseau et la pression disponible peuvent changer ce choix : demandez l’avis d’un plombier.',
+    },
+    {
+      question: 'Quelle pente pour les évacuations ?',
+      reponse: 'Entre 1 et 3 cm par mètre, de façon régulière. En dessous, l’eau stagne et les dépôts bouchent le tuyau ; au-dessus, l’eau s’écoule trop vite et laisse les matières sur place.',
+    },
+    {
+      question: 'Distribution par nourrice ou en série ?',
+      reponse: 'Avec une nourrice, chaque point d’eau a son tube continu, sans raccord caché dans les murs, et peut être coupé séparément. La distribution en série (en « pieuvre » ou en ligne) demande moins de tube mais des raccords encastrés et des pertes de débit quand plusieurs robinets coulent.',
     },
   ],
 

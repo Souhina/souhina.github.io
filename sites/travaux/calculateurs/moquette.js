@@ -172,6 +172,14 @@ export default {
       question: 'Pourquoi 10 cm de plus par lé ?',
       reponse: 'Les murs ne sont jamais parfaitement droits : la moquette est posée avec un léger excédent, puis arasée au cutter contre la plinthe.',
     },
+    {
+      question: 'Quelle largeur de rouleau choisir ?',
+      reponse: 'Les largeurs courantes sont 4 m et 5 m. Choisissez celle qui couvre la pièce en un seul lé si possible : vous évitez les raccords visibles et, souvent, des chutes.',
+    },
+    {
+      question: 'Moquette collée, tendue ou en pose libre ?',
+      reponse: 'La pose collée est la plus courante et la plus stable. La pose tendue sur thibaude, plus confortable, demande un savoir-faire. La pose libre ou à l’adhésif double face convient aux petites pièces : suivez la notice du fabricant.',
+    },
   ],
 
   exemples: [

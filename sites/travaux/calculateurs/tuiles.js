@@ -149,6 +149,14 @@ export default {
       question: 'Où trouver le nombre de tuiles au m² ?',
       reponse: 'Sur la fiche technique du modèle : il dépend du format de la tuile et du pureau, qui varie lui-même avec la pente.',
     },
+    {
+      question: 'Tuiles mécaniques ou tuiles plates ?',
+      reponse: 'Les tuiles mécaniques à emboîtement se posent vite, avec une dizaine à une quinzaine de tuiles au m² selon le moule. Les tuiles plates se posent en recouvrement, avec plusieurs dizaines de tuiles au m², pour un aspect traditionnel. Le nombre exact figure sur la fiche du modèle.',
+    },
+    {
+      question: 'Faut-il un écran de sous-toiture ?',
+      reponse: 'Il est vivement recommandé : il recueille l’eau ou la neige poudreuse qui passerait sous les tuiles et protège l’isolant. Selon la pente, la longueur du rampant et la zone, le DTU de la couverture peut l’exiger. Choisissez un écran HPV (hautement perméable à la vapeur) sur un comble isolé.',
+    },
   ],
 
   exemples: [

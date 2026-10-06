@@ -72,7 +72,10 @@ export default {
 
   explication: `
         <p>Une gouttière court sous chaque égout, sur la longueur du toit plus les débords. Les crochets se posent environ tous les 50 cm, avec une légère pente vers les descentes.</p>
-        <p>Chaque descente compte une naissance, deux coudes pour contourner le débord de toit, des tuyaux sur toute sa hauteur et un collier environ tous les 1,50 m.</p>`,
+        <p>Chaque descente compte une naissance, deux coudes pour contourner le débord de toit, des tuyaux sur toute sa hauteur et un collier environ tous les 1,50 m.</p>
+        <p>Le dimensionnement part de la surface de toiture en projection horizontale, c’est-à-dire vue du dessus : un pan de 10 m de long et 5 m de profondeur au sol draine 50 m², quelle que soit sa pente. Rapportée à la pluviométrie de la région, cette surface donne la section de gouttière et le nombre de descentes, dans les tableaux du DTU 40.5 et des fabricants.</p>
+        <p>Le calculateur place une descente tous les 12 m de gouttière par défaut : c’est un repère à adapter. Une descente placée au milieu d’un égout reçoit l’eau des deux côtés, alors qu’une descente en bout de gouttière ne draine qu’un seul côté.</p>
+        <p>Matériaux : le zinc dure longtemps mais se façonne et se soude ; le PVC est léger, économique et se colle ou s’emboîte ; l’aluminium, souvent posé en continu sans raccord, se fabrique sur mesure par un professionnel. Tous se dilatent : prévoyez des joints de dilatation sur les grandes longueurs, selon la notice.</p>`,
 
   erreurs: [
     'Poser la gouttière sans pente vers la descente.',
@@ -102,6 +105,18 @@ export default {
     {
       question: 'Quelle pente donner à la gouttière ?',
       reponse: 'Une pente faible et régulière vers la descente, de l’ordre de quelques millimètres par mètre : la notice du fabricant donne la valeur exacte selon le matériau.',
+    },
+    {
+      question: 'Combien de descentes prévoir ?',
+      reponse: 'Au moins une par égout, puis selon la surface de toiture en projection horizontale et la pluviométrie de la région, d’après les tableaux du DTU 40.5 et du fabricant. Sur un long égout, une descente au milieu draine les deux moitiés.',
+    },
+    {
+      question: 'Zinc, PVC ou aluminium ?',
+      reponse: 'Le PVC est le plus économique et le plus simple à poser soi-même. Le zinc est plus durable et plus esthétique, mais demande un savoir-faire de zingueur. L’aluminium, posé en continu sur mesure, évite les raccords et donc les fuites.',
+    },
+    {
+      question: 'Où raccorder les descentes ?',
+      reponse: 'Vers le réseau d’eaux pluviales, un récupérateur d’eau de pluie ou un dispositif d’infiltration, selon le règlement d’assainissement de la commune. Les eaux de pluie ne doivent pas être envoyées dans le réseau d’eaux usées lorsqu’il est séparatif.',
     },
   ],
 

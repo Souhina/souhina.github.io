@@ -221,6 +221,18 @@ export default {
       question: 'Faut-il laisser le parquet s’acclimater ?',
       reponse: 'Oui : les fabricants recommandent de stocker les paquets fermés dans la pièce 48 heures environ avant la pose, pour qu’ils prennent la température et l’humidité ambiantes.',
     },
+    {
+      question: 'Quelle sous-couche choisir ?',
+      reponse: 'Sur un sol minéral (chape, carrelage), une sous-couche avec film pare-vapeur protège le parquet de l’humidité. Une sous-couche acoustique atténue les bruits d’impact, souvent exigée en appartement. Sur un plancher chauffant, choisissez une sous-couche compatible, à faible résistance thermique.',
+    },
+    {
+      question: 'Quel jeu de dilatation laisser ?',
+      reponse: 'En général 8 à 10 mm le long des murs, autour des tuyaux et au droit des seuils, selon la notice du parquet et la taille de la pièce. Les plinthes ou des barres de seuil masquent ce jeu.',
+    },
+    {
+      question: 'Parquet flottant, collé ou cloué ?',
+      reponse: 'Le flottant, posé sur une sous-couche, est le plus simple et le plus courant. Le collé est plus silencieux et convient bien au plancher chauffant. Le cloué, sur lambourdes ou plancher bois, concerne surtout le parquet massif.',
+    },
   ],
 
   exemples: [

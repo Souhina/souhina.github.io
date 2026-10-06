@@ -121,7 +121,10 @@ export default {
   explication: `
         <p>Longueur de tube posé = surface chauffée ÷ pas de pose. À 15 cm, il faut environ 6,7 m de tube par m².</p>
         <p>Le tube est réparti en boucles qui ne dépassent pas la longueur maximale, liaisons avec le collecteur comprises (aller et retour). Chaque boucle occupe un départ du collecteur.</p>
-        <p>L’isolant sous le plancher chauffant se calcule avec le calculateur d’isolation du sol.</p>`,
+        <p>L’isolant sous le plancher chauffant se calcule avec le calculateur d’isolation du sol.</p>
+        <p>Le pas de pose règle la puissance : plus les tubes sont rapprochés, plus le sol émet de chaleur. On resserre souvent le pas le long des baies vitrées et dans les salles de bains, et on l’élargit dans les pièces bien isolées. La température de surface du sol reste limitée, de l’ordre de 28 °C au plus dans les pièces de vie selon le DTU 65.14 (repère à vérifier) : c’est ce qui rend ce chauffage confortable et doux.</p>
+        <p>Le revêtement compte : le carrelage transmet très bien la chaleur ; un parquet, un sol souple ou une moquette doivent être déclarés compatibles par leur fabricant, avec une résistance thermique faible (un repère courant est 0,15 m².K/W au plus).</p>
+        <p>Après le coulage, la chape sèche avant la première mise en chauffe, puis la température monte progressivement, sur plusieurs jours. Les délais dépendent de la chape (ciment ou anhydrite) : suivez sa fiche technique et le protocole de l’installateur.</p>`,
 
   erreurs: [
     'Faire passer le tube sous les meubles fixes et les sanitaires.',
@@ -157,6 +160,18 @@ export default {
     {
       question: 'Pourquoi limiter la longueur d’une boucle ?',
       reponse: 'Au-delà d’une certaine longueur, la perte de charge et l’écart de température entre l’entrée et la sortie deviennent trop importants : la pièce chaufferait de façon inégale.',
+    },
+    {
+      question: 'Quel pas de pose choisir ?',
+      reponse: '15 cm est le cas courant ; 10 cm dans une salle de bains ou le long de grandes baies vitrées ; 20 cm dans une pièce bien isolée. Le pas exact se fixe par l’étude thermique, pièce par pièce.',
+    },
+    {
+      question: 'Peut-on poser du parquet sur un plancher chauffant ?',
+      reponse: 'Oui, si le fabricant du parquet le déclare compatible : en général un parquet contrecollé ou un stratifié, collé ou flottant sur une sous-couche adaptée, avec une résistance thermique faible. Un parquet massif épais freine trop la chaleur.',
+    },
+    {
+      question: 'Quand peut-on allumer le chauffage après la chape ?',
+      reponse: 'Après le temps de séchage indiqué sur la fiche de la chape, puis avec une montée en température progressive sur plusieurs jours. Une chauffe trop rapide fait fissurer la chape et décoller le revêtement.',
     },
   ],
 

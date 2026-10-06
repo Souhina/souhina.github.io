@@ -54,7 +54,15 @@ export default {
 
   explication: `
         <p>Une pente de 1 % correspond à 1 cm de dénivelé par mètre horizontal : le pourcentage et les centimètres par mètre sont la même mesure. En degrés, pente (°) = arctangente (pourcentage ÷ 100) : 100 % correspondent à 45°.</p>
-        <p>« 1 pour n » signifie 1 cm de dénivelé pour n cm horizontaux : 2 % équivalent à 1 pour 50.</p>`,
+        <p>« 1 pour n » signifie 1 cm de dénivelé pour n cm horizontaux : 2 % équivalent à 1 pour 50.</p>
+        <p>Correspondances utiles :</p>
+        <ul>
+        <li>1 % = 1 cm par mètre = 0,57° ; 2 % = 1,15° ; 5 % = 2,86° ; 10 % = 5,71° ;</li>
+        <li>30 % = 16,7° ; 50 % = 26,57° ; 100 % = 45° ;</li>
+        <li>dans l’autre sens, 30° = 57,7 % ; 35° = 70 % ; 40° = 83,9 %.</li>
+        </ul>
+        <p>Le pourcentage et les degrés ne sont pas proportionnels : doubler l’angle ne double pas le pourcentage. C’est pourquoi on ne convertit pas de tête au-delà de quelques pour cent.</p>
+        <p>Ordres de grandeur selon l’ouvrage (à vérifier dans le DTU et la notice concernés) : 1 à 3 cm par mètre pour une évacuation d’eaux usées ; 1 à 2 % au minimum pour un toit plat ; 1,5 à 2 % pour une terrasse ou une allée, vers l’extérieur ; pour une couverture en tuiles ou en ardoises, la pente minimale dépend du modèle, de la longueur du rampant et de la région. Pour une rampe accessible, la réglementation accessibilité des logements neufs limite en principe la pente à 5 %, avec des tolérances sur de courtes longueurs.</p>`,
 
   erreurs: [
     'Confondre degrés et pourcentage : 100 % correspond à 45°, et non à 90°.',
@@ -84,6 +92,18 @@ export default {
     {
       question: 'Quelle pente pour une évacuation ou une terrasse ?',
       reponse: 'Les valeurs dépendent de l’ouvrage et de son DTU : quelques centimètres par mètre pour une évacuation d’eaux usées, un ou deux pour cent pour une terrasse. Vérifiez la valeur exigée pour votre cas.',
+    },
+    {
+      question: 'Combien de degrés font 30 % de pente ?',
+      reponse: 'Environ 16,7°. La conversion passe par l’arctangente : degrés = arctan(pourcentage ÷ 100). 100 % correspondent à 45°, et non à 90°.',
+    },
+    {
+      question: 'Comment mesurer la pente d’un toit ?',
+      reponse: 'Depuis les combles, posez un niveau horizontal d’un mètre contre un chevron et mesurez la distance verticale entre le bout du niveau et le chevron : 40 cm donnent 40 %, soit environ 21,8°. On peut aussi relever la hauteur et la profondeur du pan sur un plan.',
+    },
+    {
+      question: 'Quelle pente maximale pour une rampe d’accès ?',
+      reponse: 'Pour une rampe accessible aux personnes en fauteuil, la réglementation des logements neufs retient en principe 5 % au plus, avec des tolérances sur de courtes longueurs et des paliers de repos. Pour une rampe de garage, la pente peut être plus forte : vérifiez qu’un véhicule ne frotte pas en haut et en bas.',
     },
   ],
 

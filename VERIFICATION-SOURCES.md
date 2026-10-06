@@ -57,3 +57,30 @@ Normes payantes ou documents génériques, cités sans lien volontairement :
 ## Dates de vérification (majLe)
 
 Les 46 calculateurs affichent « Valeurs vérifiées le … ». Cette mention doit correspondre à une relecture réelle des valeurs par défaut (ratios, consommations, formats), idéalement par un artisan du métier. Les guides ont été relus sur le fond ; les valeurs par défaut des calculateurs, elles, n’ont pas encore été revalidées.
+
+## Repères ajoutés aux guides le 6 octobre 2026 (à vérifier)
+
+Valeurs ajoutées dans les explications et les FAQ, avec la mention « repère » ou « à vérifier » dans le texte. À contrôler avant la mise en ligne, idéalement avec un artisan du métier :
+
+- [ ] reseau-electrique : NF C 15-100 édition 2024 (projets lancés à partir de septembre 2025) — 8 points lumineux par circuit 1,5 mm²/16 A ; 8 prises en 1,5 mm²/16 A, 12 en 2,5 mm²/20 A ; plaque 6 mm²/32 A ; prises minimales par pièce ; gaines 16/20/25 mm ; cas où le Consuel est exigé.
+- [ ] calcul-escalier : marche 17-18 cm (21 cm max), giron ≥ 24 cm, échappée ≥ 1,90 m, largeur 80-90 cm, garde-corps NF P01-012 (90 cm sur l’escalier, 1 m sur palier, sphère de 11 cm), ligne de foulée à environ 50 cm.
+- [ ] linteaux : appui d’environ 20 cm pour les petites ouvertures.
+- [ ] drainage-peripherique : pente du drain 0,5 à 1 cm/m, drain Ø 100, gravier 10/20 ou 20/40.
+- [ ] plancher-chauffant : température de surface ≤ 28 °C (DTU 65.14), résistance du revêtement ≤ 0,15 m².K/W.
+- [ ] reseau-plomberie : PER 16 mm courant, 20 mm arrivée générale, évacuations Ø 100 / 40 / 32-40.
+- [ ] toit-plat-epdm : pente 1 à 2 %, relevés ≥ 15 cm (DTU 43.1), EPDM 1,14 ou 1,52 mm.
+- [ ] peinture-facade : déclaration préalable en cas de changement de couleur.
+- [ ] conversion-pente : rampe accessible 5 % (logements neufs), terrasse ou allée 1,5 à 2 %.
+- [ ] ballon-eau-chaude : réglage 55-60 °C, 50 °C maximum au robinet des salles de bains (arrêté du 30 novembre 2005), thermodynamique 2 à 3 fois moins d’électricité.
+- [ ] debit-vmc : détalonnage 1 cm (2 cm cuisine), gaines Ø 125 cuisine et Ø 80 pièces humides.
+- [ ] isolation-sol, quantite-laine-de-verre, isolation-exterieur : seuils R des aides (3 plancher bas, 7 combles, 6 rampants, 3,7 murs), à revoir chaque année.
+- [ ] quantite-plinthes, quantite-parquet : jeu de dilatation 8 à 10 mm.
+- [ ] calcul-beton : sac de 35 kg ≈ 17 litres, délais (marcher après 1 à 2 jours, charges légères après une semaine, 28 jours).
+- [ ] chape-ragreage : « une semaine par centimètre » pour une chape ciment (règle empirique).
+- [ ] cloture : scellement 40 à 60 cm.
+- [ ] lambris-bardage : lame d’air d’environ 2 cm (DTU 41.2).
+- [ ] plaques-de-platre : vis espacées de 30 cm au plus (DTU 25.41).
+- [ ] treillis-soude : recouvrement de deux mailles.
+- [ ] terrasse-lames : espacement d’environ 5 mm.
+- [ ] gravier-remblai : 1,5 à 1,7 t par m³.
+- [ ] couverture-tuiles : 10 à 15 tuiles mécaniques au m².

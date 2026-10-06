@@ -108,6 +108,14 @@ export default {
       question: 'Et pour remblayer avec la terre extraite ?',
       reponse: 'Une fois compactée, la terre retrouve un volume proche de son volume en place, un peu plus grand (foisonnement résiduel). Pour un remblai, partez du volume en place à combler, pas du volume foisonné.',
     },
+    {
+      question: 'Qu’est-ce que le foisonnement ?',
+      reponse: 'Une fois extraite, la terre se décompacte et occupe plus de volume que dans le sol. Le calculateur propose des valeurs d’usage : 1,12 pour un sable ou un gravier, 1,25 pour une terre ordinaire, 1,35 pour une argile et 1,50 pour une roche fragmentée. Votre terrassier peut vous donner la valeur de votre terrain.',
+    },
+    {
+      question: 'Faut-il déclarer des travaux de terrassement ?',
+      reponse: 'Avant de creuser près de réseaux enterrés (gaz, électricité, eau, télécoms), une déclaration de projet de travaux et une déclaration d’intention de commencement de travaux (DT-DICT) sont obligatoires, via le guichet unique des réseaux. Un permis ou une déclaration d’urbanisme peut aussi être nécessaire selon le projet.',
+    },
   ],
 
   exemples: [

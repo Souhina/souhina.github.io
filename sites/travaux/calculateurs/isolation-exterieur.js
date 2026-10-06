@@ -146,6 +146,14 @@ export default {
       question: 'Faut-il une autorisation pour isoler par l’extérieur ?',
       reponse: 'En général une déclaration préalable, car l’aspect de la façade change ; la mairie peut imposer une teinte ou une finition. L’épaisseur ajoutée peut aussi empiéter sur une limite de propriété.',
     },
+    {
+      question: 'Quel isolant choisir pour une ITE ?',
+      reponse: 'Le polystyrène expansé est le plus économique ; la laine de roche résiste mieux au feu et laisse passer la vapeur d’eau ; la fibre de bois améliore le confort d’été. Le choix dépend aussi du support et du bâtiment : en logement collectif, des règles de sécurité incendie s’ajoutent.',
+    },
+    {
+      question: 'Quelle épaisseur d’isolant prévoir ?',
+      reponse: 'Épaisseur = résistance visée × lambda de l’isolant. Pour R = 3,7, valeur souvent demandée pour les aides en murs (à vérifier chaque année), il faut environ 12 cm d’un isolant à λ = 0,032.',
+    },
   ],
 
   exemples: [

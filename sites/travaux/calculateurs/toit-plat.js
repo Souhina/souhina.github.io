@@ -60,7 +60,10 @@ export default {
   ],
 
   explication: `
-        <p>La membrane EPDM se commande d’un seul tenant, découpée aux dimensions : longueur et largeur du toit, plus deux fois la hauteur des relevés, plus 10 cm de chaque côté pour la fixation. Un toit de 5 × 4 m avec 15 cm de relevés demande une membrane de 5,50 × 4,50 m.</p>`,
+        <p>La membrane EPDM se commande d’un seul tenant, découpée aux dimensions : longueur et largeur du toit, plus deux fois la hauteur des relevés, plus 10 cm de chaque côté pour la fixation. Un toit de 5 × 4 m avec 15 cm de relevés demande une membrane de 5,50 × 4,50 m.</p>
+        <p>Un toit plat a toujours une légère pente vers ses évacuations : de l’ordre de 1 à 2 % au minimum selon le système et l’avis technique de la membrane. Une forme de pente (chape ou isolant taillé en pente) se prévoit avant la pose si le support est horizontal.</p>
+        <p>Les relevés remontent sur les acrotères et les murs, en général d’au moins 15 cm au-dessus de la surface finie (repère du DTU 43.1, à vérifier pour votre cas). Dès que la toiture est entourée de relevés, un trop-plein évacue l’eau si une évacuation se bouche.</p>
+        <p>La membrane EPDM existe en plusieurs épaisseurs, souvent 1,14 ou 1,52 mm : la plus épaisse résiste mieux au poinçonnement et aux passages. Sur une toiture isolée, l’isolant doit être prévu pour recevoir une étanchéité et supporter les charges.</p>`,
 
   erreurs: [
     'Poser sur un toit sans pente vers les évacuations : l’eau stagne.',
@@ -95,6 +98,18 @@ export default {
     {
       question: 'Quelle pente pour un toit plat ?',
       reponse: 'Un toit « plat » a toujours une légère pente vers ses évacuations, de l’ordre de 1 à 2 % au minimum selon le système : l’eau ne doit jamais stagner.',
+    },
+    {
+      question: 'Quelle hauteur de relevé prévoir ?',
+      reponse: 'En général au moins 15 cm au-dessus de la surface finie de la toiture, repère du DTU 43.1 à vérifier selon votre configuration et la notice de la membrane. Le calculateur ajoute à chaque dimension deux fois cette hauteur, plus 10 cm de fixation de chaque côté.',
+    },
+    {
+      question: 'Faut-il un trop-plein ?',
+      reponse: 'Oui dès que la toiture est entourée d’acrotères ou de relevés : si l’évacuation principale se bouche, le trop-plein empêche l’eau de monter au-dessus des relevés et d’entrer dans le bâtiment.',
+    },
+    {
+      question: 'Quelle épaisseur de membrane EPDM choisir ?',
+      reponse: '1,14 mm convient aux petites toitures peu circulées (abri, garage) ; 1,52 mm résiste mieux au poinçonnement, aux passages d’entretien et aux toitures végétalisées. Suivez l’avis technique de la membrane.',
     },
   ],
 

@@ -137,6 +137,14 @@ export default {
       question: 'Rouleaux ou panneaux ?',
       reponse: 'Les panneaux semi-rigides se tiennent debout entre des montants ou des chevrons. Les rouleaux conviennent aux grandes surfaces horizontales comme les combles.',
     },
+    {
+      question: 'Quelle épaisseur de laine de roche pour R = 7 ?',
+      reponse: 'Épaisseur = R × λ. Avec un lambda de 0,035, il faut environ 24,5 cm, que l’on atteint en une ou deux couches selon les épaisseurs vendues.',
+    },
+    {
+      question: 'Faut-il un pare-vapeur ?',
+      reponse: 'Souvent oui, côté chauffé, pour empêcher la vapeur d’eau de la maison de condenser dans l’isolant. Une membrane hygrorégulante est une alternative courante. Suivez la notice du fabricant et le DTU 45.10 pour les combles.',
+    },
   ],
 
   exemples: [

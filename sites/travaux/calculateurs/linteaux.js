@@ -68,18 +68,28 @@ export default {
 
   explication: `
         <p>Longueur d’un linteau = largeur de l’ouverture + deux appuis, arrondie à la longueur vendue immédiatement supérieure. Avec 20 cm d’appui, une porte de 90 cm demande un linteau de 1,30 m, commandé en 1,40 m si les longueurs vont de 20 cm en 20 cm.</p>
-        <p>Le calcul regroupe les ouvertures par largeur pour donner une liste de commande.</p>`,
+        <p>Le calcul regroupe les ouvertures par largeur pour donner une liste de commande.</p>
+        <p>Trois familles de linteaux se rencontrent sur les chantiers :</p>
+        <ul>
+        <li>préfabriqué en béton armé ou précontraint : le plus rapide à poser, vendu en longueurs standard avec un tableau des charges admissibles ;</li>
+        <li>coulé en place : un coffrage et des armatures, pour les largeurs ou les formes hors standard ;</li>
+        <li>bois (souvent du chêne) ou acier : plutôt en rénovation de bâti ancien ou pour de grandes ouvertures, selon l’étude.</li>
+        </ul>
+        <p>L’appui de 20 cm proposé par défaut est un repère courant pour les petites ouvertures ; l’appui minimal réel dépend du linteau, de sa portée et de la maçonnerie, et figure sur la fiche du fabricant. Plus l’ouverture est large, plus l’appui demandé augmente.</p>
+        <p>Créer une ouverture dans un mur porteur existant est un cas à part : il faut étayer le plancher au-dessus, poser un linteau ou une poutre dimensionnés par un bureau d’études et, en copropriété, obtenir l’accord de l’assemblée générale.</p>`,
 
   erreurs: [
     'Commander un linteau à la largeur de l’ouverture sans ses appuis.',
     'Choisir la section sans tenir compte des charges.',
     'Poser un linteau préfabriqué à l’envers.',
+    'Ouvrir une baie dans un mur porteur sans étayer le plancher au-dessus.',
   ],
 
   conseils: [
     'Faites dimensionner les linteaux d’un mur porteur par un professionnel.',
     'Étayez le linteau coulé en place jusqu’à la fin de la prise.',
     'Respectez le sens de pose marqué sur le linteau préfabriqué.',
+    'Pour un linteau préfabriqué, lisez dans le tableau du fabricant la charge admissible pour votre portée avant de commander.',
   ],
 
   normes: [
@@ -102,6 +112,18 @@ export default {
     {
       question: 'Pourquoi le calculateur ne donne-t-il pas la section du linteau ?',
       reponse: 'La section et les armatures dépendent de ce que le linteau porte (plancher, toiture, maçonnerie au-dessus) : c’est un calcul de structure, fait par le fabricant dans ses tableaux de charges ou par un bureau d’études.',
+    },
+    {
+      question: 'Quelle longueur d’appui prévoir de chaque côté ?',
+      reponse: 'Une vingtaine de centimètres de chaque côté est un repère courant pour une porte ou une fenêtre standard. L’appui minimal exact dépend du linteau et de sa portée : il est indiqué sur la fiche du fabricant, et il augmente pour les grandes ouvertures.',
+    },
+    {
+      question: 'Linteau préfabriqué ou coulé en place ?',
+      reponse: 'Le préfabriqué se pose sans coffrage et sa charge admissible est connue ; il convient à la plupart des portes et fenêtres. Le linteau coulé en place s’adapte à toutes les largeurs et formes, mais demande un coffrage, des armatures, un étaiement et le temps de prise du béton.',
+    },
+    {
+      question: 'Peut-on ouvrir un mur porteur soi-même ?',
+      reponse: 'C’est une opération risquée : le mur porte le plancher ou la toiture. Il faut une étude de structure, un étaiement provisoire et un linteau ou une poutre dimensionnés. En copropriété, l’accord de l’assemblée générale est nécessaire, et une modification de façade peut demander une déclaration préalable.',
     },
   ],
 

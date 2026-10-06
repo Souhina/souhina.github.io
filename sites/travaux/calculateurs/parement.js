@@ -58,12 +58,16 @@ export default {
 
   explication: `
         <p>Surface à habiller = longueur × hauteur − ouvertures. Les plaquettes d’angle couvrent environ 10 cm de chaque côté de l’angle : cette surface est retirée des plaquettes planes.</p>
-        <p>La chute de coupe s’ajoute aux plaquettes planes ; le mortier-colle se calcule sur toute la surface, selon la consommation indiquée sur le sac.</p>`,
+        <p>La chute de coupe s’ajoute aux plaquettes planes ; le mortier-colle se calcule sur toute la surface, selon la consommation indiquée sur le sac.</p>
+        <p>Le support décide de la colle et du poids admissible : un parement en pierre reconstituée ou naturelle pèse souvent plusieurs dizaines de kilos par m², un parement en plâtre beaucoup moins. Sur plaque de plâtre, vérifiez le poids maximal admis dans les notices du fabricant de plaques et du parement ; sur un mur peint, poncez ou décapez la peinture pour que la colle accroche au support et non à la peinture.</p>
+        <p>Avec ou sans joint : un parement à joint creux se pose avec l’écart prévu par le fabricant, puis se jointoie au mortier ; un parement à joint sec se pose bord à bord. La surface couverte par carton, indiquée sur l’emballage, tient en général déjà compte du type de pose.</p>
+        <p>Chaque mètre d’angle sortant (angle de mur, tableau de fenêtre, pilier) demande des plaquettes d’angle, vendues à part au mètre linéaire. Mesurez-les à part : elles coûtent plus cher que les plaquettes planes.</p>`,
 
   erreurs: [
     'Oublier les plaquettes d’angle pour les angles sortants et les tableaux.',
     'Poser un parement lourd sur un support qui ne le supporte pas.',
     'Utiliser une colle non prévue pour l’extérieur.',
+    'Coller sur une peinture sans la poncer ni appliquer de primaire : la colle accroche à la peinture, pas au mur.',
   ],
 
   conseils: [
@@ -88,6 +92,18 @@ export default {
     {
       question: 'Parement intérieur ou extérieur ?',
       reponse: 'Le calcul est le même. En extérieur, choisissez des plaquettes et un mortier-colle adaptés au gel et vérifiez la compatibilité avec le support.',
+    },
+    {
+      question: 'Peut-on poser un parement sur une plaque de plâtre ?',
+      reponse: 'Oui, si le poids du parement au m² reste dans la limite admise par la plaque et son ossature, et avec une colle adaptée. Les parements lourds en pierre demandent parfois une plaque spécifique ou un support maçonné : suivez les notices des deux fabricants.',
+    },
+    {
+      question: 'Faut-il des plaquettes d’angle ?',
+      reponse: 'Oui pour chaque angle sortant : angles de murs, tableaux de fenêtres, piliers. Sans elles, la tranche des plaquettes planes reste visible et l’angle paraît inachevé.',
+    },
+    {
+      question: 'Quelle colle utiliser ?',
+      reponse: 'Un mortier-colle prévu pour le type de parement et pour le support, et adapté à l’extérieur et au gel si besoin. Pour les plaquettes lourdes ou de grand format, un double encollage (colle sur le mur et au dos de la plaquette) améliore l’adhérence.',
     },
   ],
 

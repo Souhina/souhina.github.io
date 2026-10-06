@@ -58,7 +58,10 @@ export default {
 
   explication: `
         <p>Le drain court au pied des fondations, dans un lit de gravier enveloppé de géotextile, avec un regard à chaque angle. Une membrane à excroissances protège le mur enterré sur toute sa hauteur.</p>
-        <p>Gravier (t) = longueur × largeur du lit × épaisseur × 1,5 : pour 40 m, un lit de 40 × 30 cm demande 4,8 m³, soit environ 7,2 t.</p>`,
+        <p>Gravier (t) = longueur × largeur du lit × épaisseur × 1,5 : pour 40 m, un lit de 40 × 30 cm demande 4,8 m³, soit environ 7,2 t.</p>
+        <p>Le drain se pose au pied des fondations, sans descendre sous le dessous des semelles pour ne pas affaiblir le sol qui les porte. Il garde une pente régulière vers l’exutoire, de l’ordre de 0,5 à 1 cm par mètre selon les guides courants (à vérifier avec le DTU 20.1 et la notice du drain).</p>
+        <p>De bas en haut : le géotextile tapisse la tranchée, puis un lit de gravier lavé, le drain (souvent en Ø 100 mm, fentes vers le bas ou sur le côté selon le modèle), un nouveau lit de gravier, et le géotextile se referme par-dessus avant le remblai. La membrane à excroissances, plaquée contre le mur, laisse l’eau descendre jusqu’au drain.</p>
+        <p>Un regard de visite à chaque angle permet de contrôler l’écoulement et de curer le drain. Avant de drainer, cherchez la cause de l’humidité : un défaut de gouttière ou une terrasse en contre-pente suffit parfois à mouiller un mur enterré.</p>`,
 
   erreurs: [
     'Poser le drain sans pente régulière vers l’exutoire.',
@@ -71,6 +74,7 @@ export default {
     'Prévoyez des regards de visite aux changements de direction.',
     'Protégez le mur enterré avec une membrane à excroissances.',
     'Entourez le drain de gravier lavé, enveloppé dans un géotextile.',
+    'Testez l’écoulement en versant de l’eau dans le regard le plus haut avant de remblayer.',
   ],
 
   normes: [
@@ -89,6 +93,18 @@ export default {
     {
       question: 'Où évacuer l’eau du drain ?',
       reponse: 'Vers un exutoire autorisé : puits perdu, fossé ou réseau d’eaux pluviales selon les règles de la commune. Jamais vers le réseau d’eaux usées.',
+    },
+    {
+      question: 'Quelle pente donner au drain ?',
+      reponse: 'Une pente régulière et continue vers l’exutoire, de l’ordre de 0,5 à 1 cm par mètre selon les guides courants. Sans pente, l’eau stagne et le drain se colmate ; vérifiez la valeur avec le DTU 20.1 et la notice du fabricant.',
+    },
+    {
+      question: 'À quelle profondeur poser le drain ?',
+      reponse: 'Au niveau du pied des fondations, sous le niveau du sol intérieur à protéger, mais sans descendre sous le dessous des semelles : creuser plus bas risquerait de décomprimer le sol qui porte la maison.',
+    },
+    {
+      question: 'Quel gravier utiliser ?',
+      reponse: 'Un gravier lavé, sans fines, de granulométrie moyenne (par exemple 10/20 ou 20/40 selon le fournisseur), enveloppé dans un géotextile qui empêche la terre de colmater le drain.',
     },
   ],
 

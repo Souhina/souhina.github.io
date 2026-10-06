@@ -139,6 +139,10 @@ export default {
       question: 'Comment savoir si mon papier a un raccord droit ou sauté ?',
       reponse: 'Un pictogramme sur l’étiquette l’indique, avec la hauteur du raccord. Posez toujours le premier lé à l’aplomb et vérifiez l’alignement du motif avant d’encoller les suivants.',
     },
+    {
+      question: 'Faut-il encoller le mur ou le papier ?',
+      reponse: 'Cela dépend du papier : un intissé se pose en encollant le mur, ce qui accélère la pose ; un papier traditionnel s’encolle au dos et doit détremper le temps indiqué. Le pictogramme de l’étiquette précise la méthode et la colle à utiliser.',
+    },
   ],
 
   exemples: [

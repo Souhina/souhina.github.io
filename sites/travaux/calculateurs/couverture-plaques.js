@@ -177,6 +177,14 @@ export default {
       question: 'Quelle pente minimale pour des plaques ondulées ?',
       reponse: 'Elle dépend du produit et du recouvrement : les fabricants indiquent souvent une pente minimale d’une dizaine de degrés, davantage pour le shingle. Vérifiez la notice avant de choisir.',
     },
+    {
+      question: 'Plaques bitumées, acier ou polycarbonate ?',
+      reponse: 'Les plaques bitumées sont légères, économiques et silencieuses sous la pluie ; l’acier dure plus longtemps mais peut être bruyant et faire de la condensation sans feutre ; le polycarbonate laisse passer la lumière, pour un abri ou une véranda. Chaque produit a sa pente minimale et son entraxe de support.',
+    },
+    {
+      question: 'Quel recouvrement entre deux plaques ?',
+      reponse: 'Il dépend du produit et de la pente : en général une ou deux ondes sur le côté, et une dizaine à une vingtaine de centimètres entre deux rangées. Plus la pente est faible ou l’exposition forte, plus le recouvrement augmente : suivez la notice.',
+    },
   ],
 
   exemples: [

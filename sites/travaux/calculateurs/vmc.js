@@ -61,7 +61,15 @@ export default {
 
   explication: `
         <p>L’arrêté du 24 mars 1982 fixe, pièce de service par pièce de service, le débit d’extraction que la ventilation doit pouvoir atteindre, selon le nombre de pièces principales du logement. Le débit total est la somme : un logement de 4 pièces principales avec une salle de bains et un WC séparé demande 120 + 30 + 30 = 180 m³/h.</p>
-        <p>La première salle de bains prend le débit de la colonne « salle de bains », les suivantes celui d’une « autre salle d’eau » (15 m³/h). Les WC sont « multiples » s’il y en a au moins deux dans le logement : chacun est alors à 15 m³/h.</p>`,
+        <p>La première salle de bains prend le débit de la colonne « salle de bains », les suivantes celui d’une « autre salle d’eau » (15 m³/h). Les WC sont « multiples » s’il y en a au moins deux dans le logement : chacun est alors à 15 m³/h.</p>
+        <p>Trois grands types de VMC :</p>
+        <ul>
+        <li>simple flux autoréglable : le débit reste constant, quelle que soit l’occupation ;</li>
+        <li>simple flux hygroréglable : les bouches (hygro A) ou les bouches et les entrées d’air (hygro B) adaptent le débit à l’humidité, ce qui réduit les pertes de chaleur ;</li>
+        <li>double flux : l’air neuf est insufflé et réchauffé par l’air extrait dans un échangeur ; c’est la plus économe en chauffage, mais elle demande deux réseaux de gaines et un entretien régulier des filtres.</li>
+        </ul>
+        <p>L’air entre par les pièces principales (entrées d’air sur les fenêtres ou dans les murs), circule sous les portes intérieures et sort par les pièces de service. Repères courants : un détalonnage d’environ 1 cm sous les portes intérieures et 2 cm sous celle de la cuisine ; des gaines de Ø 125 mm pour la cuisine et de Ø 80 mm pour la salle de bains et les WC, à vérifier dans la notice du caisson.</p>
+        <p>La hotte de cuisine ne se raccorde jamais au réseau de VMC : elle a sa propre évacuation, ou fonctionne en recyclage.</p>`,
 
   erreurs: [
     'Oublier les entrées d’air dans les pièces de vie : sans elles, la VMC ne renouvelle pas l’air.',
@@ -97,6 +105,18 @@ export default {
     {
       question: 'Et dans un studio ?',
       reponse: 'Dans un logement d’une seule pièce principale, la salle de bains et le WC, s’ils sont contigus, peuvent partager une sortie d’air commune située dans le WC, avec un débit de 15 m³/h (article 3 de l’arrêté).',
+    },
+    {
+      question: 'VMC simple flux ou double flux ?',
+      reponse: 'La simple flux hygroréglable est la solution la plus courante en rénovation : simple à poser et économe. La double flux récupère la chaleur de l’air extrait et filtre l’air neuf ; elle convient surtout à une maison bien isolée et étanche à l’air, car elle demande deux réseaux de gaines.',
+    },
+    {
+      question: 'Peut-on raccorder la hotte de cuisine à la VMC ?',
+      reponse: 'Non. La hotte perturberait les débits de tout le réseau et y enverrait des graisses. Elle a sa propre sortie vers l’extérieur, ou fonctionne en recyclage avec un filtre à charbon.',
+    },
+    {
+      question: 'Faut-il couper la VMC en hiver ?',
+      reponse: 'Non : sans renouvellement d’air, l’humidité et les polluants s’accumulent et favorisent la condensation et les moisissures. Une VMC hygroréglable réduit d’elle-même le débit quand l’air est sec.',
     },
   ],
 

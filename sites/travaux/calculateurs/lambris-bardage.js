@@ -170,6 +170,14 @@ export default {
       question: 'Faut-il traiter le bois d’un bardage ?',
       reponse: 'Selon l’essence et la classe d’emploi : certaines essences s’utilisent brutes et grisent naturellement, d’autres demandent un traitement ou une finition (lasure, saturateur) renouvelée régulièrement.',
     },
+    {
+      question: 'Pose horizontale ou verticale ?',
+      reponse: 'Les deux sont possibles. En pose horizontale, la languette se place vers le haut pour que l’eau ne pénètre pas dans l’assemblage. La pose verticale facilite l’écoulement de l’eau en bardage et allonge visuellement le mur.',
+    },
+    {
+      question: 'Faut-il une lame d’air derrière un bardage ?',
+      reponse: 'Oui : un bardage extérieur se pose sur tasseaux avec une lame d’air ventilée, ouverte en bas et en haut, pour que le bois sèche des deux côtés. Le DTU 41.2 en fixe l’épaisseur minimale, de l’ordre de 2 cm (à vérifier).',
+    },
   ],
 
   exemples: [
