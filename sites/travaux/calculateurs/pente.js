@@ -62,7 +62,7 @@ export default {
         <li>dans l’autre sens, 30° = 57,7 % ; 35° = 70 % ; 40° = 83,9 %.</li>
         </ul>
         <p>Le pourcentage et les degrés ne sont pas proportionnels : doubler l’angle ne double pas le pourcentage. C’est pourquoi on ne convertit pas de tête au-delà de quelques pour cent.</p>
-        <p>Ordres de grandeur selon l’ouvrage (à vérifier dans le DTU et la notice concernés) : 1 à 3 cm par mètre pour une évacuation d’eaux usées ; 1 à 2 % au minimum pour un toit plat ; 1,5 à 2 % pour une terrasse ou une allée, vers l’extérieur ; pour une couverture en tuiles ou en ardoises, la pente minimale dépend du modèle, de la longueur du rampant et de la région. Pour une rampe accessible, la réglementation accessibilité des logements neufs limite en principe la pente à 5 %, avec des tolérances sur de courtes longueurs.</p>`,
+        <p>Ordres de grandeur selon l’ouvrage (à vérifier dans le DTU et la notice concernés) : 1 à 3 cm par mètre pour une évacuation d’eaux usées ; pour un toit plat, selon le support et l’avis technique de la membrane ; 1,5 à 2 % pour une terrasse ou une allée, vers l’extérieur ; pour une couverture en tuiles ou en ardoises, la pente minimale dépend du modèle, de la longueur du rampant et de la région. Pour une rampe accessible, l’arrêté du 24 décembre 2015 limite la pente à 5 % dans les logements neufs (8 % sur 2 m au plus, 10 % sur 50 cm au plus) ; les maisons construites par leur propriétaire pour son propre usage ne sont pas concernées.</p>`,
 
   erreurs: [
     'Confondre degrés et pourcentage : 100 % correspond à 45°, et non à 90°.',
@@ -103,7 +103,7 @@ export default {
     },
     {
       question: 'Quelle pente maximale pour une rampe d’accès ?',
-      reponse: 'Pour une rampe accessible aux personnes en fauteuil, la réglementation des logements neufs retient en principe 5 % au plus, avec des tolérances sur de courtes longueurs et des paliers de repos. Pour une rampe de garage, la pente peut être plus forte : vérifiez qu’un véhicule ne frotte pas en haut et en bas.',
+      reponse: 'Pour une rampe accessible aux personnes en fauteuil, l’arrêté du 24 décembre 2015 retient 5 % au plus dans les logements neufs, avec des tolérances (8 % sur 2 m, 10 % sur 50 cm) et des paliers de repos ; une maison construite pour son propre usage n’y est pas soumise. Pour une rampe de garage, la pente peut être plus forte : vérifiez qu’un véhicule ne frotte pas en haut et en bas.',
     },
   ],
 

@@ -19,7 +19,7 @@ export default {
     { id: 'largeur', saisie: true, label: 'Largeur de la dalle', unite: 'm', requis: true, min: 0.5, max: 200, defaut: 4 },
     { id: 'longueurPanneau', label: 'Longueur d’un panneau', unite: 'm', requis: true, min: 1, max: 12, defaut: 6, aide: 'Format courant : 6,00 × 2,40 m.' },
     { id: 'largeurPanneau', label: 'Largeur d’un panneau', unite: 'm', requis: true, min: 0.5, max: 4, defaut: 2.4 },
-    { id: 'recouvrement', label: 'Recouvrement entre panneaux', unite: 'cm', min: 0, max: 100, defaut: 20, aide: 'Souvent deux mailles ; la valeur exacte dépend du treillis et de l’ouvrage : à vérifier.' },
+    { id: 'recouvrement', label: 'Recouvrement entre panneaux', unite: 'cm', min: 0, max: 100, defaut: 30, aide: 'Selon le treillis, souvent 25 à 35 cm : la fiche du fabricant fait foi.' },
     { id: 'calesM2', avance: true, label: 'Cales d’enrobage par m²', min: 0, defaut: 4, aide: 'Valeur indicative, à vérifier : elles maintiennent le treillis dans l’épaisseur du béton.' },
     { id: 'prixPanneau', label: 'Prix d’un panneau', unite: '€', min: 0 },
   ],
@@ -58,7 +58,7 @@ export default {
   ],
 
   explication: `
-        <p>Les panneaux sont posés dans le sens de la longueur de la dalle et se recouvrent sur leurs bords. Nombre de panneaux sur un côté = (côté − recouvrement) ÷ (dimension du panneau − recouvrement), arrondi au-dessus. Une dalle de 6 × 4 m avec des panneaux de 6 × 2,40 m et 20 cm de recouvrement demande 1 × 2 = 2 panneaux.</p>
+        <p>Les panneaux sont posés dans le sens de la longueur de la dalle et se recouvrent sur leurs bords. Nombre de panneaux sur un côté = (côté − recouvrement) ÷ (dimension du panneau − recouvrement), arrondi au-dessus. Une dalle de 6 × 4 m avec des panneaux de 6 × 2,40 m et 30 cm de recouvrement demande 1 × 2 = 2 panneaux.</p>
         <p>Les cales maintiennent le treillis à la bonne hauteur dans le béton, pour qu’il soit enrobé de tous côtés.</p>`,
 
   erreurs: [
@@ -97,7 +97,7 @@ export default {
     },
     {
       question: 'Quel recouvrement entre deux panneaux ?',
-      reponse: 'En repère courant, au moins deux mailles, soit une vingtaine de centimètres pour une maille de 10 cm. La notice du treillis et le DTU 13.3 font foi.',
+      reponse: 'Il dépend du treillis : de l’ordre de 25 à 35 cm selon les produits (par exemple 34 cm pour un ST 25 C chez un fabricant). La fiche du treillis et le DTU 13.3 font foi.',
     },
     {
       question: 'À quelle hauteur placer le treillis dans la dalle ?',

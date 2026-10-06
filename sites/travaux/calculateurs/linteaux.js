@@ -75,7 +75,7 @@ export default {
         <li>coulé en place : un coffrage et des armatures, pour les largeurs ou les formes hors standard ;</li>
         <li>bois (souvent du chêne) ou acier : plutôt en rénovation de bâti ancien ou pour de grandes ouvertures, selon l’étude.</li>
         </ul>
-        <p>L’appui de 20 cm proposé par défaut est un repère courant pour les petites ouvertures ; l’appui minimal réel dépend du linteau, de sa portée et de la maçonnerie, et figure sur la fiche du fabricant. Plus l’ouverture est large, plus l’appui demandé augmente.</p>
+        <p>L’appui de 20 cm proposé par défaut correspond au minimum courant des linteaux préfabriqués ; un fabricant demande par exemple un appui égal au dixième de la portée, avec 20 cm au moins. L’appui réel dépend du linteau et de la maçonnerie : il figure sur la fiche du fabricant.</p>
         <p>Créer une ouverture dans un mur porteur existant est un cas à part : il faut étayer le plancher au-dessus, poser un linteau ou une poutre dimensionnés par un bureau d’études et, en copropriété, obtenir l’accord de l’assemblée générale.</p>`,
 
   erreurs: [

@@ -51,36 +51,38 @@ Normes payantes ou documents génériques, cités sans lien volontairement :
 
 ## Valeurs à revérifier chaque année
 
-- Résistances thermiques de la liste « Paroi à isoler » (laine de verre, laine de roche) : combles perdus R = 7, rampants R = 6, murs R = 3,7, plancher bas R = 3. Ce sont les seuils des aides à la rénovation (MaPrimeRénov’, CEE), relevés le 4 octobre 2026 sur https://batisec.net/aides-a-isolation/ (Légifrance bloque la consultation automatique de l’arrêté du 17 novembre 2020). À confirmer sur france-renov.gouv.fr à chaque changement de barème.
+- Résistances thermiques de la liste « Paroi à isoler » (laine de verre, laine de roche) : combles perdus R = 7, rampants R = 6, murs R = 3,7, plancher bas R = 3. Ce sont les seuils des fiches CEE BAR-EN-101, 102 et 103, confirmés le 6 octobre 2026 sur mesaides.france-renov.gouv.fr. MaPrimeRénov’ a ses propres conditions. À revérifier à chaque changement de barème.
 - λ indicatifs de la liste « Isolant » (isolation par l’extérieur) : repris de l’aide déjà présente dans le calculateur ; à confirmer avec des fiches techniques de fabricants.
 
 ## Dates de vérification (majLe)
 
 Les 46 calculateurs affichent « Valeurs vérifiées le … ». Cette mention doit correspondre à une relecture réelle des valeurs par défaut (ratios, consommations, formats), idéalement par un artisan du métier. Les guides ont été relus sur le fond ; les valeurs par défaut des calculateurs, elles, n’ont pas encore été revalidées.
 
-## Repères ajoutés aux guides le 6 octobre 2026 (à vérifier)
+## Repères ajoutés aux guides le 6 octobre 2026 — audit et corrections du 6 octobre 2026
 
-Valeurs ajoutées dans les explications et les FAQ, avec la mention « repère » ou « à vérifier » dans le texte. À contrôler avant la mise en ligne, idéalement avec un artisan du métier :
+Audit détaillé : document de projet `audits/audit-verifications-chiffrees-2026-10-06.md` (sources consultées le 6 octobre 2026).
+Aucune norme payante n’a été consultée directement : les valeurs « normatives » sont recoupées avec des documents de fabricants ou d’organismes qui les citent. Une case n’est cochée que si la preuve est suffisante.
+Légende : 🟢 confirmé · 🟡 à confirmer · ✏️ corrigé dans le code le 6 octobre 2026.
 
-- [ ] reseau-electrique : NF C 15-100 édition 2024 (projets lancés à partir de septembre 2025) — 8 points lumineux par circuit 1,5 mm²/16 A ; 8 prises en 1,5 mm²/16 A, 12 en 2,5 mm²/20 A ; plaque 6 mm²/32 A ; prises minimales par pièce ; gaines 16/20/25 mm ; cas où le Consuel est exigé.
-- [ ] calcul-escalier : marche 17-18 cm (21 cm max), giron ≥ 24 cm, échappée ≥ 1,90 m, largeur 80-90 cm, garde-corps NF P01-012 (90 cm sur l’escalier, 1 m sur palier, sphère de 11 cm), ligne de foulée à environ 50 cm.
-- [ ] linteaux : appui d’environ 20 cm pour les petites ouvertures.
-- [ ] drainage-peripherique : pente du drain 0,5 à 1 cm/m, drain Ø 100, gravier 10/20 ou 20/40.
-- [ ] plancher-chauffant : température de surface ≤ 28 °C (DTU 65.14), résistance du revêtement ≤ 0,15 m².K/W.
-- [ ] reseau-plomberie : PER 16 mm courant, 20 mm arrivée générale, évacuations Ø 100 / 40 / 32-40.
-- [ ] toit-plat-epdm : pente 1 à 2 %, relevés ≥ 15 cm (DTU 43.1), EPDM 1,14 ou 1,52 mm.
-- [ ] peinture-facade : déclaration préalable en cas de changement de couleur.
-- [ ] conversion-pente : rampe accessible 5 % (logements neufs), terrasse ou allée 1,5 à 2 %.
-- [ ] ballon-eau-chaude : réglage 55-60 °C, 50 °C maximum au robinet des salles de bains (arrêté du 30 novembre 2005), thermodynamique 2 à 3 fois moins d’électricité.
-- [ ] debit-vmc : détalonnage 1 cm (2 cm cuisine), gaines Ø 125 cuisine et Ø 80 pièces humides.
-- [ ] isolation-sol, quantite-laine-de-verre, isolation-exterieur : seuils R des aides (3 plancher bas, 7 combles, 6 rampants, 3,7 murs), à revoir chaque année.
-- [ ] quantite-plinthes, quantite-parquet : jeu de dilatation 8 à 10 mm.
-- [ ] calcul-beton : sac de 35 kg ≈ 17 litres, délais (marcher après 1 à 2 jours, charges légères après une semaine, 28 jours).
-- [ ] chape-ragreage : « une semaine par centimètre » pour une chape ciment (règle empirique).
-- [ ] cloture : scellement 40 à 60 cm.
-- [ ] lambris-bardage : lame d’air d’environ 2 cm (DTU 41.2).
-- [ ] plaques-de-platre : vis espacées de 30 cm au plus (DTU 25.41).
-- [ ] treillis-soude : recouvrement de deux mailles.
-- [ ] terrasse-lames : espacement d’environ 5 mm.
-- [ ] gravier-remblai : 1,5 à 1,7 t par m³.
-- [ ] couverture-tuiles : 10 à 15 tuiles mécaniques au m².
+- [ ] reseau-electrique — ✏️ prises minimales par pièce reformulées (sources divergentes), circuits d’éclairage « dès deux pièces principales ». 🟡 8 points lumineux, 8 prises en 1,5 mm²/16 A, 12 en 2,5 mm²/20 A, plaque en 6 mm²/32 A (guide Schneider 2019, Legrand) : à confirmer dans la NF C 15-100-10 (2024). 🟢 cas où le Consuel est exigé (décret n° 72-1120 modifié, règlement d’intervention du Consuel, 2020). 🟡 gaines 16/20/25 mm (pratique).
+- [ ] calcul-escalier — ✏️ garde-corps : valeurs de la NF P01-012 de 1988 retirées (norme révisée le 22/11/2024) ; hauteur de marche alignée sur 16-18 cm. 🟢 Blondel (règle de confort, non réglementaire). 🟡 giron, échappée, largeur, ligne de foulée (pratiques courantes).
+- [x] linteaux — 🟢 appui = max(20 cm ; portée ÷ 10), brochure Rector « Prélinteaux », consultée le 06/10/2026. Donnée fabricant.
+- [ ] drainage-peripherique — ✏️ position corrigée (pas sous le dessus de la semelle ; drain écarté en sol argileux). 🟢 pente ≥ 0,5 % (guide de conception ATE Drainage, 2017). 🟡 Ø 100, gravier 10/20 ou 20/40.
+- [ ] plancher-chauffant — 🟡 surface ≤ 28 °C, revêtement ≤ 0,15 m².K/W (0,09 en rafraîchissement ajouté) : Cedeo et guide Nicoll 2016 citant le DTU 65.14, non consulté.
+- [ ] reseau-plomberie — ✏️ arrivée générale et nourrice de 26 à 32 mm en multicouche (Nicoll). 🟢 évacuations et pente de 1 à 3 cm/m (Nicoll, DTU 60.11). 🟡 diamètres d’alimentation à faire valider par un plombier.
+- [ ] toit-plat-epdm — ✏️ pente minimale selon le support et l’avis technique (DTA CSTB 5.2/18-2618, expiré en 2025). 🟡 relevés ≥ 15 cm. 🟢 EPDM d’environ 1,1 à 1,5 mm (donnée fabricant).
+- [x] peinture-facade — 🟢 déclaration préalable en cas de changement de couleur : art. R.421-17 a du code de l’urbanisme ; réponse ministérielle du 20/02/2025 (Sénat, question 01701).
+- [ ] conversion-pente — ✏️ rampe : arrêté du 24/12/2015 (5 %, 8 % sur 2 m, 10 % sur 50 cm), hors maison construite pour son propre usage 🟢. 🟡 terrasse ou allée de 1,5 à 2 % (usage ; 1,5 % minimum sur support béton sous platelage selon le DTU 51.4 de 2010).
+- [ ] ballon-eau-chaude — 🟢 50 °C au plus dans les salles de bains (arrêté du 30/11/2005, via GRDF Cegibat). 🟢 55-60 °C présenté comme une recommandation (l’obligation de 55 °C ne vise que plus de 400 L). ✏️ « 2 à 3 fois moins » remplacé par « selon son COP ». 🟡 besoins intermédiaires et V40 = 1,8 (hypothèse : eau froide à environ 15 °C).
+- [ ] debit-vmc — 🟢 détalonnage d’au moins 1 cm (Aldes, DTU 68.3 et CPT 3615). 🟡 2 cm sous la porte de la cuisine. 🟡 gaines Ø 125 / Ø 80 (pratique, Cedeo).
+- [x] isolation (seuils R) — 🟢 fiches CEE BAR-EN-101 (combles 7, rampants 6), BAR-EN-102 (murs 3,7), BAR-EN-103 (plancher bas 3), site France Rénov’, consulté le 06/10/2026. ✏️ textes précisés (« fiches CEE », date de relevé). À revoir chaque année ; MaPrimeRénov’ a ses propres conditions.
+- [x] quantite-plinthes, quantite-parquet — 🟢 jeu de 8 à 10 mm (guides de pose Tarkett et Quick-Step), consultés le 06/10/2026.
+- [ ] calcul-beton — 🟢 28 jours. 🟡 délais avant de marcher ou de charger. ✏️ FAQ harmonisée : 25 kg ≈ 12 L, 35 kg ≈ 17 L (repères physiques, le sac fait foi).
+- [ ] chape-ragreage — 🟡 « une semaine par centimètre » : règle empirique sans source primaire ; la mesure d’humidité fait foi.
+- [ ] cloture — 🟡 trou de 30 × 30 cm confirmé (notice Dirickx) ; profondeur de 40 à 60 cm non sourcée.
+- [x] lambris-bardage — 🟢 lame d’air d’au moins 2 cm, NF DTU 41.2 (août 2015), via Batirama et une notice fabricant, consultées le 06/10/2026. ✏️ « à vérifier » retiré.
+- [x] plaques-de-platre — 🟢 vis tous les 30 cm au plus, à 1 cm du bord (Siniat, Placo, NF DTU 25.41), consultés le 06/10/2026. ✏️ défaut porté de 25 à 30 vis par plaque.
+- [ ] treillis-soude — ✏️ recouvrement par défaut porté de 20 à 30 cm, FAQ corrigée (25 à 35 cm selon le produit, guide treillis soudé 2020, DTU 13.3-3). 🟡 à confirmer sur la fiche du treillis choisi.
+- [ ] terrasse-lames — 🟡 5 mm dans la plage de 3 à 12 mm du NF DTU 51.4 P1-1 (2010) ; version récente non consultée ; composite : notice du fabricant.
+- [x] gravier-remblai — 🟢 ordre de grandeur de 1,5 à 1,7 t/m³ (Koncrete, distributeur) ; le fournisseur fait foi.
+- [ ] couverture-tuiles — ✏️ FAQ corrigée : moins de 15 tuiles au m² en grand moule, 15 à 22 en petit moule (Cahiers techniques du bâtiment). 🟡 à confirmer sur la fiche du modèle.

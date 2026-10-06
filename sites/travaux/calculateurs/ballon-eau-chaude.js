@@ -69,7 +69,7 @@ export default {
     },
     {
       question: 'Ballon électrique ou thermodynamique ?',
-      reponse: 'Le thermodynamique consomme en général deux à trois fois moins d’électricité pour chauffer la même eau, mais coûte plus cher à l’achat, fait un léger bruit et demande un local adapté ou des gaines d’air. Il devient intéressant pour un foyer qui consomme beaucoup d’eau chaude.',
+      reponse: 'Le thermodynamique consomme nettement moins d’électricité pour chauffer la même eau, selon son coefficient de performance (COP) indiqué sur sa fiche, mais coûte plus cher à l’achat, fait un léger bruit et demande un local adapté ou des gaines d’air. Il devient intéressant pour un foyer qui consomme beaucoup d’eau chaude.',
     },
     {
       question: 'À quelle température régler le ballon ?',

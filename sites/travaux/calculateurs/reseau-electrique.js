@@ -57,10 +57,10 @@ export default {
         <p>Le calcul ne répartit pas les points en circuits et ne choisit pas les sections de fil : c’est l’objet de la norme NF C 15-100.</p>
         <p>Avant d’acheter, établissez la liste des circuits pièce par pièce. À titre de repère, l’édition 2024 de la norme NF C 15-100 (applicable aux projets lancés à partir de septembre 2025) prévoit notamment :</p>
         <ul>
-        <li>éclairage : 8 points lumineux au plus par circuit, en fil de 1,5 mm² protégé à 16 A, et au moins deux circuits d’éclairage, sauf dans un studio ;</li>
+        <li>éclairage : 8 points lumineux au plus par circuit, en fil de 1,5 mm² protégé à 16 A, et au moins deux circuits d’éclairage dès que le logement compte deux pièces principales ;</li>
         <li>prises de courant : 8 prises au plus sur un circuit en 1,5 mm² protégé à 16 A, 12 au plus sur un circuit en 2,5 mm² protégé à 20 A ;</li>
         <li>circuits spécialisés : plaque de cuisson en 6 mm² protégée à 32 A ; lave-linge, sèche-linge, lave-vaisselle et four, chacun sur son propre circuit en 2,5 mm² protégé à 20 A ;</li>
-        <li>nombre minimal de prises : une par tranche de 4 m² dans le séjour (5 au moins), 3 par chambre, 6 dans la cuisine dont 4 au-dessus du plan de travail.</li>
+        <li>nombre minimal de prises : il dépend de la pièce et de sa surface (par exemple au moins 5 dans le séjour, et 6 dans une cuisine de plus de 4 m², dont 4 au-dessus du plan de travail) ; vérifiez le détail pièce par pièce avec votre électricien.</li>
         </ul>
         <p>Ces valeurs sont des repères à vérifier dans le texte de la norme en vigueur et avec votre électricien : ici, elles servent à compter les gaines et les couronnes, pas à concevoir l’installation.</p>
         <p>Le fil se vend par couleur : bleu pour le neutre, vert et jaune pour la terre, et une autre couleur pour la phase (souvent rouge, marron ou noir). Avec trois conducteurs par gaine, achetez environ un tiers de la longueur de fil dans chaque couleur, et un peu plus de phase pour les va-et-vient.</p>

@@ -55,11 +55,11 @@ export default {
         <p>Pour 2,70 m à monter : 15 contremarches de 18 cm, un giron de 27 cm (2 × 18 + 27 = 63) et 14 marches, soit 3,78 m au sol.</p>
         <p>Repères de confort couramment admis pour un escalier de maison (recommandations, et non obligations, en maison individuelle) :</p>
         <ul>
-        <li>hauteur de marche autour de 17 à 18 cm, au plus 21 cm pour un escalier raide ;</li>
+        <li>hauteur de marche entre 16 et 18 cm ;</li>
         <li>giron d’au moins 24 cm, 26 à 30 cm étant plus confortable ;</li>
         <li>échappée d’au moins 1,90 m, mesurée à la verticale du nez de marche ; 2 m ou plus est plus agréable ;</li>
         <li>largeur de passage de 80 à 90 cm pour un escalier principal ;</li>
-        <li>garde-corps d’au moins 90 cm de haut au-dessus du nez de marche, sans vide laissant passer une sphère de 11 cm (norme NF P01-012).</li>
+        <li>garde-corps : sa hauteur et les vides admis sont fixés par la norme NF P01-012, révisée en novembre 2024 ; faites-le valider par le fabricant ou un professionnel.</li>
         </ul>
         <p>Droit, quart tournant ou demi-tournant : un escalier tournant prend moins de place au sol, mais ses marches balancées doivent garder, sur la ligne de foulée (en général à environ 50 cm du bord intérieur, ou au milieu d’un escalier étroit), le même giron que les marches droites. Le reculement calculé ici est celui d’un escalier droit ; pour un escalier tournant, c’est la longueur développée sur la ligne de foulée.</p>
         <p>La trémie, l’ouverture dans le plancher, doit être assez longue pour qu’en tout point de l’escalier la hauteur libre jusqu’au dessous du plancher reste au moins égale à l’échappée choisie. Elle se dessine en même temps que l’escalier, avant de commander quoi que ce soit.</p>`,
@@ -102,7 +102,7 @@ export default {
     },
     {
       question: 'Quelle hauteur pour le garde-corps ?',
-      reponse: 'La norme NF P01-012 demande au moins 90 cm au-dessus du nez de marche le long de l’escalier, et 1 m le long d’un palier ou d’une mezzanine, avec des vides qui ne laissent pas passer une sphère de 11 cm. Vérifiez la version de la norme en vigueur et la notice du fabricant.',
+      reponse: 'Elle est fixée par la norme NF P01-012, qui définit la hauteur de protection et les vides admis pour éviter les chutes et le passage d’un enfant. Cette norme a été révisée en novembre 2024 et ses exigences ont été renforcées : suivez la notice du fabricant du garde-corps ou faites-le dimensionner par un professionnel.',
     },
     {
       question: 'Escalier droit ou tournant ?',

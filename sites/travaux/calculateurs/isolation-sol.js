@@ -89,7 +89,7 @@ export default {
         <p>Le film est compté avec environ 20 % de plus pour les recouvrements entre lés et les relevés contre les murs. La bande périphérique fait le tour de la pièce pour désolidariser la chape des murs.</p>
         <p>Sur dalle ou par-dessous : en neuf ou en rénovation lourde, l’isolant se pose sur la dalle, sous une chape flottante ou sous un plancher chauffant. Le panneau doit alors résister à l’écrasement : sa classe de compressibilité figure sur sa fiche ou sa certification ACERMI. Quand un vide sanitaire ou une cave est accessible, isoler en sous-face évite de toucher au sol de la pièce.</p>
         <p>Attention à la hauteur perdue : isolant et chape représentent souvent 10 cm ou plus. Avant de choisir l’épaisseur, vérifiez les seuils, les portes, la hauteur sous plafond et les raccords avec les pièces voisines. Un isolant plus performant (λ plus faible) atteint la même résistance avec moins d’épaisseur.</p>
-        <p>Exemple : pour R = 3 m².K/W, valeur souvent demandée pour les aides en plancher bas (à vérifier chaque année), un polystyrène expansé à λ = 0,030 demande 3 × 0,030 = 0,09 m, soit 9 cm ; un polyuréthane à λ = 0,022 se contente de 6,6 cm.</p>`,
+        <p>Exemple : pour R = 3 m².K/W, seuil de la fiche CEE BAR-EN-103 pour un plancher bas (relevé le 6 octobre 2026, à revoir chaque année), un polystyrène expansé à λ = 0,030 demande 3 × 0,030 = 0,09 m, soit 9 cm ; un polyuréthane à λ = 0,022 se contente de 6,6 cm.</p>`,
 
   erreurs: [
     'Choisir un isolant trop compressible sous une chape.',

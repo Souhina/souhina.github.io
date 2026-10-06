@@ -61,7 +61,7 @@ export default {
 
   explication: `
         <p>La membrane EPDM se commande d’un seul tenant, découpée aux dimensions : longueur et largeur du toit, plus deux fois la hauteur des relevés, plus 10 cm de chaque côté pour la fixation. Un toit de 5 × 4 m avec 15 cm de relevés demande une membrane de 5,50 × 4,50 m.</p>
-        <p>Un toit plat a toujours une légère pente vers ses évacuations : de l’ordre de 1 à 2 % au minimum selon le système et l’avis technique de la membrane. Une forme de pente (chape ou isolant taillé en pente) se prévoit avant la pose si le support est horizontal.</p>
+        <p>Un toit plat doit évacuer l’eau vers ses évacuations. La pente minimale dépend du support et de l’avis technique de la membrane : une pente nulle est admise sur certains supports maçonnés, avec des dispositions particulières, alors que les supports en bois ou en bac acier demandent en général 1 à 3 % au moins. Une forme de pente (chape ou isolant taillé en pente) se prévoit avant la pose si le support est horizontal.</p>
         <p>Les relevés remontent sur les acrotères et les murs, en général d’au moins 15 cm au-dessus de la surface finie (repère du DTU 43.1, à vérifier pour votre cas). Dès que la toiture est entourée de relevés, un trop-plein évacue l’eau si une évacuation se bouche.</p>
         <p>La membrane EPDM existe en plusieurs épaisseurs, souvent 1,14 ou 1,52 mm : la plus épaisse résiste mieux au poinçonnement et aux passages. Sur une toiture isolée, l’isolant doit être prévu pour recevoir une étanchéité et supporter les charges.</p>`,
 
@@ -97,7 +97,7 @@ export default {
   faq: [
     {
       question: 'Quelle pente pour un toit plat ?',
-      reponse: 'Un toit « plat » a toujours une légère pente vers ses évacuations, de l’ordre de 1 à 2 % au minimum selon le système : l’eau ne doit jamais stagner.',
+      reponse: 'Elle dépend du support et de l’avis technique de la membrane : une pente nulle est admise sur certains supports maçonnés, avec des dispositions particulières, et les supports en bois ou en bac acier demandent en général 1 à 3 % au moins. Une pente vers les évacuations évite que l’eau stagne.',
     },
     {
       question: 'Quelle hauteur de relevé prévoir ?',

@@ -73,7 +73,7 @@ export default {
   explication: `
         <p>Tous les appareils reçoivent l’eau froide ; lavabos, éviers, douches et baignoires reçoivent aussi l’eau chaude. En distribution par nourrice, chaque départ est un tube continu : longueur = nombre de départs × distance moyenne, plus 10 %.</p>
         <p>Les WC s’évacuent en Ø 100, les autres appareils en Ø 32 à 40 selon le cas. Le nombre de raccords est une estimation à affiner sur plan.</p>
-        <p>Repères courants pour l’alimentation en PER ou multicouche : un tube de 16 mm (diamètre extérieur) pour la plupart des points d’eau, 20 mm pour l’arrivée générale ou une baignoire, et parfois 12 mm sur de très courtes longueurs. Ces valeurs dépendent de la pression et des longueurs : faites-les valider par votre plombier.</p>
+        <p>Repères courants pour l’alimentation en PER ou multicouche : un tube de 16 mm (diamètre extérieur) pour la plupart des points d’eau, 20 mm pour une baignoire, une douche à fort débit ou un chauffe-eau, et un diamètre plus gros (26 à 32 mm en multicouche) pour l’arrivée générale et la nourrice, selon le débit. Ces valeurs dépendent de la pression et des longueurs : faites-les valider par votre plombier.</p>
         <p>Évacuations : Ø 100 mm pour les WC, Ø 40 mm pour la douche, la baignoire, l’évier, le lave-linge et le lave-vaisselle, Ø 32 à 40 mm pour un lavabo. La pente reste comprise entre 1 et 3 cm par mètre : trop faible, l’eau stagne ; trop forte, l’eau part sans entraîner les matières. Chaque appareil a son siphon.</p>
         <p>La chute (le tuyau vertical où se rejoignent les évacuations) doit être ventilée, prolongée jusqu’en toiture ou, selon les cas prévus par le DTU, équipée d’un clapet aérateur. Sans ventilation, les siphons se vident et les odeurs remontent.</p>`,
 
@@ -109,7 +109,7 @@ export default {
     },
     {
       question: 'Quel diamètre de tube pour l’alimentation ?',
-      reponse: 'En repère courant, 16 mm pour la plupart des points d’eau et 20 mm pour l’arrivée générale ou une baignoire. La longueur du réseau et la pression disponible peuvent changer ce choix : demandez l’avis d’un plombier.',
+      reponse: 'En repère courant, 16 mm pour la plupart des points d’eau, 20 mm pour une baignoire ou un chauffe-eau, et 26 à 32 mm en multicouche pour l’arrivée générale et la nourrice. La longueur du réseau et la pression disponible peuvent changer ce choix : demandez l’avis d’un plombier.',
     },
     {
       question: 'Quelle pente pour les évacuations ?',

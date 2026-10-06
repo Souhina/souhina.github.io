@@ -144,7 +144,7 @@ export default {
     },
     {
       question: 'Quelle résistance thermique viser pour les aides ?',
-      reponse: 'Relevés le 4 octobre 2026 et à vérifier chaque année : R = 7 en combles perdus, 6 en rampants, 3,7 en murs et 3 en plancher bas. La pose doit en général être faite par une entreprise qualifiée RGE.',
+      reponse: 'Pour les certificats d’économies d’énergie (fiches CEE BAR-EN-101, 102 et 103, relevées le 6 octobre 2026, à revoir chaque année) : R = 7 en combles perdus, 6 en rampants, 3,7 en murs et 3 en plancher bas. MaPrimeRénov’ a ses propres conditions. La pose doit en général être faite par une entreprise qualifiée RGE.',
     },
   ],
 

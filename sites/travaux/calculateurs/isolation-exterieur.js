@@ -152,7 +152,7 @@ export default {
     },
     {
       question: 'Quelle épaisseur d’isolant prévoir ?',
-      reponse: 'Épaisseur = résistance visée × lambda de l’isolant. Pour R = 3,7, valeur souvent demandée pour les aides en murs (à vérifier chaque année), il faut environ 12 cm d’un isolant à λ = 0,032.',
+      reponse: 'Épaisseur = résistance visée × lambda de l’isolant. Pour R = 3,7, seuil de la fiche CEE BAR-EN-102 pour les murs (relevé le 6 octobre 2026, à revoir chaque année), il faut environ 12 cm d’un isolant à λ = 0,032.',
     },
   ],
 

@@ -93,7 +93,7 @@ export default {
     { id: 'anglesSortants', label: 'Nombre d’angles sortants', min: 0, max: 50, defaut: 0, aide: 'Chaque angle reçoit une cornière de protection sur toute sa hauteur.' },
     { id: 'marge', label: 'Marge pour les coupes et la casse', unite: '%', min: 0, max: 50, defaut: 5 },
     { id: 'longueurRail', label: 'Longueur d’un rail', unite: 'm', min: 0.5, defaut: 3 },
-    { id: 'visParPlaque', label: 'Vis par plaque', min: 0, defaut: 25, aide: 'Indicatif : une vis tous les 30 cm au plus sur chaque montant. Vérifiez la fiche du fabricant.' },
+    { id: 'visParPlaque', label: 'Vis par plaque', min: 0, defaut: 30, aide: 'Indicatif : une vis tous les 30 cm au plus sur chaque montant. Vérifiez la fiche du fabricant.' },
     { id: 'enduitM2', avance: true, label: 'Enduit à joint par m² de parement', unite: 'kg', min: 0, defaut: 0.35, aide: 'Indiqué sur le sac ou le seau ; environ 0,3 à 0,4 kg par m².' },
     { id: 'poidsEnduit', avance: true, label: 'Poids d’un sac ou d’un seau d’enduit', unite: 'kg', min: 1, defaut: 25 },
     { id: 'longueurBande', avance: true, label: 'Longueur d’un rouleau de bande à joint', unite: 'm', min: 5, defaut: 75 },

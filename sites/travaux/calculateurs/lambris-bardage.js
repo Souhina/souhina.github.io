@@ -176,7 +176,7 @@ export default {
     },
     {
       question: 'Faut-il une lame d’air derrière un bardage ?',
-      reponse: 'Oui : un bardage extérieur se pose sur tasseaux avec une lame d’air ventilée, ouverte en bas et en haut, pour que le bois sèche des deux côtés. Le DTU 41.2 en fixe l’épaisseur minimale, de l’ordre de 2 cm (à vérifier).',
+      reponse: 'Oui : un bardage extérieur se pose sur tasseaux avec une lame d’air ventilée, ouverte en bas et en haut, pour que le bois sèche des deux côtés. Le NF DTU 41.2 en fixe l’épaisseur minimale à 2 cm, avec des entrées et sorties d’air de section suffisante.',
     },
   ],
 

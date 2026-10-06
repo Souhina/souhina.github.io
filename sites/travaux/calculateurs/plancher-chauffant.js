@@ -123,7 +123,7 @@ export default {
         <p>Le tube est réparti en boucles qui ne dépassent pas la longueur maximale, liaisons avec le collecteur comprises (aller et retour). Chaque boucle occupe un départ du collecteur.</p>
         <p>L’isolant sous le plancher chauffant se calcule avec le calculateur d’isolation du sol.</p>
         <p>Le pas de pose règle la puissance : plus les tubes sont rapprochés, plus le sol émet de chaleur. On resserre souvent le pas le long des baies vitrées et dans les salles de bains, et on l’élargit dans les pièces bien isolées. La température de surface du sol reste limitée, de l’ordre de 28 °C au plus dans les pièces de vie selon le DTU 65.14 (repère à vérifier) : c’est ce qui rend ce chauffage confortable et doux.</p>
-        <p>Le revêtement compte : le carrelage transmet très bien la chaleur ; un parquet, un sol souple ou une moquette doivent être déclarés compatibles par leur fabricant, avec une résistance thermique faible (un repère courant est 0,15 m².K/W au plus).</p>
+        <p>Le revêtement compte : le carrelage transmet très bien la chaleur ; un parquet, un sol souple ou une moquette doivent être déclarés compatibles par leur fabricant, avec une résistance thermique faible (repère courant : 0,15 m².K/W au plus pour un plancher chauffant, 0,09 pour un plancher rafraîchissant, d’après les guides de fabricants citant le DTU 65.14).</p>
         <p>Après le coulage, la chape sèche avant la première mise en chauffe, puis la température monte progressivement, sur plusieurs jours. Les délais dépendent de la chape (ciment ou anhydrite) : suivez sa fiche technique et le protocole de l’installateur.</p>`,
 
   erreurs: [

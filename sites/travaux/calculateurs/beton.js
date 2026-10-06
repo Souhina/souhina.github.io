@@ -180,7 +180,7 @@ export default {
     },
     {
       question: 'Combien de sacs de béton pour 1 m³ ?',
-      reponse: 'Cela dépend du sac : le volume de béton frais obtenu est indiqué sur l’emballage. Avec des sacs de 35 kg donnant environ 17 litres (repère à vérifier sur le sac), il en faut près de 60 par m³. C’est pourquoi la toupie devient plus simple au-delà d’un ou deux m³.',
+      reponse: 'Cela dépend du sac : le volume de béton frais obtenu est indiqué sur l’emballage. Un sac de 25 kg donne environ 12 litres et un sac de 35 kg environ 17 litres (repères à vérifier sur le sac) : il en faut de 60 à plus de 80 par m³. C’est pourquoi la toupie devient plus simple au-delà d’un ou deux m³.',
     },
     {
       question: 'Au bout de combien de temps peut-on marcher sur une dalle ?',
