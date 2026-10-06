@@ -87,7 +87,7 @@ export default {
     },
   ],
 
-  lies: ['plancher-bois', 'calcul-beton', 'conversion-pente'],
+  lies: ['configurateur-escalier', 'plancher-bois', 'calcul-beton', 'conversion-pente'],
 
   majLe: '2026-10-01',
 

@@ -6,6 +6,7 @@
 
 import { T, textesDe } from './langue.js';
 import { ELEMENTS_PAR_NATURE } from './chantier-plan.js';
+import { DEFAUTS as DEFAUTS_ESCALIER, FORMES, SENS, STRUCTURES } from './escalier/modele.js';
 
 export function echapper(texte = '') {
   return String(texte)
@@ -880,6 +881,172 @@ ${pubHtml(site)}
     lotActif: calc.lot ?? null,
     titre: `${calc.titre} | ${site.nom}`,
     description: calc.description,
+    chemin,
+    page,
+    contenu,
+    jsonLd: blocsJsonLd(donnees),
+    script,
+  });
+}
+
+// --- Outils (configurateurs) ---
+// Un outil est une page de site sans formule : sites/<site>/outils/<fichier>.js déclare son slug,
+// ses textes et son guide comme un calculateur, plus la clé outil (par exemple 'escalier') qui
+// choisit l'interface et le script (moteur/escalier/).
+
+// Formulaire du configurateur d'escalier : quatre étapes, affichées une à une (pas à pas) ou
+// toutes ensemble (tous les réglages). Sans JavaScript, toutes les étapes restent visibles.
+function outilEscalierHtml() {
+  const E = T().escalier;
+  const d = DEFAUTS_ESCALIER;
+  const sansUnite = new Set(['contremarches', 'avantPalier']);
+  const nombre = (id, { requis = false, aide } = {}) => champHtml({ id, label: E[id], unite: sansUnite.has(id) ? undefined : E.unite, requis, defaut: d[id] ?? undefined, aide: aide ?? E[`${id}Aide`] });
+  const choix = (id, valeurs, libelles, aide) => champHtml({ id, type: 'choix', label: E[id], defaut: d[id], aide, options: valeurs.map((valeur) => ({ valeur, libelle: libelles[valeur] })) });
+  const etapes = [
+    [choix('forme', FORMES, E.formes, E.formesAide), choix('sens', SENS, E.sensOptions), nombre('avantPalier')],
+    [nombre('hauteur', { requis: true }), nombre('largeur', { requis: true }), nombre('hauteurVisee', { requis: true }), nombre('blondel', { requis: true }), nombre('giron'), nombre('contremarches', { aide: E.contremarchesAide })],
+    [choix('structure', STRUCTURES, E.structures), champHtml({ id: 'fermee', type: 'case', label: E.fermee, defaut: d.fermee }), nombre('epaisseurMarche', { requis: true }), nombre('debordNez', { requis: true }), nombre('hauteurLimon', { requis: true, aide: E.limonAide }), nombre('epaisseurLimon', { requis: true, aide: E.limonAide })],
+    [nombre('epaisseurPlancher', { requis: true }), nombre('echappeeVisee', { requis: true }), nombre('tremieLongueur'), nombre('tremieLargeur')],
+  ];
+  const lignes = (id) => `<tr><th scope="row">${E.lignes[id]}</th><td data-quantite="${id}">—</td></tr>`;
+  return `
+      <section class="esc" id="esc" aria-labelledby="esc-titre-reglages">
+        <h2 id="esc-titre-reglages" class="visuellement-cache">${E.etapes.join(', ')}</h2>
+        <form class="esc-formulaire" id="esc-formulaire" novalidate>
+          <fieldset class="esc-mode" hidden>
+            <legend>${E.modeLegende}</legend>
+            <p class="champ-case"><input type="radio" name="esc-mode" id="esc-mode-assistant" value="assistant" checked><label for="esc-mode-assistant">${E.modeAssistant}</label></p>
+            <p class="champ-case"><input type="radio" name="esc-mode" id="esc-mode-expert" value="expert"><label for="esc-mode-expert">${E.modeExpert}</label></p>
+          </fieldset>
+          <p class="esc-progression" id="esc-progression" hidden></p>
+${etapes.map((champs, index) => `          <fieldset class="groupe esc-etape" data-etape="${index}">
+            <legend>${index + 1}. ${E.etapes[index]}</legend>
+            <section class="groupe-champs" aria-label="${E.etapes[index]}">${champs.join('')}
+            </section>
+          </fieldset>`).join('\n')}
+          <p class="esc-navigation" hidden>
+            <button type="button" data-etape-nav="-1">${E.precedent}</button>
+            <button type="button" data-etape-nav="1">${E.suivant}</button>
+          </p>
+        </form>
+        <section class="esc-vues" aria-labelledby="esc-titre-vues">
+          <h2 id="esc-titre-vues">${E.vues}</h2>
+          <fieldset class="esc-choix-vue">
+            <legend class="visuellement-cache">${E.vues}</legend>
+${Object.entries(E.vue).map(([valeur, libelle], index) => `            <span class="champ-case"><input type="radio" name="esc-vue" id="esc-vue-${valeur}" value="${valeur}"${index === 0 ? ' checked' : ''}><label for="esc-vue-${valeur}">${libelle}</label></span>`).join('\n')}
+          </fieldset>
+          <fieldset class="esc-orientation" hidden>
+            <legend>${E.tourner}</legend>
+            <p class="esc-coins">${[...E.coins, ...E.elevations].map(([azimut, libelle], index) => `<button type="button" data-azimut="${azimut}" data-elevation="${index < E.coins.length ? 30 : 0}">${libelle}</button>`).join('')}</p>
+            <p class="champ esc-curseur">
+              <label for="esc-azimut">${E.tourner}</label>
+              <input type="range" id="esc-azimut" min="0" max="345" step="15" value="225">
+            </p>
+            <p class="champ-case"><input type="checkbox" id="esc-plancher" checked><label for="esc-plancher">${E.afficherPlancher}</label></p>
+          </fieldset>
+          <figure class="esc-dessin" id="esc-dessin"></figure>
+          <noscript><p class="avertissement">${E.javascript}</p></noscript>
+        </section>
+        <section class="esc-resultats" aria-labelledby="esc-titre-resultats">
+          <h2 id="esc-titre-resultats">${E.resultats}</h2>
+          <p class="esc-messages" id="esc-messages" role="status"></p>
+          <dl class="esc-chiffres" id="esc-chiffres"></dl>
+          <h3>${E.points}</h3>
+          <p class="groupe-intro">${E.pointsIntro}</p>
+          <table class="esc-tableau" id="esc-points">
+            <thead><tr>${E.colonnes.map((colonne) => `<th scope="col">${colonne}</th>`).join('')}</tr></thead>
+            <tbody></tbody>
+          </table>
+          <h3>${E.quantites}</h3>
+          <p class="groupe-intro">${E.quantitesIntro}</p>
+          <table class="esc-tableau" id="esc-quantites">
+            <tbody>${Object.keys(E.lignes).map(lignes).join('')}</tbody>
+          </table>
+          <p class="esc-actions">
+            <button type="button" id="esc-partager">${E.partager}</button>
+            <button type="button" id="esc-imprimer">${E.imprimer}</button>
+            <span id="esc-statut-lien" role="status"></span>
+          </p>
+        </section>
+        <section class="esc-impression" id="esc-impression" aria-hidden="true"></section>
+      </section>`;
+}
+
+const INTERFACES_OUTILS = { escalier: outilEscalierHtml };
+export const OUTILS_CONNUS = Object.keys(INTERFACES_OUTILS);
+
+export function pageOutil(site, outil, tous) {
+  const page = { type: 'calculateur', calc: outil };
+  const chemin = cheminDe(page);
+  const lies = calculateursLies(outil, tous);
+  const lot = site.lots?.find((element) => element.id === outil.lot);
+  const fil = filAriane(site, [
+    { nom: T().page.accueil, chemin: cheminDe({ type: 'accueil' }) },
+    ...(lot ? [{ nom: lot.nom, chemin: cheminDe({ type: 'lot', lot }) }] : []),
+    { nom: outil.titre, chemin },
+  ]);
+  const donnees = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: outil.titre,
+      description: outil.description,
+      url: adresse(site, chemin),
+      applicationCategory: outil.categorie ?? 'DesignApplication',
+      operatingSystem: 'Tous',
+      inLanguage: T().code,
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+      ...(outil.majLe ? { dateModified: outil.majLe } : {}),
+    },
+    fil.donnees,
+  ];
+  if (outil.faq?.length) {
+    donnees.push({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: outil.faq.map((entree) => ({ '@type': 'Question', name: entree.question, acceptedAnswer: { '@type': 'Answer', text: sansBalises(entree.reponse) } })),
+    });
+  }
+  const contenu = `
+    <article class="calculateur outil"${outil.teinte ? ` style="--teinte: var(--teinte-${outil.teinte})"` : ''}>${fil.html}
+      <header>
+        ${outil.rubrique ? `<p class="surtitre">${T().escalier.surtitre(echapper(outil.rubrique))}</p>` : ''}
+        <h1>${echapper(outil.titre)}</h1>
+        <p class="chapo">${outil.intro ?? ''}</p>
+      </header>
+      ${outil.avertissement ? `<p class="avertissement-norme"><strong>${T().calculateur.aSavoir}</strong> ${outil.avertissement}</p>` : ''}
+${INTERFACES_OUTILS[outil.outil]()}${outil.majLe ? `
+      <p class="maj">${T().calculateur.verifieLe}<time datetime="${outil.majLe}">${dateLongue(outil.majLe)}</time>.</p>` : ''}
+${pubContenuHtml(site)}
+${affiliationsHtml(site, outil.slug)}
+      ${outil.explication ? `<section class="texte" aria-labelledby="titre-explication">
+        <h2 id="titre-explication">${T().calculateur.explication}</h2>
+        ${outil.explication}
+      </section>` : ''}${guideHtml(outil)}
+
+      ${outil.faq?.length ? `<section class="texte" aria-labelledby="titre-faq">
+        <h2 id="titre-faq">${T().calculateur.faq}</h2>
+        ${outil.faq.map((entree) => `<details>
+          <summary>${echapper(entree.question)}</summary>
+          <p>${entree.reponse}</p>
+        </details>`).join('\n        ')}
+      </section>` : ''}
+${pubHtml(site)}
+      ${lies.length ? `<nav class="texte" aria-labelledby="titre-lies">
+        <h2 id="titre-lies">${T().calculateur.lies}</h2>
+        <ul>
+          ${lies.map((autre) => `<li><a href="${cheminDe({ type: 'calculateur', calc: autre })}">${echapper(autre.titre)}</a></li>`).join('\n          ')}
+        </ul>
+      </nav>` : ''}
+    </article>`;
+  const script = `  <script type="module">
+    import { demarrer } from '/assets/${outil.outil}/page.js';
+    demarrer();
+  </script>`;
+  return miseEnPage(site, {
+    lotActif: outil.lot ?? null,
+    titre: `${outil.titre} | ${site.nom}`,
+    description: outil.description,
     chemin,
     page,
     contenu,

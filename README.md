@@ -147,6 +147,19 @@ Sur mobile, une barre fixe en bas d'écran reprend le résultat principal et mè
 | `case` | case à cocher | `1` ou `0` |
 | `choix` | liste déroulante, `options: [{ valeur, libelle }]` | la `valeur` numérique choisie |
 
+## Outils (`sites/<site>/outils/`) : le configurateur d'escalier
+
+Un outil est une page interactive qui n'est pas un calculateur à formule. Il se déclare dans `sites/<site>/outils/*.js` avec la clé `outil` (nom d'un moteur connu, liste `OUTILS_CONNUS` dans `gabarits.js`). Le reste du fichier suit le format d'un calculateur : `slug`, `titre`, `lot`, `teinte`, `ordre`, guide, `faq`, `normes`, `lies`, `majLe`. Les outils apparaissent avec les calculateurs (accueil, corps de métier, navigation, sitemap, liens) et `build.js` les valide avec `verifierOutil`.
+
+Le configurateur d'escalier (`outil: 'escalier'`, page `configurateur-escalier`) est découpé en quatre modules dans `moteur/escalier/`, copiés dans `dist/<site>/assets/escalier/` :
+
+- `modele.js` : la configuration, un objet unique (`DEFAUTS`, `BORNES`), `normaliser`, et le lien de partage `encoder` / `decoder` (seules les valeurs différentes des défauts, en base64url après `#e=`). Ajouter une option = ajouter une clé ici, puis la traiter dans `geometrie.js`.
+- `geometrie.js` : `calculerEscalier(config)` calcule les hauteurs et girons (Blondel), l'encombrement, la ligne de marche, la trémie (en L sur un quart tournant) et sa longueur conseillée, l'échappée échantillonnée tous les 2 cm, le tableau « Points à vérifier » et la nomenclature, et produit la liste des pièces en 3D (faces planes).
+- `rendu.js` : `planSvg`, `coupeSvg` (coupe développée avec l'échappée) et `axoSvg` (perspective axonométrique : 4 coins, 2 élévations, curseur par pas de 15°, faces arrière éliminées, tri par profondeur). Aucune bibliothèque 3D.
+- `page.js` : le script navigateur (assistant pas à pas ou « Tous les réglages », vues, tableaux, partage, impression).
+
+V1 : escalier droit et quart tournant avec palier (sans balancement), deux limons ou limon central, marches ouvertes ou fermées. Le tableau donne des repères (« dans la plage », « hors repère », « à vérifier »), jamais « conforme » : l'outil est une aide à la conception, pas un plan d'exécution. Les textes sont dans le bloc `escalier` de `moteur/langues/fr.js`.
+
 ## Calculateurs avec plan (`plan: true`)
 
 La page affiche l'éditeur de plan au-dessus du formulaire. La forme est mémorisée dans le

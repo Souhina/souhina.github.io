@@ -17,6 +17,11 @@ import { versEnsemble, disposer, aimanter, chevauchements, normaliserPosition } 
 import { mursCommuns, infosPiece, mesures, piecesDePortee, normaliserNiveaux, niveauDe, normaliserElements } from './moteur/chantier-plan.js';
 import { evaluerAideAuChoix, verifierAideAuChoix } from './moteur/aide-choix.js';
 import { encoderPartage, decoderPartage, groupeLigne, resumeTexte, lienMailto, LIMITE_MAILTO } from './moteur/panier.js';
+import { DEFAUTS as DEFAUTS_ESCALIER, normaliser as normaliserEscalier, encoder as encoderEscalier, decoder as decoderEscalier } from './moteur/escalier/modele.js';
+import { calculerEscalier } from './moteur/escalier/geometrie.js';
+import { planSvg, coupeSvg, axoSvg } from './moteur/escalier/rendu.js';
+import fr from './moteur/langues/fr.js';
+import { verifierOutil } from './build.js';
 import { normaliserOuvertures, totauxOuvertures, insererAngle, supprimerAngle, appliquerOuvertures, emplacementLibre } from './moteur/ouvertures.js';
 
 const tolerance = 0.01;
@@ -605,6 +610,66 @@ for (const nomSite of await listerSites()) {
       }
     }
   }
+}
+
+
+// --- Configurateur d'escalier : modèle, géométrie, rendus, outil déclaré ---
+{
+  const proche = (a, b, tol = 0.01) => typeof a === 'number' && Math.abs(a - b) <= tol;
+  // Modèle : valeurs par défaut, bornes, lien de partage.
+  const defaut = normaliserEscalier();
+  verifier(defaut.forme === 'droit' && defaut.hauteur === 270 && defaut.giron === null, 'escalier : valeurs par défaut');
+  verifier(normaliserEscalier({ hauteur: 5000, largeur: 10, forme: 'inconnue', fermee: '1', giron: '' }).hauteur === 600, 'escalier : hauteur ramenée dans les bornes');
+  verifier(normaliserEscalier({ largeur: 10 }).largeur === 50 && normaliserEscalier({ forme: 'x' }).forme === 'droit', 'escalier : largeur et forme corrigées');
+  verifier(normaliserEscalier({ fermee: '1' }).fermee === true && normaliserEscalier({ giron: '' }).giron === null, 'escalier : case et champ facultatif');
+  const config = { forme: 'quart-palier', sens: 'droite', hauteur: 285, fermee: true, tremieLongueur: 320 };
+  const relu = decoderEscalier(encoderEscalier(config));
+  verifier(relu.forme === 'quart-palier' && relu.sens === 'droite' && relu.hauteur === 285 && relu.fermee === true && relu.tremieLongueur === 320, 'escalier : le lien de partage restitue la configuration');
+  verifier(encoderEscalier(DEFAUTS_ESCALIER).length < 20, 'escalier : le lien ne contient que les valeurs modifiées');
+  verifier(decoderEscalier('pas du base64 !').forme === 'droit', 'escalier : un lien illisible donne les valeurs par défaut');
+
+  // Escalier droit de 2,70 m : 15 hauteurs de 18 cm, giron 27 cm (2 × 18 + 27 = 63), 14 marches.
+  const droit = calculerEscalier({});
+  verifier(droit.contremarches === 15 && proche(droit.hauteurMarche, 18) && proche(droit.giron, 27), 'escalier droit : 15 × 18 cm, giron 27 cm');
+  verifier(droit.quantites.marches === 14 && droit.quantites.palier === 0 && proche(droit.longueurLigne, 378), 'escalier droit : 14 marches, ligne de marche 3,78 m');
+  verifier(proche(droit.angle, (Math.atan(18 / 27) * 180) / Math.PI), 'escalier droit : inclinaison');
+  // Trémie conseillée : sous-face à 245 cm ; la marche 3 (54 cm) garde 191 cm, la marche 4 (72 cm) n'en garde que 173.
+  verifier(droit.tremie.longueurConseillee === 300 && droit.echappee.minimum >= 190, `escalier droit : trémie conseillée de 3 m (${droit.tremie.longueurConseillee})`);
+  verifier(droit.points.every((point) => ['ok', 'verifier'].includes(point.statut)), 'escalier droit : tous les repères respectés');
+  const courte = calculerEscalier({ tremieLongueur: 200 });
+  verifier(courte.echappee.minimum < 190 && courte.points.find((point) => point.id === 'echappee').statut === 'hors', 'escalier : trémie trop courte signalée');
+  // Marches fermées : une contremarche par hauteur.
+  verifier(calculerEscalier({ fermee: true }).quantites.contremarches === 15, 'escalier : 15 contremarches');
+  // Giron trop court : erreur.
+  verifier(calculerEscalier({ blondel: 56, hauteurVisee: 22 }).erreurs.includes('giron'), 'escalier : giron trop court signalé');
+
+  // Quart tournant avec palier : le palier remplace la marche 8 ; la trémie passe en L.
+  const quart = calculerEscalier({ forme: 'quart-palier' });
+  verifier(quart.avantPalier === 8 && quart.quantites.marches === 13 && quart.quantites.palier === 1, 'quart tournant : 13 marches et un palier');
+  verifier(proche(quart.longueurLigne, 7 * 27 + 90 + 6 * 27), 'quart tournant : longueur de la ligne de marche');
+  verifier(quart.tremie.enL && quart.echappee.minimum >= 190, 'quart tournant : trémie en L qui garde l’échappée');
+  verifier(proche(quart.encombrement.x1 - quart.encombrement.x0, 3 + 7 * 27 + 90) && proche(quart.encombrement.y1 - quart.encombrement.y0, 90 + 6 * 27), 'quart tournant : encombrement au sol');
+  const droite = calculerEscalier({ forme: 'quart-palier', sens: 'droite' });
+  verifier(droite.encombrement.y0 < 0 && proche(droite.encombrement.y1 - droite.encombrement.y0, 252), 'quart tournant à droite : symétrique du virage à gauche');
+  const central = calculerEscalier({ forme: 'quart-palier', structure: 'limon-central' });
+  verifier(central.quantites.limons === 2 && quart.quantites.limons === 4, 'structure : un limon central par volée, deux limons latéraux sinon');
+
+  // Pièces : faces planes d'au moins trois points, coordonnées finies.
+  for (const [nom, esc] of [['droit', droit], ['quart', quart], ['droite', droite], ['central', central]]) {
+    const faces = [...esc.pieces, ...esc.environnement].flatMap((piece) => piece.faces);
+    verifier(faces.every((face) => face.length >= 3 && face.every((point) => point.length === 3 && point.every(Number.isFinite))), `escalier ${nom} : pièces 3D valides`);
+    const textes = fr.escalier;
+    const dessins = [planSvg(esc, textes), coupeSvg(esc, textes), axoSvg(esc, textes, { azimut: 225 }), axoSvg(esc, textes, { azimut: 270, elevation: 0 })];
+    verifier(dessins.every((dessin) => dessin.startsWith('<svg') && !dessin.includes('NaN') && dessin.includes('<title')), `escalier ${nom} : plan, coupe et vues dessinés, avec un titre`);
+  }
+
+  // Outil déclaré : sites/travaux/outils/configurateur-escalier.js.
+  const { outils } = await chargerSite('travaux');
+  const configurateur = outils.find((outil) => outil.slug === 'configurateur-escalier');
+  verifier(Boolean(configurateur), 'configurateur d’escalier déclaré dans sites/travaux/outils/');
+  let refuse = false;
+  try { verifierOutil({ ...configurateur, outil: 'inconnu' }, 'travaux'); } catch { refuse = true; }
+  verifier(refuse, 'un outil inconnu est refusé au build');
 }
 
 console.log(`\n${reussis} contrôle(s) réussi(s), ${echecs} échec(s).`);

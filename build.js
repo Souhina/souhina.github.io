@@ -19,6 +19,8 @@ import {
   pageMentionsLegales,
   pageConfidentialite,
   pageWidget,
+  pageOutil,
+  OUTILS_CONNUS,
   definirLangues,
   definirCalculateurs,
   cheminDe,
@@ -39,6 +41,8 @@ const dossierSites = join(racine, 'sites');
 const dossierSortie = join(racine, 'dist');
 const fichiersMoteur = ['calcul.js', 'nombres.js', 'geometrie.js', 'plan.js', 'ouvertures.js', 'murs.js', 'ensemble.js', 'chantier-plan.js', 'chantier.js', 'aide-choix.js', 'langue.js', 'panier.js', 'pdf.js', 'theme.js', 'appli.js', 'style.css'];
 const typesDeChamp = ['nombre', 'case', 'choix'];
+// Modules des outils (configurateurs), copiés dans assets/<outil>/ : un dossier par outil dans moteur/.
+const fichiersOutils = { escalier: ['modele.js', 'geometrie.js', 'rendu.js', 'page.js'] };
 
 export async function listerSites() {
   const entrees = await readdir(dossierSites, { withFileTypes: true });
@@ -57,7 +61,15 @@ export async function chargerSite(nomSite) {
   }
   // Ordre d'affichage : clé "ordre" du calculateur si elle existe, sinon ordre alphabétique.
   calculateurs.sort((a, b) => (a.ordre ?? 999) - (b.ordre ?? 999) || a.titre.localeCompare(b.titre, 'fr'));
-  return { site, calculateurs };
+
+  // Outils (configurateurs) : sites/<site>/outils/*.js, facultatif.
+  const outils = [];
+  const dossierOutils = join(dossier, 'outils');
+  const fichiersOutil = await readdir(dossierOutils).catch(() => []);
+  for (const fichier of fichiersOutil.filter((nom) => nom.endsWith('.js'))) {
+    outils.push((await import(pathToFileURL(join(dossierOutils, fichier)))).default);
+  }
+  return { site, calculateurs, outils };
 }
 
 // La formule est recopiée telle quelle dans le navigateur via toString().
@@ -71,14 +83,10 @@ export function serialiserFormule(fonction) {
   return `(${source})`;
 }
 
-export function verifierCalculateur(calc, nomSite) {
-  const prefixe = `[${nomSite}/${calc?.slug ?? '?'}]`;
+// Guide enrichi (calculateurs et outils) : listes de textes non vides, normes avec un titre et, si un
+// lien est donné, en https, date de vérification valide.
+function verifierGuide(calc) {
   const erreurs = [];
-
-  if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(calc.slug ?? '')) erreurs.push('slug absent ou invalide (minuscules, chiffres, tirets)');
-  if (!calc.titre) erreurs.push('titre manquant');
-
-  // Guide enrichi : listes de textes non vides, normes avec un titre et, si un lien est donné, en https.
   for (const cle of ['erreurs', 'conseils']) {
     if (calc[cle] !== undefined && !(Array.isArray(calc[cle]) && calc[cle].every((texte) => typeof texte === 'string' && texte.trim()))) {
       erreurs.push(`${cle} doit être une liste de textes non vides`);
@@ -98,6 +106,29 @@ export function verifierCalculateur(calc, nomSite) {
     if (!valide) erreurs.push(`majLe "${calc.majLe}" invalide (format AAAA-MM-JJ)`);
     else if (date > new Date()) erreurs.push(`majLe "${calc.majLe}" est dans le futur`);
   }
+  return erreurs;
+}
+
+// Outil (configurateur) : pas de formule ni de champs, mais une interface connue du moteur.
+export function verifierOutil(outil, nomSite) {
+  const erreurs = [];
+  if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(outil.slug ?? '')) erreurs.push('slug absent ou invalide (minuscules, chiffres, tirets)');
+  if (!outil.titre) erreurs.push('titre manquant');
+  if (!outil.description) erreurs.push('description manquante (utilisée pour le SEO)');
+  if (!OUTILS_CONNUS.includes(outil.outil)) erreurs.push(`outil "${outil.outil}" inconnu (attendu : ${OUTILS_CONNUS.join(', ')})`);
+  if (outil.lies !== undefined && !(Array.isArray(outil.lies) && outil.lies.every((slug) => typeof slug === 'string'))) erreurs.push('lies doit être une liste de slugs');
+  erreurs.push(...verifierGuide(outil));
+  if (erreurs.length) throw new Error(`[${nomSite}/${outil?.slug ?? '?'}]\n  - ${erreurs.join('\n  - ')}`);
+}
+
+export function verifierCalculateur(calc, nomSite) {
+  const prefixe = `[${nomSite}/${calc?.slug ?? '?'}]`;
+  const erreurs = [];
+
+  if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(calc.slug ?? '')) erreurs.push('slug absent ou invalide (minuscules, chiffres, tirets)');
+  if (!calc.titre) erreurs.push('titre manquant');
+
+  erreurs.push(...verifierGuide(calc));
   // Équivalent impérial d'un conditionnement : un champ du calculateur et une unité convertible.
   for (const resultat of calc.resultats ?? []) {
     if (resultat.equivalent === undefined) continue;
@@ -168,13 +199,16 @@ export function verifierCalculateur(calc, nomSite) {
 }
 
 export async function construireSite(nomSite) {
-  const { site: configuration, calculateurs } = await chargerSite(nomSite);
+  const { site: configuration, calculateurs, outils } = await chargerSite(nomSite);
+  // Pages listées (accueil, corps de métier, navigation, sitemap) : calculateurs et outils.
+  const pages = [...calculateurs, ...outils];
   // Menu des corps de métier : seuls ceux qui ont au moins un calculateur y figurent.
-  const site = { ...configuration, menuLots: lotsUtilises(configuration, calculateurs) };
+  const site = { ...configuration, menuLots: lotsUtilises(configuration, pages) };
   calculateurs.forEach((calc) => verifierCalculateur(calc, nomSite));
+  outils.forEach((outil) => verifierOutil(outil, nomSite));
 
   // Chaque teinte utilisée par un calculateur doit exister dans le thème (et dans le thème de nuit s'il y en a un).
-  for (const calc of calculateurs.filter((calc) => calc.teinte)) {
+  for (const calc of pages.filter((calc) => calc.teinte)) {
     for (const [nomTheme, theme] of [['theme', site.theme], ['themeNuit', site.themeNuit]]) {
       if (theme && !theme.teintes?.[calc.teinte]) {
         throw new Error(`[${nomSite}/${calc.slug}] la teinte "${calc.teinte}" manque dans ${nomTheme}.teintes de site.js`);
@@ -185,12 +219,12 @@ export async function construireSite(nomSite) {
   // Avec des corps de métier déclarés, chaque calculateur doit en indiquer un existant.
   if (site.lots) {
     const idsLots = new Set(site.lots.map((lot) => lot.id));
-    for (const calc of calculateurs) {
+    for (const calc of pages) {
       if (!idsLots.has(calc.lot)) throw new Error(`[${nomSite}/${calc.slug}] corps de métier inconnu ou manquant : "${calc.lot}" (voir lots dans site.js)`);
     }
   }
 
-  const slugs = calculateurs.map((calc) => calc.slug);
+  const slugs = pages.map((calc) => calc.slug);
   const doublon = slugs.find((slug, index) => slugs.indexOf(slug) !== index);
   if (doublon) throw new Error(`[${nomSite}] slug en double : ${doublon}`);
 
@@ -222,7 +256,7 @@ export async function construireSite(nomSite) {
   }
 
   // Calculateurs liés : chaque slug doit exister sur le site, sans renvoyer vers soi-même.
-  for (const calc of calculateurs.filter((element) => element.lies)) {
+  for (const calc of pages.filter((element) => element.lies)) {
     for (const slug of calc.lies) {
       if (slug === calc.slug) throw new Error(`[${nomSite}/${calc.slug}] lies contient le calculateur lui-même`);
       if (!slugs.includes(slug)) throw new Error(`[${nomSite}/${calc.slug}] lies : calculateur inconnu "${slug}"`);
@@ -260,6 +294,10 @@ export async function construireSite(nomSite) {
   for (const fichier of fichiersMoteur) {
     await copyFile(join(racine, 'moteur', fichier), join(sortie, 'assets', fichier));
   }
+  for (const nomOutil of new Set(outils.map((outil) => outil.outil))) {
+    await mkdir(join(sortie, 'assets', nomOutil), { recursive: true });
+    for (const fichier of fichiersOutils[nomOutil]) await copyFile(join(racine, 'moteur', nomOutil, fichier), join(sortie, 'assets', nomOutil, fichier));
+  }
   // Textes de l'interface : seulement les langues du site ; langue.js les enregistre toutes.
   await mkdir(join(sortie, 'assets', 'langues'), { recursive: true });
   for (const code of langues) {
@@ -276,7 +314,7 @@ export async function construireSite(nomSite) {
 
   // Pages, une fois par langue : la langue par défaut à la racine, les autres sous /<code>/.
   definirLangues(langues);
-  definirCalculateurs(calculateurs);
+  definirCalculateurs(pages);
   for (const code of langues) {
     utiliserLangue(code);
     const ecrirePage = async (chemin, html) => {
@@ -285,11 +323,14 @@ export async function construireSite(nomSite) {
       await writeFile(join(dossier, 'index.html'), html);
     };
 
-    await ecrirePage(cheminDe({ type: 'accueil' }), pageAccueil(site, calculateurs));
+    await ecrirePage(cheminDe({ type: 'accueil' }), pageAccueil(site, pages));
     for (const calc of calculateurs) {
-      await ecrirePage(cheminDe({ type: 'calculateur', calc }), pageCalculateur(site, calc, calculateurs));
+      await ecrirePage(cheminDe({ type: 'calculateur', calc }), pageCalculateur(site, calc, pages));
     }
-    for (const lot of lotsUtilises(site, calculateurs)) {
+    for (const outil of outils) {
+      await ecrirePage(cheminDe({ type: 'calculateur', calc: outil }), pageOutil(site, outil, pages));
+    }
+    for (const lot of lotsUtilises(site, pages)) {
       await ecrirePage(cheminDe({ type: 'lot', lot }), pageLot(site, lot));
     }
     await ecrirePage(cheminDe({ type: 'mentions' }), pageMentionsLegales(site));
@@ -310,7 +351,7 @@ export async function construireSite(nomSite) {
   await writeFile(join(sortie, '404.html'), page404(site));
 
   const date = new Date().toISOString().slice(0, 10);
-  await writeFile(join(sortie, 'sitemap.xml'), sitemap(site, calculateurs, date));
+  await writeFile(join(sortie, 'sitemap.xml'), sitemap(site, pages, date));
   await writeFile(join(sortie, 'robots.txt'), robots(site));
 
   // Application installable : icônes, manifeste, puis service worker qui met en cache

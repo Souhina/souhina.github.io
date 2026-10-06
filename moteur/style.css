@@ -2540,3 +2540,306 @@ body.widget main {
 .plan-depuis-choix select {
   max-width: 100%;
 }
+
+/* Configurateur d'escalier (moteur/escalier/) : vues SVG, formulaire pas à pas, tableaux */
+
+.esc-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 72vh;
+  background: var(--couleur-surface);
+  border: var(--trait) solid var(--couleur-ligne);
+  border-radius: var(--rayon);
+}
+
+.esc-svg text {
+  fill: var(--couleur-texte);
+  font-family: var(--police-texte);
+}
+
+.esc-marche,
+.esc-palier {
+  fill: #e8d3ab;
+  stroke: #5c4326;
+  stroke-width: 1;
+}
+
+.esc-palier {
+  fill: #dcc195;
+}
+
+.esc-contremarche {
+  fill: #c9a676;
+  stroke: #5c4326;
+  stroke-width: 1;
+}
+
+.esc-svg .esc-numero {
+  fill: #3d2c18;
+}
+
+.esc-tremie {
+  fill: none;
+  stroke: var(--couleur-discret);
+  stroke-width: 1.5;
+  stroke-dasharray: 7 5;
+}
+
+.esc-ligne {
+  fill: none;
+  stroke: var(--couleur-lien);
+  stroke-width: 2;
+}
+
+.esc-fleche,
+.esc-depart {
+  fill: var(--couleur-lien);
+}
+
+.esc-cote line {
+  stroke: var(--couleur-discret);
+  stroke-width: 1;
+}
+
+.esc-svg .esc-cote text {
+  fill: var(--couleur-discret);
+}
+
+.esc-sol {
+  stroke: var(--couleur-texte);
+  stroke-width: 2;
+}
+
+.esc-plancher {
+  fill: var(--couleur-ligne);
+  stroke: var(--couleur-texte);
+  stroke-width: 1;
+}
+
+.esc-echappee-visee {
+  fill: none;
+  stroke: var(--couleur-succes);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 4;
+}
+
+.esc-mesure line {
+  stroke: var(--couleur-succes);
+  stroke-width: 1.5;
+}
+
+.esc-svg .esc-mesure text {
+  fill: var(--couleur-succes);
+  font-weight: 600;
+}
+
+.esc-alerte line {
+  stroke: var(--couleur-erreur);
+}
+
+.esc-svg .esc-alerte text {
+  fill: var(--couleur-erreur);
+}
+
+/* Perspective : teintes fixes du bois et de la structure, une nuance par orientation de face. */
+.esc-f {
+  stroke: rgba(40, 28, 14, 0.55);
+  stroke-width: 0.8;
+  stroke-linejoin: round;
+}
+
+.esc-f-marche.esc-f-dessus, .esc-f-palier.esc-f-dessus { fill: #ecd6ad; }
+.esc-f-marche.esc-f-clair, .esc-f-palier.esc-f-clair { fill: #cfa876; }
+.esc-f-marche.esc-f-sombre, .esc-f-palier.esc-f-sombre { fill: #a57d4b; }
+.esc-f-marche.esc-f-dessous, .esc-f-palier.esc-f-dessous { fill: #8c693e; }
+.esc-f-contremarche.esc-f-clair, .esc-f-contremarche.esc-f-dessus { fill: #d9b98a; }
+.esc-f-contremarche.esc-f-sombre, .esc-f-contremarche.esc-f-dessous { fill: #b08a5a; }
+.esc-f-limon.esc-f-dessus, .esc-f-poteau.esc-f-dessus { fill: #b78f5c; }
+.esc-f-limon.esc-f-clair, .esc-f-poteau.esc-f-clair { fill: #9a7244; }
+.esc-f-limon.esc-f-sombre, .esc-f-poteau.esc-f-sombre { fill: #75532d; }
+.esc-f-limon.esc-f-dessous, .esc-f-poteau.esc-f-dessous { fill: #5f4325; }
+.esc-f-sol { fill: var(--couleur-fond); stroke: var(--couleur-ligne); }
+.esc-f-plancher { fill: var(--couleur-discret); fill-opacity: 0.22; stroke: var(--couleur-discret); stroke-opacity: 0.6; }
+.esc-f-plancher.esc-f-dessus { fill-opacity: 0.32; }
+
+.visuellement-cache {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.esc {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.esc-formulaire[data-mode="assistant"] .esc-etape:not(.esc-etape-active) {
+  display: none;
+}
+
+.esc-mode,
+.esc-choix-vue,
+.esc-orientation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1.25rem;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  border: 0;
+}
+
+.esc-mode legend,
+.esc-orientation legend {
+  width: 100%;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.esc-progression {
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+  color: var(--couleur-discret);
+}
+
+.esc-navigation,
+.esc-coins,
+.esc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.esc-navigation button,
+.esc-coins button,
+.esc-actions button {
+  min-height: 44px;
+}
+
+.esc-coins button[aria-pressed="true"] {
+  outline: 2px solid var(--couleur-lien);
+  outline-offset: 1px;
+}
+
+.esc-curseur input[type="range"] {
+  width: min(22rem, 100%);
+  min-height: 44px;
+}
+
+.esc-dessin {
+  margin: 0;
+}
+
+.esc-messages:empty {
+  display: none;
+}
+
+.esc-messages {
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--couleur-erreur);
+  background: var(--couleur-surface);
+}
+
+.esc-chiffres {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(14rem, 100%), 1fr));
+  gap: 0.75rem 1.5rem;
+  margin: 0 0 1.5rem;
+}
+
+.esc-chiffres dt {
+  font-size: 0.85rem;
+  color: var(--couleur-discret);
+}
+
+.esc-chiffres dd {
+  margin: 0.1rem 0 0;
+  font-family: var(--police-chiffres);
+  font-size: 1.25rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.esc-tableau {
+  width: 100%;
+  margin: 0 0 1.5rem;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.esc-tableau th,
+.esc-tableau td {
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--couleur-ligne);
+  text-align: left;
+  vertical-align: top;
+}
+
+.esc-statut-ok { color: var(--couleur-succes); font-weight: 600; }
+.esc-statut-hors { color: var(--couleur-erreur); font-weight: 600; }
+.esc-statut-verifier { color: var(--couleur-discret); font-weight: 600; }
+
+.esc-impression {
+  display: none;
+}
+
+@media (max-width: 40rem) {
+  .esc-tableau { font-size: 0.85rem; }
+  .esc-tableau th, .esc-tableau td { padding: 0.4rem 0.3rem; }
+}
+
+@media print {
+  .esc-formulaire,
+  .esc-vues,
+  .esc-actions {
+    display: none;
+  }
+
+  .esc-impression {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .esc-impression .esc-svg {
+    max-height: none;
+    break-inside: avoid;
+  }
+}
+
+.esc [hidden] {
+  display: none !important;
+}
+
+/* Grand écran : réglages à gauche, vues à droite (restent visibles au défilement), résultats dessous. */
+@media (min-width: 64rem) {
+  .esc {
+    grid-template-columns: minmax(18rem, 1fr) minmax(0, 1.35fr);
+    align-items: start;
+  }
+
+  .esc-formulaire {
+    grid-column: 1;
+  }
+
+  .esc-vues {
+    grid-column: 2;
+    grid-row: 1;
+    position: sticky;
+    top: 1rem;
+  }
+
+  .esc-resultats {
+    grid-column: 1 / -1;
+  }
+
+  .esc-formulaire .groupe-champs {
+    grid-template-columns: 1fr;
+  }
+}

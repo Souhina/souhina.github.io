@@ -18,7 +18,7 @@ export default {
   // Navigation par type de chantier : chaque type liste ses calculateurs (slugs). Un calculateur
   // peut figurer dans plusieurs types. build.js vérifie que chaque slug existe.
   typesChantier: [
-    { id: 'construction', nom: 'Construction et gros œuvre', calculateurs: ['terrassement-deblai', 'calcul-beton', 'treillis-soude', 'mur-parpaings-briques', 'linteaux', 'drainage-peripherique', 'calcul-escalier', 'plancher-bois'] },
+    { id: 'construction', nom: 'Construction et gros œuvre', calculateurs: ['terrassement-deblai', 'calcul-beton', 'treillis-soude', 'mur-parpaings-briques', 'linteaux', 'drainage-peripherique', 'calcul-escalier', 'configurateur-escalier', 'plancher-bois'] },
     { id: 'isolation', nom: 'Isolation et cloisons', calculateurs: ['quantite-laine-de-verre', 'quantite-laine-de-roche', 'isolation-soufflee', 'isolation-sol', 'plaques-de-platre', 'plafond-suspendu'] },
     { id: 'sols', nom: 'Sols', calculateurs: ['chape-ragreage', 'plancher-chauffant', 'quantite-carrelage', 'quantite-parquet', 'quantite-moquette', 'quantite-lino', 'quantite-plinthes'] },
     { id: 'murs', nom: 'Murs et finitions', calculateurs: ['quantite-peinture', 'quantite-papier-peint', 'quantite-tenture-murale', 'quantite-parement', 'carrelage-mural', 'lambris-bardage'] },
