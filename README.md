@@ -159,6 +159,18 @@ navigateur et reprise automatiquement par les autres calculateurs du site.
 
 Les `exemples` d'un calculateur avec plan fournissent une clé `plan` (liste d'angles en cm).
 
+### Aide du plan et pièce active
+
+Au-dessus du sélecteur, un bloc replié « Comment utiliser le plan ? » rappelle en quatre points comment
+créer et nommer les pièces, dessiner, passer d'un calculateur à l'autre et retrouver les lignes dans le
+devis ; il précise que le plan reste dans le navigateur (le lien de partage transmet le devis, pas le plan).
+Le texte s'adapte à la nature du plan (pièce, zone, mur, pan) : `aidePlan` dans `moteur/langues/fr.js`.
+
+Sous le sélecteur, une ligne d'état résume l'objet actif : « Pièce active : Séjour · 18,4 m² · 2 ouvertures »
+(« Mur actif », « Zone active », « Pan actif » selon la nature). Elle est mise à jour à chaque modification et
+référencée par le sélecteur (`aria-describedby`), sans annonce automatique aux lecteurs d'écran. L'aide est
+masquée à l'impression.
+
 ### Ouvertures placées sur le plan
 
 Sous le plan, la section « Portes et fenêtres » ajoute des portes (83 × 204 cm), fenêtres

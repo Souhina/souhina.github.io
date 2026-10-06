@@ -442,11 +442,19 @@ function planHtml(utiliseOuvertures = false, nature = 'piece', avecSaisie = fals
             <p class="champ-case"><input type="radio" name="mode-dimensions" id="mode-saisie" value="saisie" checked><label for="mode-saisie">${T().modeDimensions.saisie}</label></p>
             <p class="champ-case"><input type="radio" name="mode-dimensions" id="mode-dessin" value="dessin"><label for="mode-dessin">${T().modeDimensions.dessin}</label></p>
           </fieldset>` : ''}
+          <details class="aide-plan">
+            <summary>${T().aidePlan.titre}</summary>
+            <p>${T().aidePlan.rassurance}</p>
+            <ol>
+${T().aidePlan.etapes[nature].map((etape) => `              <li>${etape}</li>`).join('\n')}
+            </ol>
+          </details>
           <section class="pieces" aria-label="${estPiece ? T().pieces.region : n.titre}">
             <p class="champ">
               <label for="piece-active">${n.objet}</label>
-              <select id="piece-active" aria-describedby="pieces-aide"></select>
+              <select id="piece-active" aria-describedby="pieces-statut pieces-aide"></select>
             </p>
+            <p class="pieces-statut" id="pieces-statut"></p>
             <p class="champ">
               <label for="piece-nom">${n.nom}</label>
               <input id="piece-nom" type="text" autocomplete="off" maxlength="60">

@@ -98,6 +98,7 @@ export function creerEditeurPlan(racine, surChangement) {
   const compteurOuvertures = racine.querySelector('.plan-ouvertures-nombre');
   const choixPiece = racine.querySelector('#piece-active');
   const nomPiece = racine.querySelector('#piece-nom');
+  const statutPiece = racine.querySelector('#pieces-statut');
   const hauteurPiece = racine.querySelector('#piece-hauteur');
   const nature = racine.dataset.nature || 'piece';
   const chantier = lireChantier();
@@ -578,6 +579,7 @@ export function creerEditeurPlan(racine, surChangement) {
         ? T().plan.resume(metresFr.format(infos.surface), metresFr.format(infos.perimetre)) + phraseMurs + phraseOuvertures
         : T().natures[nature].resume(metresFr.format(infos.surface), metresFr.format(infos.longueur), metresFr.format(infos.hauteur), infos.nombreElements, metresFr.format(infos.surfaceElements)))
       : infos.message;
+    rendreStatut(infos);
     if (infos.valide) {
       const piece = pieceActive(etat.chantier, nature);
       piece.points = etat.points.map((point) => [...point]);
@@ -588,6 +590,23 @@ export function creerEditeurPlan(racine, surChangement) {
     }
     surChangement(infos);
     if (racine.dataset.vue === 'ensemble') rendreEnsemble({ tableau: true, recadrer: false });
+  }
+
+  // Ligne d'état sous le sélecteur : l'internaute voit que sa pièce l'a suivi d'un calculateur à l'autre.
+  // Pas d'aria-live : seul le résultat principal du calculateur est annoncé (le sélecteur la référence).
+  function rendreStatut(infos = informations()) {
+    if (!statutPiece) return;
+    const piece = pieceActive(etat.chantier, nature);
+    const surfaceFr = new Intl.NumberFormat(T().locale, { maximumFractionDigits: 2 });
+    const parties = [`${T().natures[nature].actif} : ${piece.nom}`];
+    if (!infos.valide) parties.push(T().pieces.formeACompleter);
+    else {
+      parties.push(`${surfaceFr.format(infos.surface)} m²`);
+      if (nature === 'piece') parties.push(T().pieces.ouvertures(infos.nombreOuvertures ?? 0));
+      else if (nature === 'mur') parties.push(T().pieces.ouvertures(infos.nombreElements ?? 0));
+      else if (infos.nombreElements) parties.push(T().pieces.elements(infos.nombreElements));
+    }
+    statutPiece.textContent = parties.join(' · ');
   }
 
   // --- Pièces du chantier ---
@@ -637,6 +656,7 @@ export function creerEditeurPlan(racine, surChangement) {
     pieceActive(etat.chantier, nature).nom = nom;
     const option = choixPiece?.querySelector(`option[value="${pieceActive(etat.chantier, nature).id}"]`);
     if (option) option.textContent = nom;
+    rendreStatut();
     ecrireChantier(etat.chantier);
     surChangement(informations());
   });

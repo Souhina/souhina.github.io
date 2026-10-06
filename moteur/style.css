@@ -1590,6 +1590,58 @@ input[readonly] {
   margin: 0 0 0.5rem;
 }
 
+.pieces-statut {
+  grid-column: 1 / -1;
+  margin: -0.25rem 0 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.pieces-statut:empty {
+  display: none;
+}
+
+/* Aide repliée « Comment utiliser le plan ? », au-dessus du sélecteur de pièce */
+
+.aide-plan {
+  margin: 0 0 1rem;
+  padding: 0 0.75rem;
+  border: var(--trait) solid var(--couleur-ligne);
+  border-radius: var(--rayon);
+  background: var(--couleur-surface);
+}
+
+.aide-plan:last-of-type {
+  border-bottom: var(--trait) solid var(--couleur-ligne);
+}
+
+.aide-plan summary:focus-visible {
+  outline: 3px solid var(--couleur-focus);
+  outline-offset: 2px;
+}
+
+.aide-plan > p {
+  max-width: 70ch;
+  font-size: 0.9rem;
+  color: var(--couleur-discret);
+}
+
+.aide-plan ol {
+  max-width: 70ch;
+  margin: 0.6rem 0 0.8rem;
+  padding-left: 1.4rem;
+}
+
+.aide-plan li + li {
+  margin-top: 0.4rem;
+}
+
+@media print {
+  .aide-plan {
+    display: none;
+  }
+}
+
 .pieces-aide {
   grid-column: 1 / -1;
   font-size: 0.85rem;

@@ -139,10 +139,45 @@ export default {
     premiere: "Pièce 1",
     confirmerSuppression: (nom) => `Supprimer la pièce « ${nom} » et son plan ?`,
     copie: (nom) => `${nom} (copie)`,
+    // Ligne d'état sous le sélecteur : « Pièce active : Séjour · 18,4 m² · 2 ouvertures ».
+    formeACompleter: "forme à compléter",
+    ouvertures: (n) => (n === 0 ? "aucune ouverture" : `${n} ouverture${n > 1 ? 's' : ''}`),
+    elements: (n) => `${n} élément${n > 1 ? 's' : ''} déduit${n > 1 ? 's' : ''}`,
+  },
+  // Aide repliée « Comment utiliser le plan ? », au-dessus du sélecteur, une version par nature.
+  aidePlan: {
+    titre: "Comment utiliser le plan ?",
+    rassurance: "Le plan s’enregistre automatiquement dans ce navigateur, sur cet appareil : rien n’est envoyé sur un serveur. Si vous effacez les données du navigateur, il est perdu. Le lien de partage du devis transmet les quantités, pas le plan.",
+    etapes: {
+      piece: [
+        "<strong>Créez et nommez vos pièces</strong> (« Séjour », « Chambre 1 ») : le sélecteur ci-dessous choisit la pièce active.",
+        "<strong>Dessinez la forme, puis placez les portes et les fenêtres</strong> : leur surface est déduite automatiquement.",
+        "<strong>Changez de calculateur</strong> : la pièce active vous suit, rien à ressaisir. « Calculer pour » étend le calcul au niveau ou à tout le chantier.",
+        "<strong>Dans le devis</strong>, chaque ligne porte le nom de sa pièce, et le récapitulatif se regroupe par pièce ou par corps de métier.",
+      ],
+      zone: [
+        "<strong>Créez et nommez vos zones</strong> (« Terrasse », « Allée ») : le sélecteur ci-dessous choisit la zone active.",
+        "<strong>Dessinez la forme</strong> : les éléments à déduire (regard, massif existant) sont retirés de la surface.",
+        "<strong>Changez de calculateur</strong> : la zone active vous suit, rien à ressaisir, et elle apparaît dans le plan d’ensemble à côté des pièces.",
+        "<strong>Dans le devis</strong>, chaque ligne porte le nom de sa zone.",
+      ],
+      mur: [
+        "<strong>Créez et nommez vos murs</strong> (« Façade sud », « Pignon est ») : le sélecteur ci-dessous choisit le mur actif.",
+        "<strong>Dessinez le mur de face, puis placez les portes et les fenêtres</strong> : leur surface est déduite. « Partir des murs du plan » reprend un mur d’une pièce déjà dessinée.",
+        "<strong>Changez de calculateur</strong> : le mur actif vous suit, rien à ressaisir.",
+        "<strong>Dans le devis</strong>, chaque ligne porte le nom de son mur.",
+      ],
+      pan: [
+        "<strong>Créez et nommez vos pans</strong> (« Pan sud », « Pan nord ») : le sélecteur ci-dessous choisit le pan actif.",
+        "<strong>Dessinez le pan vu du dessus</strong> : la pente, saisie dans le calculateur, donne la surface réelle de couverture.",
+        "<strong>Changez de calculateur</strong> : le pan actif vous suit, rien à ressaisir.",
+        "<strong>Dans le devis</strong>, chaque ligne porte le nom de son pan.",
+      ],
+    },
   },
   natures: {
     piece: {
-      titre: "Forme de la pièce", base: "Pièce", objet: "Pièce", nom: "Nom de la pièce", nouvelle: "Nouvelle pièce",
+      titre: "Forme de la pièce", base: "Pièce", objet: "Pièce", actif: "Pièce active", nom: "Nom de la pièce", nouvelle: "Nouvelle pièce",
       aide: "Chaque pièce garde son plan, ses ouvertures et sa hauteur, d’un calculateur à l’autre. Les lignes ajoutées au devis portent le nom de la pièce.",
       ceci: "Cette pièce", tous: "Tout le chantier",
       largeur: "Largeur (cm)", longueur: "Longueur (cm)", largeurDefaut: 400, longueurDefaut: 300, rectangle: "Créer un rectangle",
@@ -151,7 +186,7 @@ export default {
     },
     zone: {
       resume: (surface, longueur, largeur, nombre, deduite) => `Surface de la zone : ${surface} m²${nombre ? ` (${nombre} élément${nombre > 1 ? 's' : ''} déduit${nombre > 1 ? 's' : ''}, ${deduite} m²)` : ''}. Dimensions hors tout : ${longueur} × ${largeur} m.`,
-      titre: "Forme de la zone", base: "Zone", objet: "Zone", nom: "Nom de la zone", nouvelle: "Nouvelle zone",
+      titre: "Forme de la zone", base: "Zone", objet: "Zone", actif: "Zone active", nom: "Nom de la zone", nouvelle: "Nouvelle zone",
       aide: "Dalle, terrasse, allée : chaque zone garde sa forme d’un calculateur à l’autre et apparaît dans le plan d’ensemble, à côté des pièces.",
       ceci: "Cette zone", tous: "Toutes les zones",
       largeur: "Longueur (cm)", longueur: "Largeur (cm)", largeurDefaut: 500, longueurDefaut: 400, rectangle: "Créer un rectangle",
@@ -160,7 +195,7 @@ export default {
     },
     mur: {
       resume: (surface, longueur, hauteur, nombre, deduite) => `Surface du mur : ${surface} m²${nombre ? `, ${nombre} ouverture${nombre > 1 ? 's' : ''} déduite${nombre > 1 ? 's' : ''} (${deduite} m²)` : ''}. Longueur : ${longueur} m, hauteur hors tout : ${hauteur} m.`,
-      titre: "Mur vu de face", base: "Mur", objet: "Mur", nom: "Nom du mur", nouvelle: "Nouveau mur",
+      titre: "Mur vu de face", base: "Mur", objet: "Mur", actif: "Mur actif", nom: "Nom du mur", nouvelle: "Nouveau mur",
       aide: "Le mur est dessiné de face : la largeur du dessin est sa longueur, sa hauteur est celle du mur. Pour une façade à pignon, partez du modèle « Mur avec pignon ».",
       ceci: "Ce mur", tous: "Tous les murs",
       largeur: "Longueur du mur (cm)", longueur: "Hauteur sous l’égout (cm)", largeurDefaut: 500, longueurDefaut: 250, rectangle: "Mur rectangulaire",
@@ -169,7 +204,7 @@ export default {
     },
     pan: {
       resume: (surface, longueur, profondeur, nombre, deduite) => `Surface du pan vue du dessus : ${surface} m²${nombre ? ` (${nombre} élément${nombre > 1 ? 's' : ''} déduit${nombre > 1 ? 's' : ''}, ${deduite} m²)` : ''}. Longueur hors tout : ${longueur} m, profondeur : ${profondeur} m. La pente donne la surface réelle.`,
-      titre: "Pan de toit, vu du dessus", base: "Pan", objet: "Pan", nom: "Nom du pan", nouvelle: "Nouveau pan",
+      titre: "Pan de toit, vu du dessus", base: "Pan", objet: "Pan", actif: "Pan actif", nom: "Nom du pan", nouvelle: "Nouveau pan",
       aide: "Dessinez le pan vu du dessus, en projection au sol : la pente, saisie dans le calculateur, donne la surface réelle de couverture.",
       ceci: "Ce pan", tous: "Tous les pans",
       largeur: "Longueur à l’égout (cm)", longueur: "Profondeur vue du dessus (cm)", largeurDefaut: 1000, longueurDefaut: 450, rectangle: "Pan rectangulaire",
